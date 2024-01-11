@@ -1,0 +1,15 @@
+/Users/mindles/Prime/csharp/MyApp/bin/Debug/net7.0/MyApp
+/Users/mindles/Prime/csharp/MyApp/bin/Debug/net7.0/MyApp.deps.json
+/Users/mindles/Prime/csharp/MyApp/bin/Debug/net7.0/MyApp.runtimeconfig.json
+/Users/mindles/Prime/csharp/MyApp/bin/Debug/net7.0/MyApp.dll
+/Users/mindles/Prime/csharp/MyApp/bin/Debug/net7.0/MyApp.pdb
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.csproj.AssemblyReference.cache
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.AssemblyInfoInputs.cache
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.AssemblyInfo.cs
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.csproj.CoreCompileInputs.cache
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.dll
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/refint/MyApp.dll
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.pdb
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/MyApp.genruntimeconfig.cache
+/Users/mindles/Prime/csharp/MyApp/obj/Debug/net7.0/ref/MyApp.dll
