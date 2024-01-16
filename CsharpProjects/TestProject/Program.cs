@@ -52,28 +52,41 @@ Console.WriteLine(largerValue);
 */
 
 // Exercise 3 - Challenge: Improve renewal rate of subscriptions
+using System.Data;
+
 Random random = new Random();
 int daysUntilExpiration = random.Next(12);
 int discountPercentage = 0;
 
-if (daysUntilExpiration <= 10)
+// code for testing purposes:
+Console.WriteLine($"days until exp: {daysUntilExpiration}");
+
+// first set of decision logic to determine path & set discount rate if appropriate:
+if ((daysUntilExpiration <= 10) && (daysUntilExpiration > 5))
 {
   Console.WriteLine("Your subscription will expire soon. Renew now!");
 }
-
-if (daysUntilExpiration <= 5)
+else if ((daysUntilExpiration <= 5) && (daysUntilExpiration > 1))
 {
-  Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days. {discountPercentage}");
-  Console.WriteLine("Renew now and save 10%!");
+  Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days.");
+  discountPercentage = 10;
 }
-
-if (daysUntilExpiration == 1)
+else if (daysUntilExpiration == 1)
 {
   Console.WriteLine("Your subscription expires within a day!");
-  Console.WriteLine("Renew now and save 20%!");
+  discountPercentage = 20;
 }
-
-if (daysUntilExpiration == 0)
+else if (daysUntilExpiration == 0)
 {
   Console.WriteLine("Your subscription has expired.");
+}
+
+// second set of decision logic to display discount rates: 
+if (discountPercentage == 10)
+{
+  Console.WriteLine("Renew now and save 10%!");
+}
+else if (discountPercentage == 20)
+{
+  Console.WriteLine("Renew now and save 20%!");
 }
