@@ -1,11 +1,11 @@
-﻿// Exercise - Decision Logic Game
+﻿/* Exercise 1 - Decision Logic Dice Game
 Random dice = new Random();
 int roll1 = dice.Next(1, 7);
 int roll2 = dice.Next(1, 7);
 int roll3 = dice.Next(1, 7);
 int total = roll1 + roll2 + roll3;
 
-// Intial total:
+// Initial total:
 Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
 
 // Check for doubles and then triples, without Point Stacking:
@@ -41,10 +41,39 @@ else
 {
   Console.WriteLine("Thanks for playing; you win a donut!");
 }
+*/
 
-// Exercise - Math class methods
+/* Exercise 2 - Math class methods
 int firstValue = 500;
 int secondValue = 600;
 int largerValue = Math.Max(firstValue, secondValue);
 
 Console.WriteLine(largerValue);
+*/
+
+// Exercise 3 - Challenge: Improve renewal rate of subscriptions
+Random random = new Random();
+int daysUntilExpiration = random.Next(12);
+int discountPercentage = 0;
+
+if (daysUntilExpiration <= 10)
+{
+  Console.WriteLine("Your subscription will expire soon. Renew now!");
+}
+
+if (daysUntilExpiration <= 5)
+{
+  Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days. {discountPercentage}");
+  Console.WriteLine("Renew now and save 10%!");
+}
+
+if (daysUntilExpiration == 1)
+{
+  Console.WriteLine("Your subscription expires within a day!");
+  Console.WriteLine("Renew now and save 20%!");
+}
+
+if (daysUntilExpiration == 0)
+{
+  Console.WriteLine("Your subscription has expired.");
+}
