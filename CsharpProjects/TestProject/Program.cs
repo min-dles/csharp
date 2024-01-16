@@ -3,6 +3,9 @@ Random dice = new Random();
 int roll1 = dice.Next(1, 7);
 int roll2 = dice.Next(1, 7);
 int roll3 = dice.Next(1, 7);
+roll1 = 5;
+roll2 = 5;
+roll3 = 5;
 int total = roll1 + roll2 + roll3;
 
 // Intial total:
