@@ -51,7 +51,7 @@ int largerValue = Math.Max(firstValue, secondValue);
 Console.WriteLine(largerValue);
 */
 
-// Exercise 3 - Challenge: Improve renewal rate of subscriptions
+/* Exercise 3 - Challenge: Improve renewal rate of subscriptions
 using System.Data;
 
 Random random = new Random();
@@ -90,3 +90,29 @@ else if (discountPercentage == 20)
 {
   Console.WriteLine("Renew now and save 20%!");
 }
+*/
+
+// Exercise 4 - Iterative data with arrays & foreach statements
+
+/* first way to initialize an array:
+string[] fraudulentOrderIDs = new string[3];
+
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+*/
+
+// another way to initialize arrays using curly braces:
+string[] fraudulentOrderIDs = { "A123", "B456", "C789" };
+
+// Print the variables & access the array:
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+
+// Practice reassigning the value of an array element:
+fraudulentOrderIDs[0] = "F000";
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
+
+// Length property of an array:
+Console.WriteLine($"There are {fraudulentOrderIDs.Length} fraudulent orders to process.");
