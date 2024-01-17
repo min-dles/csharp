@@ -93,14 +93,12 @@ else if (discountPercentage == 20)
 */
 
 // Exercise 4 - Iterative data with arrays & foreach statements
-
 /* first way to initialize an array:
 string[] fraudulentOrderIDs = new string[3];
 
 fraudulentOrderIDs[0] = "A123";
 fraudulentOrderIDs[1] = "B456";
 fraudulentOrderIDs[2] = "C789";
-*/
 
 // another way to initialize arrays using curly braces:
 string[] fraudulentOrderIDs = { "A123", "B456", "C789" };
@@ -129,3 +127,14 @@ foreach (int items in inventory)
   Console.WriteLine($"Bin {bin} = {items} items (Inventory running total: {sum})");
 }
 Console.WriteLine($"There are {sum} items in inventory.");
+*/
+
+// Code Challenge: Find Fraudulent Orders in Array
+string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
+foreach (string ID in orderIDs)
+{
+  if (ID.StartsWith("B"))
+  {
+    Console.WriteLine($"{ID}");
+  }
+}
