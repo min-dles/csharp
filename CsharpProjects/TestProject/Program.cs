@@ -116,3 +116,16 @@ Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
 
 // Length property of an array:
 Console.WriteLine($"There are {fraudulentOrderIDs.Length} fraudulent orders to process.");
+
+// Practice with foreach:
+Console.WriteLine("***Practice with foreach statements below***");
+int[] inventory = { 200, 450, 700, 175, 250 };
+int sum = 0;
+int bin = 0;
+foreach (int items in inventory)
+{
+  sum += items;
+  bin++;
+  Console.WriteLine($"Bin {bin} = {items} items (Inventory running total: {sum})");
+}
+Console.WriteLine($"There are {sum} items in inventory.");
