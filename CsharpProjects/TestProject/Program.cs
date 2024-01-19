@@ -92,8 +92,8 @@ else if (discountPercentage == 20)
 }
 */
 
-// Exercise 4 - Iterative data with arrays & foreach statements
-/* first way to initialize an array:
+/* Exercise 4 - Iterative data with arrays & foreach statements
+// first way to initialize an array:
 string[] fraudulentOrderIDs = new string[3];
 
 fraudulentOrderIDs[0] = "A123";
@@ -101,7 +101,7 @@ fraudulentOrderIDs[1] = "B456";
 fraudulentOrderIDs[2] = "C789";
 
 // another way to initialize arrays using curly braces:
-string[] fraudulentOrderIDs = { "A123", "B456", "C789" };
+// string[] fraudulentOrderIDs = { "A123", "B456", "C789" };
 
 // Print the variables & access the array:
 Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
@@ -127,7 +127,6 @@ foreach (int items in inventory)
   Console.WriteLine($"Bin {bin} = {items} items (Inventory running total: {sum})");
 }
 Console.WriteLine($"There are {sum} items in inventory.");
-*/
 
 // Code Challenge: Find Fraudulent Orders in Array
 string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
@@ -137,4 +136,26 @@ foreach (string ID in orderIDs)
   {
     Console.WriteLine($"{ID}");
   }
+}
+*/
+
+// Exercise 5 - Practice writing Readable Code
+/*
+  The following code creates five random OrderIDs
+  to test the fraud detection process. OrderIDs
+  consist of a letter from A to E, and a three 
+  digit number. Ex. A123.
+*/
+Random random = new Random();
+string[] orderIDs = new string[5];
+for (int i = 0; i < orderIDs.Length; i++)
+{
+  int prefixValue = random.Next(65, 70);
+  string prefix = Convert.ToChar(prefixValue).ToString();
+  string suffix = random.Next(1, 1000).ToString("000");
+  orderIDs[i] = prefix + suffix;
+}
+foreach (var orderID in orderIDs)
+{
+  Console.WriteLine(orderID);
 }
