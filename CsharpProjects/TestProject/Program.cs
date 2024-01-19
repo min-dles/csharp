@@ -195,17 +195,21 @@ if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
 }
 
 // Code Challenge: Edit the code below to be more readable
-  // 
-string str = "The quick brown fox jumps over the lazy dog.";
-// convert the message into a char array
-char[] charMessage = str.ToCharArray();
-// Reverse the chars
-Array.Reverse(charMessage);
-int x = 0;
-// count the o's
-foreach (char i in charMessage) { if (i == 'o') { x++; } }
-// convert it back to a string
-string new_message = new String(charMessage);
-// print it out
-Console.WriteLine(new_message);
-Console.WriteLine($"'o' appears {x} times.");
+  // Check the message for how many times "o" appears and then
+  // reverse the message:
+string message = "The quick brown fox jumps over the lazy dog.";
+
+char[] lettersInMessage = message.ToCharArray();
+int countOsInMessage = 0;
+foreach (char letter in lettersInMessage) 
+{ 
+  if (letter == 'o') 
+  { 
+    countOsInMessage++; 
+  } 
+}
+Console.WriteLine($"'o' appears {countOsInMessage} times.");
+
+Array.Reverse(lettersInMessage);
+string messageReversed = new String(lettersInMessage);
+Console.WriteLine(messageReversed);
