@@ -1,0 +1,15 @@
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/bin/Debug/net8.0/Starter
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/bin/Debug/net8.0/Starter.deps.json
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/bin/Debug/net8.0/Starter.runtimeconfig.json
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/bin/Debug/net8.0/Starter.dll
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/bin/Debug/net8.0/Starter.pdb
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.AssemblyInfoInputs.cache
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.AssemblyInfo.cs
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.csproj.CoreCompileInputs.cache
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.sourcelink.json
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.dll
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/refint/Starter.dll
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.pdb
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/Starter.genruntimeconfig.cache
+/Users/mindles/Prime/csharp/CsharpProjects/GuidedProject/Starter/obj/Debug/net8.0/ref/Starter.dll

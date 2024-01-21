@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "c3aDMcrMFJB24AsNTe7sEGQIQ+8w/oJwki4oGMGlx8vMfEUzzOnLz8ZUxEa8Ex8MyBWaiq9xqdeC6h/rqJyYaA==",
+  "dgSpecHash": "x+CaG3fM489RJY7HJ6n7R7QvPHjNaPztgZfV9Fn7qFxr6NFagNTMCzUTpZ8GyCS1UvEPXdwhXk6NiVgj5DgJ2Q==",
   "success": true,
   "projectFilePath": "/Users/mindles/Prime/csharp/MyApp/MyApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/mindles/.nuget/packages/microsoft.netcore.app.ref/7.0.15/microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
+    "/Users/mindles/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.15/microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512",
+    "/Users/mindles/.nuget/packages/microsoft.netcore.app.host.osx-x64/7.0.15/microsoft.netcore.app.host.osx-x64.7.0.15.nupkg.sha512"
+  ],
   "logs": []
 }

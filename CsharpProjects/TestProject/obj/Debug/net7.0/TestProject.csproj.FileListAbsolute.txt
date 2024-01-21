@@ -3,7 +3,6 @@
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/bin/Debug/net7.0/TestProject.runtimeconfig.json
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/bin/Debug/net7.0/TestProject.dll
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/bin/Debug/net7.0/TestProject.pdb
-/Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.csproj.AssemblyReference.cache
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.GeneratedMSBuildEditorConfig.editorconfig
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.AssemblyInfoInputs.cache
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.AssemblyInfo.cs
@@ -13,3 +12,4 @@
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.pdb
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.genruntimeconfig.cache
 /Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/ref/TestProject.dll
+/Users/mindles/Prime/csharp/CsharpProjects/TestProject/obj/Debug/net7.0/TestProject.sourcelink.json
