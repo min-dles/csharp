@@ -13,22 +13,23 @@ string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
 foreach (string name in studentNames)
 {
   Console.WriteLine($"Current student: {name}");
+  if (name == "Sophia")
+  {
+    int sophiaSum = 0;
+
+    decimal sophiaScore;
+
+    foreach (int score in sophiaScores)
+    {
+      sophiaSum += score;
+    }
+
+    sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+    Console.WriteLine("Student\t\tGrade\n");
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
+  }
 }
-
-int sophiaSum = 0;
-
-decimal sophiaScore;
-
-foreach (int score in sophiaScores)
-{
-  sophiaSum += score;
-  Console.WriteLine($"Sophia's cumulative score: {sophiaSum}\n & score: {score}");
-}
-
-sophiaScore = (decimal)sophiaSum / currentAssignments;
-
-Console.WriteLine("Student\t\tGrade\n");
-Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
 
 Console.WriteLine("Press the Enter key to continue");
 Console.ReadLine();
