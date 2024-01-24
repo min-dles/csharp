@@ -17,6 +17,15 @@ This C# console application is designed to:
     Andrew:         89.6    B+
     Emma:           85.6    B
     Logan:          91.2    A-
+
+The format of the updated score report when this assignment is complete should look as follows:
+
+    Student         Exam Score      Overall Grade   Extra Credit
+
+    Sophia          92.2            95.88   A       92 (3.68 pts)
+    Andrew          89.6            91.38   A-      89 (1.78 pts)
+    Emma            85.6            90.94   A-      89 (5.34 pts)
+    Logan           91.2            93.12   A       96 (1.92 pts)
 */
 int examAssignments = 5;
 
@@ -33,7 +42,7 @@ string currentStudentLetterGrade = "";
 
 // display the header row for scores/grades
 Console.Clear();
-Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
+Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n");
 
 /*
 The outer foreach loop is used to:
