@@ -18,7 +18,16 @@ This C# console application is designed to:
     Emma:           85.6    B
     Logan:          91.2    A-
 
-The format of the updated score report when this assignment is complete should look as follows:
+The first challenge is to update the score report for the following: 
+
+    Student         Exam Score      Overall Grade   Extra Credit
+
+    Sophia          0               95.8    A       0 (0 pts)
+    Andrew          0               91.2    A-      0 (0 pts)
+    Emma            0               90.4    A-      0 (0 pts)
+    Logan           0               93      A       0 (0 pts)
+
+The final format of the updated score report when this assignment is complete should look as follows:
 
     Student         Exam Score      Overall Grade   Extra Credit
 
@@ -70,7 +79,9 @@ foreach (string name in studentNames)
 
     int sumAssignmentScores = 0;
 
-    decimal currentStudentGrade = 0;
+    int sumExamScores = 0;
+
+    decimal currentStudentOverallGrade = 0;
 
     int gradedAssignments = 0;
 
@@ -89,42 +100,42 @@ foreach (string name in studentNames)
             sumAssignmentScores += score / 10;
     }
 
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    currentStudentOverallGrade = (decimal)(sumAssignmentScores) / examAssignments;
 
-    if (currentStudentGrade >= 97)
+    if (currentStudentOverallGrade >= 97)
         currentStudentLetterGrade = "A+";
 
-    else if (currentStudentGrade >= 93)
+    else if (currentStudentOverallGrade >= 93)
         currentStudentLetterGrade = "A";
 
-    else if (currentStudentGrade >= 90)
+    else if (currentStudentOverallGrade >= 90)
         currentStudentLetterGrade = "A-";
 
-    else if (currentStudentGrade >= 87)
+    else if (currentStudentOverallGrade >= 87)
         currentStudentLetterGrade = "B+";
 
-    else if (currentStudentGrade >= 83)
+    else if (currentStudentOverallGrade >= 83)
         currentStudentLetterGrade = "B";
 
-    else if (currentStudentGrade >= 80)
+    else if (currentStudentOverallGrade >= 80)
         currentStudentLetterGrade = "B-";
 
-    else if (currentStudentGrade >= 77)
+    else if (currentStudentOverallGrade >= 77)
         currentStudentLetterGrade = "C+";
 
-    else if (currentStudentGrade >= 73)
+    else if (currentStudentOverallGrade >= 73)
         currentStudentLetterGrade = "C";
 
-    else if (currentStudentGrade >= 70)
+    else if (currentStudentOverallGrade >= 70)
         currentStudentLetterGrade = "C-";
 
-    else if (currentStudentGrade >= 67)
+    else if (currentStudentOverallGrade >= 67)
         currentStudentLetterGrade = "D+";
 
-    else if (currentStudentGrade >= 63)
+    else if (currentStudentOverallGrade >= 63)
         currentStudentLetterGrade = "D";
 
-    else if (currentStudentGrade >= 60)
+    else if (currentStudentOverallGrade >= 60)
         currentStudentLetterGrade = "D-";
 
     else
@@ -133,7 +144,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+    Console.WriteLine($"{currentStudent}\t\t{sumExamScores}\t\t{currentStudentOverallGrade}\t{currentStudentLetterGrade}");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
