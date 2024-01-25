@@ -236,3 +236,33 @@ Console.WriteLine(1 != 2); // true
 
 string myValue2 = "a";
 Console.WriteLine(myValue2 != "a"); // false
+  // Practice with comparison operators:
+  Console.WriteLine("** Comparison Operators Practice: **");
+Console.WriteLine(1 > 2); // false
+Console.WriteLine(1 < 2); // true
+Console.WriteLine(1 >= 1); // true
+Console.WriteLine(1 <= 1); // true
+
+  // Practice with method that returns a Boolean:
+  Console.WriteLine("** method that returns a Boolean: **");
+
+string pangram = "The quick brown fox jumps over the lazy dog.";
+Console.WriteLine(pangram.Contains("fox")); // true
+Console.WriteLine(pangram.Contains("cow")); // false
+
+  // Practice with logical negation:
+  Console.WriteLine("** Logical Negation Practice: **");
+// These two lines of code will create the same output
+Console.WriteLine(pangram.Contains("fox") == false); // false
+Console.WriteLine(!pangram.Contains("fox")); // false
+  // Practice with logical negation operators:
+  Console.WriteLine("** Logical Negation Operators: **");
+Console.WriteLine(!pangram.Contains("fox")); // false
+Console.WriteLine(!pangram.Contains("cow")); // true
+// Additional practice:
+int a = 7;
+int b = 6;
+Console.WriteLine(a != b); // output: True
+string s1 = "Hello";
+string s2 = "Hello";
+Console.WriteLine(s1 != s2); // output: False
