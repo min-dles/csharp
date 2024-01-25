@@ -286,7 +286,6 @@ Console.WriteLine($"Discount: {discount}");
 int newSaleAmount = 1001;
 // int discount = newSaleAmount > 1000 ? 100 : 50;
 Console.WriteLine($"Discount: {(newSaleAmount > 1000 ? 100 : 50)}");
-*/
 
   // Challenge - conditional operators:
   Console.WriteLine("** Ternary Conditional Operators: Challenge **");
@@ -297,3 +296,15 @@ Console.WriteLine($"Flip a Coin: {(coinFlip == 1 ? "heads" : "tails")}");
   // lesson simplified this example even more by skipping variable initialized:
     // and use values 0, 2 rather than 1, 3
 Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
+*/
+  // Challenge - Decision Logic:
+  Console.WriteLine("** Decision Logic: Challenge **");
+
+string permission = "Admin|Manager";
+int level = 55;
+// Business rules of this challenge: 
+// 1. "Admin" && level > 55 : "Welcome, Super Admin user."
+// 2. "Admin" && level <= 55 : "Welcome, Admin user."
+// 3. "Manager" && level >= 20 : "Contact an Admin for access."
+// 4. "Manager" && level < 20 : "You do not have sufficient privileges."
+// 5. !"Admin|Manager" : "You do not have sufficient privileges."
