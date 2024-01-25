@@ -217,9 +217,22 @@ Console.WriteLine(messageReversed);
 
 // Exercise 6 - Decision Logic
   // Practice with the equlity operator & Boolean expressions:
+    Console.WriteLine("** Equality Operators Practice: **");
 Console.WriteLine("a" == "a"); // true
 Console.WriteLine("a" == "A"); // false
 Console.WriteLine(1 == 2); // false
 
-string myValue = "a";
-Console.WriteLine(myValue == "a"); // true
+string myValue1 = "a";
+Console.WriteLine(myValue1 == "a"); // true
+
+string value1 = " a";
+string value2 = "A ";
+Console.WriteLine(value1.Trim().ToLower() == value2.Trim().ToLower()); // true
+  // Practice with inequality operators:
+  Console.WriteLine("** Inequality Operators Practice: **");
+Console.WriteLine("a" != "a"); // false
+Console.WriteLine("a" != "A"); // true
+Console.WriteLine(1 != 2); // true
+
+string myValue2 = "a";
+Console.WriteLine(myValue2 != "a"); // false
