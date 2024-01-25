@@ -266,7 +266,7 @@ Console.WriteLine(a != b); // output: True
 string s1 = "Hello";
 string s2 = "Hello";
 Console.WriteLine(s1 != s2); // output: False
-*/
+
   // Practice with conditional operators:
   Console.WriteLine("** Ternary Conditional Operators: **");
 // my practice example:
@@ -286,3 +286,11 @@ Console.WriteLine($"Discount: {discount}");
 int newSaleAmount = 1001;
 // int discount = newSaleAmount > 1000 ? 100 : 50;
 Console.WriteLine($"Discount: {(newSaleAmount > 1000 ? 100 : 50)}");
+*/
+
+  // Challenge - conditional operators:
+  Console.WriteLine("** Ternary Conditional Operators: Challenge **");
+
+Random coin = new Random();
+int coinFlip = coin.Next(1, 3); // 1 = heads, 2 = tails
+Console.WriteLine($"Coin Toss: {(coinFlip == 1 ? "heads" : "tails")}");
