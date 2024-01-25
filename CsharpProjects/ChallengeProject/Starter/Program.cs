@@ -77,18 +77,15 @@ foreach (string name in studentNames)
     else if (currentStudent == "Logan")
         studentScores = loganScores;
 
-    decimal sumAssignmentScores = 0;
+    int gradedAssignments = 0;
+    int gradedExtraCreditAssignments = 0;
 
     int sumExamScores = 0;
-
     int sumExtraCreditScores = 0;
 
     decimal currentStudentOverallGrade = 0;
-
-    decimal extraCreditPoints = 0;
-
-    int gradedAssignments = 0;
-    int extraCreditAssignments = 0;
+    decimal currentStudentExamScore = 0;
+    decimal currentStudentExtraCreditScore = 0;
 
     /* 
     the inner foreach loop sums exam scores
@@ -102,20 +99,19 @@ foreach (string name in studentNames)
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
-            sumExamScores += score;
+            sumExamScores = sumExamScores + score;
 
         else
         {
             sumExtraCreditScores += score;
-            extraCreditAssignments += 1;
+            gradedExtraCreditAssignments += 1;
         }
     }
 
-    sumAssignmentScores = (decimal)(sumExtraCreditScores / 10) + sumExamScores;
-    currentStudentOverallGrade = (decimal)(sumAssignmentScores) / examAssignments;
-    decimal currentStudentExamScore = (decimal)(sumExamScores) / examAssignments;
-    decimal currentStudentExtraCredit = (decimal)sumExtraCreditScores / extraCreditAssignments;
-    extraCreditPoints = (decimal)(sumExtraCreditScores / 10) / examAssignments;
+    currentStudentExamScore = (((decimal)(sumExamScores)) / examAssignments);
+    currentStudentExtraCreditScore = (((decimal)(sumExtraCreditScores)) / gradedExtraCreditAssignments);
+    
+    currentStudentOverallGrade = (decimal)((decimal)sumExamScores + ((decimal)sumExtraCreditScores / 10)) / examAssignments;
 
     if (currentStudentOverallGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -159,7 +155,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentOverallGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCredit} ({extraCreditPoints} pts)");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentOverallGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCreditScore} ({(((decimal)sumExtraCreditScores / 10) / examAssignments)} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
