@@ -301,7 +301,7 @@ Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
   Console.WriteLine("** Decision Logic: Challenge **");
 
 string permission = "Manager";
-int level = 10;
+int level = 20;
 string insufficientPrivileges = "You do not have sufficient privileges.";
 // Business rules of this challenge: 
   // 1. "Admin" && level > 55 : "Welcome, Super Admin user."
@@ -309,7 +309,7 @@ string insufficientPrivileges = "You do not have sufficient privileges.";
   // 3. "Manager" && level >= 20 : "Contact an Admin for access."
   // 4. "Manager" && level < 20 : "You do not have sufficient privileges."
   // 5. !"Admin|Manager" : "You do not have sufficient privileges."
-Console.WriteLine($"Expected output with current data: {insufficientPrivileges}");
+Console.WriteLine("Expected output with current data: Contact admin");
 
 if (permission.Contains("Admin"))
 {
