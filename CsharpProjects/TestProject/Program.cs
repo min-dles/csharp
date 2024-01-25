@@ -300,7 +300,7 @@ Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
   // Challenge - Decision Logic:
   Console.WriteLine("** Decision Logic: Challenge **");
 
-string permission = "User";
+string permission = "Manager";
 int level = 10;
 string insufficientPrivileges = "You do not have sufficient privileges.";
 // Business rules of this challenge: 
