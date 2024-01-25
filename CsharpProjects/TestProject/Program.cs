@@ -293,4 +293,7 @@ Console.WriteLine($"Discount: {(newSaleAmount > 1000 ? 100 : 50)}");
 
 Random coin = new Random();
 int coinFlip = coin.Next(1, 3); // 1 = heads, 2 = tails
-Console.WriteLine($"Coin Toss: {(coinFlip == 1 ? "heads" : "tails")}");
+Console.WriteLine($"Flip a Coin: {(coinFlip == 1 ? "heads" : "tails")}");
+  // lesson simplified this example even more by skipping variable initialized:
+    // and use values 0, 2 rather than 1, 3
+Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
