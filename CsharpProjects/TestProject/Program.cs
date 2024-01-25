@@ -139,7 +139,7 @@ foreach (string ID in orderIDs)
 }
 */
 
-// Exercise 5 - Practice writing Readable Code
+/* Exercise 5 - Practice writing Readable Code
   // The following code creates five random OrderIDs
   // to test the fraud detection process. OrderIDs
   // consist of a letter from A to E, and a three 
@@ -213,3 +213,13 @@ Console.WriteLine($"'o' appears {countOsInMessage} times.");
 Array.Reverse(lettersInMessage);
 string messageReversed = new String(lettersInMessage);
 Console.WriteLine(messageReversed);
+*/
+
+// Exercise 6 - Decision Logic
+  // Practice with the equlity operator & Boolean expressions:
+Console.WriteLine("a" == "a"); // true
+Console.WriteLine("a" == "A"); // false
+Console.WriteLine(1 == 2); // false
+
+string myValue = "a";
+Console.WriteLine(myValue == "a"); // true
