@@ -215,7 +215,7 @@ string messageReversed = new String(lettersInMessage);
 Console.WriteLine(messageReversed);
 */
 
-// Exercise 6 - Decision Logic
+/* Exercise 6 - Decision Logic
   // Practice with the equlity operator & Boolean expressions:
     Console.WriteLine("** Equality Operators Practice: **");
 Console.WriteLine("a" == "a"); // true
@@ -266,3 +266,18 @@ Console.WriteLine(a != b); // output: True
 string s1 = "Hello";
 string s2 = "Hello";
 Console.WriteLine(s1 != s2); // output: False
+*/
+  // Practice with conditional operators:
+  Console.WriteLine("** Ternary Conditional Operators: **");
+// my practice example:
+int promotionalDiscount = 100;
+int normalDiscount = 50;
+int customerPurchase = 99;
+int customerDiscount = customerPurchase > 1000 ? promotionalDiscount : normalDiscount;
+
+Console.WriteLine(customerDiscount);
+
+// lesson example:
+int saleAmount = 1001;
+int discount = saleAmount > 1000 ? 100 : 50; // 100
+Console.WriteLine($"Discount: {discount}");
