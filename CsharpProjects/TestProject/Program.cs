@@ -281,3 +281,8 @@ Console.WriteLine(customerDiscount);
 int saleAmount = 1001;
 int discount = saleAmount > 1000 ? 100 : 50; // 100
 Console.WriteLine($"Discount: {discount}");
+
+// simplify this even more: 
+int newSaleAmount = 1001;
+// int discount = newSaleAmount > 1000 ? 100 : 50;
+Console.WriteLine($"Discount: {(newSaleAmount > 1000 ? 100 : 50)}");
