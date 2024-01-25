@@ -302,9 +302,38 @@ Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
 
 string permission = "Admin|Manager";
 int level = 55;
+string insufficientPrivileges = "You do not have sufficient privileges.";
 // Business rules of this challenge: 
-// 1. "Admin" && level > 55 : "Welcome, Super Admin user."
-// 2. "Admin" && level <= 55 : "Welcome, Admin user."
-// 3. "Manager" && level >= 20 : "Contact an Admin for access."
-// 4. "Manager" && level < 20 : "You do not have sufficient privileges."
-// 5. !"Admin|Manager" : "You do not have sufficient privileges."
+  // 1. "Admin" && level > 55 : "Welcome, Super Admin user."
+  // 2. "Admin" && level <= 55 : "Welcome, Admin user."
+  // 3. "Manager" && level >= 20 : "Contact an Admin for access."
+  // 4. "Manager" && level < 20 : "You do not have sufficient privileges."
+  // 5. !"Admin|Manager" : "You do not have sufficient privileges."
+Console.WriteLine("Expected output with current data: Welcome, Admin.");
+
+if (permission.Contains("Admin"))
+{
+  if (level > 55)
+  {
+    Console.WriteLine("Welcome, Super Admin User.");
+  }
+  else
+  {
+    Console.WriteLine("Welcome, Admin.");
+  }
+}
+else if (permission.Contains("Manager"))
+{
+  if (level >= 20)
+  {
+    Console.WriteLine("Contact Admin for support.");
+  }
+  else
+  {
+    Console.WriteLine(insufficientPrivileges);
+  }
+}
+else
+{
+  Console.WriteLine(insufficientPrivileges);
+}
