@@ -1,4 +1,4 @@
-﻿/* Exercise 6 - Decision Logic
+﻿/* Module 1 - Evaluate Boolean expressions to make decisions in C#
   // Practice with the equlity operator & Boolean expressions:
     Console.WriteLine("** Equality Operators Practice: **");
 Console.WriteLine("a" == "a"); // true
@@ -79,7 +79,7 @@ Console.WriteLine($"Flip a Coin: {(coinFlip == 1 ? "heads" : "tails")}");
   // lesson simplified this example even more by skipping variable initialized:
     // and use values 0, 2 rather than 1, 3
 Console.WriteLine((coin.Next(0, 2) == 0) ? "heads" : "tails");
-*/
+
   // Challenge - Decision Logic:
   Console.WriteLine("** Decision Logic: Challenge **");
 
@@ -120,3 +120,6 @@ else
 {
   Console.WriteLine(insufficientPrivileges);
 }
+*/
+
+// Module 2 - Control variable scope and logic using code blocks in C#
