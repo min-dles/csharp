@@ -123,3 +123,11 @@ else
 */
 
 // Module 2 - Control variable scope and logic using code blocks in C#
+bool flag = true;
+if (flag)
+{
+  int value = 10;
+  Console.WriteLine($"Inside of the code block: {value}");
+}
+
+// Console.WriteLine($"Outside of the code block: {value}"); // result: error CS0103
