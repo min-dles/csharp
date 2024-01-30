@@ -143,3 +143,18 @@ if (flag)
   Console.WriteLine($"Still True! -> {flag}"); // true
 
 if (flag) Console.WriteLine($"Still True, but less readable on one line. -> {flag}"); // true
+
+string name1 = "lola";
+if (name1 == "mandi") Console.WriteLine("Found Mandi");
+else if (name1 == "lola") Console.WriteLine("Found Lola");
+else Console.WriteLine("Found Ximena");
+
+// compare above readability to code below:
+string name2 = "lola";
+
+if (name2 == "mandi")
+  Console.WriteLine("Found Mandi");
+else if (name2 == "lola")
+  Console.WriteLine("Found Lola");
+else
+  Console.WriteLine("Found Ximena");
