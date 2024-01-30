@@ -124,12 +124,12 @@ else
 
 // Module 2 - Control variable scope and logic using code blocks in C#
 bool flag = true;
-int value;
+int value = 0;
 
 if (flag)
 {
   value = 10;
-  Console.WriteLine($"Inside of the code block: {value}");
+  Console.WriteLine($"Inside of the code block: {value}"); // 10
 }
 
-Console.WriteLine($"Outside of the code block: {value}"); // result: error CS0165
+Console.WriteLine($"Outside of the code block: {value}"); // still 10
