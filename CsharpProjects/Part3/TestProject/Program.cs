@@ -135,6 +135,4 @@ if (flag)
 Console.WriteLine($"Outside of the code block: {value}"); // still 10
 
 if (flag)
-{
-  Console.WriteLine(flag); // true
-}
+  Console.WriteLine($"Still True! -> {flag}"); // true
