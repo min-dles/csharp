@@ -135,4 +135,11 @@ if (flag)
 Console.WriteLine($"Outside of the code block: {value}"); // still 10
 
 if (flag)
+{
+  Console.WriteLine($"True, but don't need a whole code block. -> {flag}"); // true
+}
+
+if (flag)
   Console.WriteLine($"Still True! -> {flag}"); // true
+
+if (flag) Console.WriteLine($"Still True, but less readable on one line. -> {flag}"); // true
