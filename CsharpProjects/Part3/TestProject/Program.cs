@@ -123,3 +123,60 @@ else
 */
 
 // Module 2 - Control variable scope and logic using code blocks in C#
+bool flag = true;
+int value = 0;
+
+if (flag)
+{
+  value = 10;
+  Console.WriteLine($"Inside of the code block: {value}"); // 10
+}
+
+Console.WriteLine($"Outside of the code block: {value}"); // still 10
+
+if (flag)
+{
+  Console.WriteLine($"True, but don't need a whole code block. -> {flag}"); // true
+}
+
+if (flag)
+  Console.WriteLine($"Still True! -> {flag}"); // true
+
+if (flag) Console.WriteLine($"Still True, but less readable on one line. -> {flag}"); // true
+
+string name1 = "lola";
+if (name1 == "mandi") Console.WriteLine("Found Mandi");
+else if (name1 == "lola") Console.WriteLine("Found Lola");
+else Console.WriteLine("Found Ximena");
+
+// compare above readability to code below:
+string name2 = "lola";
+
+if (name2 == "mandi")
+  Console.WriteLine("Found Mandi");
+else if (name2 == "lola")
+  Console.WriteLine("Found Lola");
+else
+  Console.WriteLine("Found Ximena");
+
+// set up Variable Scope Challenge:
+  // Output should read as follows
+    // Set contains 42
+    // Total: 108
+Console.WriteLine("*** VARIABLE SCOPE CHALLENGE: ***");
+int[] numbers = { 4, 8, 15, 16, 23, 42 };
+int total = 0;
+bool found = false;
+
+foreach (int number in numbers)
+{
+  total += number;
+
+  if (number == 42)
+    found = true;
+}
+
+if (found)
+  Console.WriteLine("Set contains 42");
+
+Console.WriteLine($"Total: {total}");
