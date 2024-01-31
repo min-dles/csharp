@@ -122,7 +122,7 @@ else
 }
 */
 
-// Module 2 - Control variable scope and logic using code blocks in C#
+/* Module 2 - Control variable scope and logic using code blocks in C#
 bool flag = true;
 int value = 0;
 
@@ -180,3 +180,34 @@ if (found)
   Console.WriteLine("Set contains 42");
 
 Console.WriteLine($"Total: {total}");
+*/
+
+// Module 3 - Branch the flow of code using the switch-case construct in C#
+int employeeLevel = 200;
+string employeeName = "John Smith";
+
+string title = "";
+
+// The switch statement defines a single code block that includes 
+// a list of switch sections. To the right of the switch keyword 
+// is a switch expression that's enclosed in parentheses.
+switch (employeeLevel) // switch statement = switch keyword + switch expression
+{
+    case 100: // switch section
+        title = "Junior Associate";
+        break;
+    case 200: // switch section 
+        title = "Senior Associate";
+        break;
+    case 300: // switch section
+        title = "Manager";
+        break;
+    case 400: // switch section
+        title = "Senior Manager";
+        break;
+    default: // switch section
+        title = "Associate";
+        break;
+}
+
+Console.WriteLine($"{employeeName}, {title}");
