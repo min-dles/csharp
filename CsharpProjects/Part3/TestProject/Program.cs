@@ -182,7 +182,7 @@ if (found)
 Console.WriteLine($"Total: {total}");
 */
 
-// Module 3 - Branch the flow of code using the switch-case construct in C#
+/* Module 3 - Branch the flow of code using the switch-case construct in C#
 int employeeLevel = 100;
 string employeeName = "John Smith";
 
@@ -269,3 +269,6 @@ switch (product[2])
 }
 
 Console.WriteLine($"Product: {size} {color} {type}");
+*/
+
+// Module 4 - Iterate through a code block using for statement in C#
