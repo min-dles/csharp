@@ -305,3 +305,11 @@ for (int i = 0; i < 10; i++)
   Console.WriteLine($"Stop counting at 7: {i}");
   if (i == 7) break;
 }
+
+Console.WriteLine("*** iteration to loop thru each element in array: ***");
+// foreach iterates thru every element in an array, but for statements can be configured to more precision:
+string[] names = { "Lola", "Ximena", "Mandi", "Adrianna" };
+for (int i = names.Length - 1; i >= 0; i--)
+{
+  Console.WriteLine($"See names in array backwords: {names[i]}");
+}
