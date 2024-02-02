@@ -122,7 +122,7 @@ else
 }
 */
 
-// Module 2 - Control variable scope and logic using code blocks in C#
+/* Module 2 - Control variable scope and logic using code blocks in C#
 bool flag = true;
 int value = 0;
 
@@ -180,3 +180,92 @@ if (found)
   Console.WriteLine("Set contains 42");
 
 Console.WriteLine($"Total: {total}");
+*/
+
+// Module 3 - Branch the flow of code using the switch-case construct in C#
+int employeeLevel = 100;
+string employeeName = "John Smith";
+
+string title = "";
+
+// The switch statement defines a single code block that includes 
+// a list of switch sections. To the right of the switch keyword 
+// is a switch expression that's enclosed in parentheses.
+switch (employeeLevel) // switch statement = switch keyword + switch expression
+{
+    case 100: // case label in a switch section
+    case 200: // two case labels assigned to same switch section 
+        title = "Senior Associate";
+        break;
+    case 300: // case label in switch section
+        title = "Manager";
+        break;
+    case 400: // case label switch section
+        title = "Senior Manager";
+        break;
+    default: // default case in switch section
+        title = "Associate";
+        break;
+}
+
+Console.WriteLine($"{employeeName}, {title}");
+
+  // Code Challenge: Convert to Switch Statement
+  Console.WriteLine("*** CODE CHALLENGE: Rewrite if-else to Switch ***");
+
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+switch (product[0])
+{
+  case "01":
+    type = "Sweat shirt";
+    break;
+  case "02":
+    type = "T-Shirt";
+    break;
+  case "03":
+    type = "Sweat pants";
+    break;
+  default:
+    type = "Other";
+    break;
+}
+
+switch (product[1])
+{
+  case "BL":
+    color = "Black";
+    break;
+  case "MN":
+    color = "Maroon";
+    break;
+  default:
+    color = "White";
+    break;
+}
+
+switch (product[2])
+{
+  case "S":
+    size = "Small";
+    break;
+  case "M":
+    size = "Medium";
+    break;
+  case "L":
+    size = "Large";
+    break;
+  default:
+    size = "One size fits all.";
+    break;
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
