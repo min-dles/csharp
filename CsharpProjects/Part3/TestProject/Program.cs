@@ -298,3 +298,10 @@ for (int i = 0; i < 10; i += 3)
 {
   Console.WriteLine($"Count by threes: {i}");
 }
+
+Console.WriteLine("*** Practice with Break keyword on iteration statements: ***");
+for (int i = 0; i < 10; i++)
+{
+  Console.WriteLine($"Stop counting at 7: {i}");
+  if (i == 7) break;
+}
