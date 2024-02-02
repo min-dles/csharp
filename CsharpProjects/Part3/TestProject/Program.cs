@@ -183,7 +183,7 @@ Console.WriteLine($"Total: {total}");
 */
 
 // Module 3 - Branch the flow of code using the switch-case construct in C#
-int employeeLevel = 202;
+int employeeLevel = 100;
 string employeeName = "John Smith";
 
 string title = "";
@@ -194,9 +194,7 @@ string title = "";
 switch (employeeLevel) // switch statement = switch keyword + switch expression
 {
     case 100: // case label in a switch section
-        title = "Junior Associate";
-        break;
-    case 200: // case label in switch section 
+    case 200: // two case labels assigned to same switch section 
         title = "Senior Associate";
         break;
     case 300: // case label in switch section
