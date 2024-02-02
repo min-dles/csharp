@@ -288,8 +288,13 @@ for (int i = 0; i < 10; i++)
 }
 
 Console.WriteLine("*** Countdown with (for) Iteration: ***");
-
 for (int i = 10; i >= 0; i--)
 {
   Console.WriteLine(i);
+}
+
+Console.WriteLine("*** Experiment with Iterator's Pattern: ***");
+for (int i = 0; i < 10; i += 3)
+{
+  Console.WriteLine($"Count by threes: {i}");
 }
