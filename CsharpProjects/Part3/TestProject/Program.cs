@@ -272,3 +272,16 @@ Console.WriteLine($"Product: {size} {color} {type}");
 */
 
 // Module 4 - Iterate through a code block using for statement in C#
+Console.WriteLine("*** Exercise - Create & Configure (for) iteration loops ***");
+
+// below is an example "for" statement which includes six parts:
+  // 1. the "for" keyword
+  // 2. parentheses after the keyword which defines the conditions of the "for" iteration; it contains three distinct parts
+  // 3. part one: INITIALIZER. defines & initializes the iterator variable
+  // 4. part two: CONDITION. defines the completion condition.
+  // 5. part three: ITERATOR. defines the action to take after each iteration.
+  // 6. The code block contains the code that will be executed for each iteration. Inside the example code block below, the value of 'i' is referenced; this section is referred to as the BODY.
+for (int i = 0; i < 10; i++)
+{
+  Console.WriteLine(i);
+}
