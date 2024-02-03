@@ -271,7 +271,7 @@ switch (product[2])
 Console.WriteLine($"Product: {size} {color} {type}");
 */
 
-// Module 4 - Iterate through a code block using for statement in C#
+/* Module 4 - Iterate through a code block using for statement in C#
 Console.WriteLine("*** Exercise - Create & Configure (for) iteration loops ***");
 
 // below is an example "for" statement which includes six parts:
@@ -333,3 +333,7 @@ for (int i = 1; i < 101; i++)
   else
     Console.WriteLine(i);
 }
+*/
+
+// Module 5 - Add looping logic to your code using the do-while and while statements in C#
+Console.WriteLine("*** Module 5 ***");
