@@ -313,3 +313,9 @@ for (int i = names.Length - 1; i >= 0; i--)
 {
   Console.WriteLine($"See names in array backwords: {names[i]}");
 }
+
+foreach (var name in names)
+{
+  // Can't do this:
+  if (name == "Adrianna") name = "Pablo";
+} // O: Cannot assign to name because it is a 'foreach iteration variable'
