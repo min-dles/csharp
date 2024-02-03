@@ -275,13 +275,13 @@ Console.WriteLine($"Product: {size} {color} {type}");
 Console.WriteLine("*** Exercise - Create & Configure (for) iteration loops ***");
 
 // below is an example "for" statement which includes six parts:
-  // 1. the "for" keyword
-  // 2. parentheses after the keyword which defines the conditions of the "for" iteration; it contains three distinct parts:
-    // 3. part one: INITIALIZER. defines & initializes the iterator variable
-    // 4. part two: CONDITION. defines the completion condition.
-    // 5. part three: ITERATOR. defines the action to take after each iteration.
-  // 6. The code block contains the code that will be executed for each iteration. 
-    // 6a. Inside the example code block below, the value of 'i' is referenced; this section is referred to as the BODY.
+// 1. the "for" keyword
+// 2. parentheses after the keyword which defines the conditions of the "for" iteration; it contains three distinct parts:
+// 3. part one: INITIALIZER. defines & initializes the iterator variable
+// 4. part two: CONDITION. defines the completion condition.
+// 5. part three: ITERATOR. defines the action to take after each iteration.
+// 6. The code block contains the code that will be executed for each iteration. 
+// 6a. Inside the example code block below, the value of 'i' is referenced; this section is referred to as the BODY.
 for (int i = 0; i < 10; i++)
 {
   Console.WriteLine(i);
@@ -318,3 +318,14 @@ for (int i = 0; i < names.Length; i++)
   if (names[i] == "Adrianna") names[i] = "Pablo";
 
 foreach (var name in names) Console.WriteLine(name);
+
+// Exercise - complete a challenge activity using for and if statements
+Console.WriteLine("*** FizzBuzz challenge ***");
+
+for (int i = 1; i < 101; i++)
+{
+  if (i % 15 == 0) Console.WriteLine($"{i} - FizzBuzz");
+  else if (i % 5 == 0) Console.WriteLine($"{i} - Buzz");
+  else if (i % 3 == 0) Console.WriteLine($"{i} - Fizz");
+  else Console.WriteLine(i);
+}
