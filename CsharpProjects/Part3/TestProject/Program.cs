@@ -464,3 +464,11 @@ do
 Console.WriteLine($"Congratulations. You successfully submitted ({readResult}).");
 */
 Console.WriteLine("*** PART 3: ***");
+string[] myStrings = new string[2] { "Some roast beef. Some chicken. A pizza", "No, I mean just this morning" };
+
+foreach (string myString in myStrings)
+{
+  int periodLocation = myString.IndexOf(".");
+  if (periodLocation > -1)
+    Console.WriteLine(myString.Substring(0, periodLocation));
+}
