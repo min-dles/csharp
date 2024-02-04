@@ -339,7 +339,7 @@ for (int i = 1; i < 101; i++)
 Console.WriteLine("*** Module 5 ***");
 
 Random random = new Random();
-int current = 0;
+int current = random.Next(1, 11);
 /*
 do
 {
@@ -350,7 +350,7 @@ do
 
 while (current >= 3)
 {
-  Console.WriteLine(current); // first number will always be 0 because current initialized to 0 on line 342, so code inside this while loop is never executed because Boolean evaluates to false 
+  Console.WriteLine(current);
   current = random.Next(1, 11);
 }
 Console.WriteLine($"Last number: {current}");
