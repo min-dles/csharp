@@ -396,7 +396,7 @@ do
 } while ((hero > 0) && (monster > 0));
 
 // Challenge Activity: differentiate between do and while iteration statements
-
+/*
 Console.WriteLine("*** PART 1: ***");
 string? readResult;
 int numericValue = 0;
@@ -426,7 +426,41 @@ do
 } while ((numericValue < 5) || (numericValue > 10));
 
 Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
-
+*/
 Console.WriteLine("*** PART 2: ***");
+string? readResult;
+bool validEntry = false;
+Console.WriteLine("Please submit your role: Administrator, Manager, or User.");
+do
+{
+  readResult = Console.ReadLine();
+
+  if (readResult != null)
+  {
+    string checkEntry = readResult.Trim().ToLower();
+
+    if (checkEntry == "administrator")
+    {
+      validEntry = true;
+      continue;
+    }
+    else if (checkEntry == "manager")
+    {
+      validEntry = true;
+      continue;
+    }
+    else if (checkEntry == "user")
+    {
+      validEntry = true;
+      continue;
+    }
+    else 
+    {
+      Console.WriteLine($"Try again; \"{readResult}\" is not a valid option.");
+    }
+  }
+} while (validEntry == false);
+
+Console.WriteLine($"Congratulations. You successfully submitted ({readResult}).");
 
 Console.WriteLine("*** PART 3: ***");
