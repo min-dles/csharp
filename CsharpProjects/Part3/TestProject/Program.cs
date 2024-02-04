@@ -396,6 +396,7 @@ do
 } while ((hero > 0) && (monster > 0));
 
 // Challenge Activity: differentiate between do and while iteration statements
+
 Console.WriteLine("*** PART 1: ***");
 string? readResult;
 int numericValue = 0;
@@ -412,17 +413,20 @@ do
   if (!validNumber)
   {
     Console.WriteLine("Try again; submit a number between 5 and 10.");
-    continue;
   }
-
-  if (numericValue > 10)
+  else if (numericValue > 10)
+  {
     Console.WriteLine("That number is too high.");
+  }
   else if (numericValue < 5)
+  {
     Console.WriteLine("That number is too low.");
-  else
-    Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
+  }
 
 } while ((numericValue < 5) || (numericValue > 10));
 
+Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
+
 Console.WriteLine("*** PART 2: ***");
+
 Console.WriteLine("*** PART 3: ***");
