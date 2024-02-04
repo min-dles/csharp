@@ -348,7 +348,7 @@ do
   if (current >= 8) continue;
 
   Console.WriteLine(current);
-} while (current != 7); 
+} while (current != 7);
 
 /*
 while (current >= 3)
@@ -358,3 +358,20 @@ while (current >= 3)
 }
 Console.WriteLine($"Last number: {current}");
 */
+
+Console.WriteLine("*** Game Challenge: Monster vs. Hero ***");
+
+// int heroHealth = 10;
+int monsterHealth = 10;
+
+do
+{
+  int attack = random.Next(1, 11);
+
+  monsterHealth = monsterHealth - attack;
+  if (monsterHealth < 0)
+    monsterHealth = 0; // to prevent negative values for health from printing to output (doesn't make sense)
+
+  Console.WriteLine($"Monster was damaged and lost {attack} HP and now has {monsterHealth} health.");
+
+} while (monsterHealth > 0);
