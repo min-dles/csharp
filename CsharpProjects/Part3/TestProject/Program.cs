@@ -339,8 +339,8 @@ for (int i = 1; i < 101; i++)
 Console.WriteLine("*** Module 5 ***");
 
 Random random = new Random();
-int current = random.Next(1, 11);
-
+int current = 0;
+/*
 do
 {
   current = random.Next(1, 11);
@@ -349,29 +349,50 @@ do
 
   Console.WriteLine(current);
 } while (current != 7);
+*/
 
-/*
 while (current >= 3)
 {
   Console.WriteLine(current);
   current = random.Next(1, 11);
 }
 Console.WriteLine($"Last number: {current}");
-*/
-
+// Challenge Activity: RPG
 Console.WriteLine("*** Game Challenge: Monster vs. Hero ***");
 
-// int heroHealth = 10;
+int heroHealth = 10;
 int monsterHealth = 10;
 
 do
 {
-  int attack = random.Next(1, 11);
+  int damage = random.Next(1, 11);
 
-  monsterHealth = monsterHealth - attack;
+  monsterHealth = monsterHealth - damage;
   if (monsterHealth < 0)
     monsterHealth = 0; // to prevent negative values for health from printing to output (doesn't make sense)
 
-  Console.WriteLine($"Monster was damaged and lost {attack} HP and now has {monsterHealth} health.");
+  Console.WriteLine($"Monster was damaged and lost {damage} HP and now has {monsterHealth} health.");
 
-} while (monsterHealth > 0);
+  if (monsterHealth > 0)
+  {
+    damage = random.Next(1, 11);
+
+    heroHealth = heroHealth - damage;
+
+    if (heroHealth < 0)
+      heroHealth = 0;
+
+    Console.WriteLine($"Hero was damaged and lost {damage} HP and now has {heroHealth} health.");
+
+    if (heroHealth == 0)
+    {
+      Console.WriteLine("Monster wins :(");
+      continue;
+    }
+  }
+  else
+  {
+    Console.WriteLine("Hero wins!");
+  }
+
+} while ((heroHealth > 0) && (monsterHealth > 0));
