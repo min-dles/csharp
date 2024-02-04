@@ -426,7 +426,7 @@ do
 } while ((numericValue < 5) || (numericValue > 10));
 
 Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
-*/
+
 Console.WriteLine("*** PART 2: ***");
 string? readResult;
 bool validEntry = false;
@@ -462,5 +462,5 @@ do
 } while (validEntry == false);
 
 Console.WriteLine($"Congratulations. You successfully submitted ({readResult}).");
-
+*/
 Console.WriteLine("*** PART 3: ***");
