@@ -426,7 +426,7 @@ do
 } while ((numericValue < 5) || (numericValue > 10));
 
 Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
-
+*/
 Console.WriteLine("*** PART 2: ***");
 string? readResult;
 bool validEntry = false;
@@ -439,36 +439,46 @@ do
   {
     string checkEntry = readResult.Trim().ToLower();
 
-    if (checkEntry == "administrator")
+    switch (checkEntry)
     {
-      validEntry = true;
-      continue;
-    }
-    else if (checkEntry == "manager")
-    {
-      validEntry = true;
-      continue;
-    }
-    else if (checkEntry == "user")
-    {
-      validEntry = true;
-      continue;
-    }
-    else 
-    {
-      Console.WriteLine($"Try again; \"{readResult}\" is not a valid option.");
+      case "administrator":
+      case "manager":
+      case "user":
+        validEntry = true;
+        break;
+      default:
+        Console.WriteLine($"Try again; \"{readResult}\" is not a valid option.");
+        break;
     }
   }
 } while (validEntry == false);
 
 Console.WriteLine($"Congratulations. You successfully submitted ({readResult}).");
-*/
+
 Console.WriteLine("*** PART 3: ***");
 string[] myStrings = new string[2] { "Some roast beef. Some chicken. A pizza", "No, I mean just this morning" };
 
-foreach (string myString in myStrings)
+string thisString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < myStrings.Length; i++)
 {
-  int periodLocation = myString.IndexOf(".");
-  if (periodLocation > -1)
-    Console.WriteLine(myString.Substring(0, periodLocation));
+  thisString = myStrings[i];
+  periodLocation = thisString.IndexOf(".");
+
+  string thisSentence;
+
+  while (periodLocation != -1)
+  {
+    thisSentence = thisString.Remove(periodLocation);
+
+    thisString = thisString.Substring(periodLocation + 1).TrimStart();
+
+    periodLocation = thisString.IndexOf(".");
+
+    Console.WriteLine(thisSentence);
+  }
+
+  thisSentence = thisString.Trim();
+  Console.WriteLine(thisSentence);
 }
