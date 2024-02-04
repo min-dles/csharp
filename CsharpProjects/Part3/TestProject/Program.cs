@@ -340,9 +340,17 @@ Console.WriteLine("*** Module 5 ***");
 
 Random random = new Random();
 int current = 0;
-
+/*
 do
 {
   current = random.Next(1, 11);
   Console.WriteLine(current);
 } while (current != 7); // the loop will end when the random integer lands on 7 
+*/
+
+while (current >= 3)
+{
+  Console.WriteLine(current); // first number will always be 0 because current initialized to 0 on line 342, so code inside this while loop is never executed because Boolean evaluates to false 
+  current = random.Next(1, 11);
+}
+Console.WriteLine($"Last number: {current}");
