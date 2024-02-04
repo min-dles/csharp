@@ -271,7 +271,7 @@ switch (product[2])
 Console.WriteLine($"Product: {size} {color} {type}");
 */
 
-// Module 4 - Iterate through a code block using for statement in C#
+/* Module 4 - Iterate through a code block using for statement in C#
 Console.WriteLine("*** Exercise - Create & Configure (for) iteration loops ***");
 
 // below is an example "for" statement which includes six parts:
@@ -332,4 +332,143 @@ for (int i = 1; i < 101; i++)
     Console.WriteLine($"{i} - Fizz");
   else
     Console.WriteLine(i);
+}
+*/
+
+// Module 5 - Add looping logic to your code using the do-while and while statements in C#
+Console.WriteLine("*** Module 5 ***");
+
+Random random = new Random();
+int current = 0;
+/*
+do
+{
+  current = random.Next(1, 11);
+
+  if (current >= 8) continue;
+
+  Console.WriteLine(current);
+} while (current != 7);
+*/
+
+while (current >= 3)
+{
+  Console.WriteLine(current);
+  current = random.Next(1, 11);
+}
+Console.WriteLine($"Last number: {current}");
+// Challenge Activity: RPG
+Console.WriteLine("*** Game Challenge: Monster vs. Hero ***");
+
+int hero = 10;
+int monster = 10;
+
+do
+{
+  int damage = random.Next(1, 11);
+
+  monster -= damage;
+  if (monster < 0)
+    monster = 0; // to prevent negative values for health from printing to output
+
+  Console.WriteLine($"Monster was damaged and lost {damage} HP and now has {monster} health.");
+
+  if (monster > 0)
+  {
+    damage = random.Next(1, 11);
+    hero -= damage;
+
+    if (hero < 0)
+      hero = 0; // to prevent negative HP values
+
+    Console.WriteLine($"Hero was damaged and lost {damage} HP and now has {hero} health.");
+
+    if (hero == 0)
+    {
+      Console.WriteLine("Monster wins :(");
+    }
+  }
+  else
+  {
+    Console.WriteLine("Hero wins!");
+  }
+
+} while ((hero > 0) && (monster > 0));
+
+// Challenge Activity: differentiate between do and while iteration statements
+/*
+Console.WriteLine("*** PART 1: ***");
+string? readResult;
+int numericValue = 0;
+Console.WriteLine("Submit an integer (whole number value) between 5 and 10.");
+do
+{
+  readResult = Console.ReadLine();
+
+  numericValue = 0;
+  bool validNumber = false;
+
+  validNumber = int.TryParse(readResult, out numericValue);
+
+  if (!validNumber)
+  {
+    Console.WriteLine("Try again; submit a number between 5 and 10.");
+  }
+  else if (numericValue > 10)
+  {
+    Console.WriteLine("That number is too high.");
+  }
+  else if (numericValue < 5)
+  {
+    Console.WriteLine("That number is too low.");
+  }
+
+} while ((numericValue < 5) || (numericValue > 10));
+
+Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
+
+Console.WriteLine("*** PART 2: ***");
+string? readResult;
+bool validEntry = false;
+Console.WriteLine("Please submit your role: Administrator, Manager, or User.");
+do
+{
+  readResult = Console.ReadLine();
+
+  if (readResult != null)
+  {
+    string checkEntry = readResult.Trim().ToLower();
+
+    if (checkEntry == "administrator")
+    {
+      validEntry = true;
+      continue;
+    }
+    else if (checkEntry == "manager")
+    {
+      validEntry = true;
+      continue;
+    }
+    else if (checkEntry == "user")
+    {
+      validEntry = true;
+      continue;
+    }
+    else 
+    {
+      Console.WriteLine($"Try again; \"{readResult}\" is not a valid option.");
+    }
+  }
+} while (validEntry == false);
+
+Console.WriteLine($"Congratulations. You successfully submitted ({readResult}).");
+*/
+Console.WriteLine("*** PART 3: ***");
+string[] myStrings = new string[2] { "Some roast beef. Some chicken. A pizza", "No, I mean just this morning" };
+
+foreach (string myString in myStrings)
+{
+  int periodLocation = myString.IndexOf(".");
+  if (periodLocation > -1)
+    Console.WriteLine(myString.Substring(0, periodLocation));
 }
