@@ -337,3 +337,12 @@ for (int i = 1; i < 101; i++)
 
 // Module 5 - Add looping logic to your code using the do-while and while statements in C#
 Console.WriteLine("*** Module 5 ***");
+
+Random random = new Random();
+int current = 0;
+
+do
+{
+  current = random.Next(1, 11);
+  Console.WriteLine(current);
+} while (current != 7); // the loop will end when the random integer lands on 7 
