@@ -360,34 +360,32 @@ Console.WriteLine($"Last number: {current}");
 // Challenge Activity: RPG
 Console.WriteLine("*** Game Challenge: Monster vs. Hero ***");
 
-int heroHealth = 10;
-int monsterHealth = 10;
+int hero = 10;
+int monster = 10;
 
 do
 {
   int damage = random.Next(1, 11);
 
-  monsterHealth = monsterHealth - damage;
-  if (monsterHealth < 0)
-    monsterHealth = 0; // to prevent negative values for health from printing to output (doesn't make sense)
+  monster -= damage;
+  if (monster < 0)
+    monster = 0; // to prevent negative values for health from printing to output
 
-  Console.WriteLine($"Monster was damaged and lost {damage} HP and now has {monsterHealth} health.");
+  Console.WriteLine($"Monster was damaged and lost {damage} HP and now has {monster} health.");
 
-  if (monsterHealth > 0)
+  if (monster > 0)
   {
     damage = random.Next(1, 11);
+    hero -= damage;
 
-    heroHealth = heroHealth - damage;
+    if (hero < 0)
+      hero = 0; // to prevent negative HP values
 
-    if (heroHealth < 0)
-      heroHealth = 0;
+    Console.WriteLine($"Hero was damaged and lost {damage} HP and now has {hero} health.");
 
-    Console.WriteLine($"Hero was damaged and lost {damage} HP and now has {heroHealth} health.");
-
-    if (heroHealth == 0)
+    if (hero == 0)
     {
       Console.WriteLine("Monster wins :(");
-      continue;
     }
   }
   else
@@ -395,4 +393,4 @@ do
     Console.WriteLine("Hero wins!");
   }
 
-} while ((heroHealth > 0) && (monsterHealth > 0));
+} while ((hero > 0) && (monster > 0));
