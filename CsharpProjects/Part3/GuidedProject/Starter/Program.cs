@@ -122,9 +122,41 @@ do
             break;
         case "2":
             // Add new pet to ourAnimals array
-            Console.WriteLine("Feature coming soon; check back later.");
-            Console.WriteLine("Press the Enter key to continue");
-            readResult = Console.ReadLine();
+            string anotherPet = "y";
+            int petCount = 0;
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    petCount += 1;
+                }
+            }
+            if (petCount < maxPets)
+            {
+                Console.WriteLine($"We currently have {petCount} pets and can take in {(maxPets - petCount)} more.");
+            }
+            while (anotherPet == "y" && petCount < maxPets)
+            {
+                petCount = petCount + 1;
+                if (petCount < maxPets)
+                {
+                    Console.WriteLine("Do you want to add another pet? (y/n)");
+                    do
+                    {
+                        readResult = Console.ReadLine();
+                        if (readResult != null)
+                        {
+                            anotherPet = readResult.ToLower();
+                        }
+                    } while (anotherPet != "y" && anotherPet != "n");
+                }
+            }
+            if (petCount >= maxPets)
+            {
+                Console.WriteLine("Maximum number of pets reached; NO MORE OR ELSE");
+                Console.WriteLine("Press the Enter key to continue");
+                readResult = Console.ReadLine();
+            }
             break;
         case "3":
             // Ensure animal ages and physical descriptions are complete
