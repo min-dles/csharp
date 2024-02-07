@@ -335,12 +335,12 @@ for (int i = 1; i < 101; i++)
 }
 */
 
-// Module 5 - Add looping logic to your code using the do-while and while statements in C#
+/* Module 5 - Add looping logic to your code using the do-while and while statements in C#
 Console.WriteLine("*** Module 5 ***");
 
 Random random = new Random();
 int current = 0;
-/*
+
 do
 {
   current = random.Next(1, 11);
@@ -349,7 +349,7 @@ do
 
   Console.WriteLine(current);
 } while (current != 7);
-*/
+
 
 while (current >= 3)
 {
@@ -396,7 +396,7 @@ do
 } while ((hero > 0) && (monster > 0));
 
 // Challenge Activity: differentiate between do and while iteration statements
-/*
+
 Console.WriteLine("*** PART 1: ***");
 string? readResult;
 int numericValue = 0;
@@ -426,7 +426,7 @@ do
 } while ((numericValue < 5) || (numericValue > 10));
 
 Console.WriteLine($"Your submission of ({numericValue}) has been accepted. Good job.");
-*/
+
 Console.WriteLine("*** PART 2: ***");
 string? readResult;
 bool validEntry = false;
@@ -482,3 +482,6 @@ for (int i = 0; i < myStrings.Length; i++)
   thisSentence = thisString.Trim();
   Console.WriteLine(thisSentence);
 }
+*/
+
+// Module 6 - 
