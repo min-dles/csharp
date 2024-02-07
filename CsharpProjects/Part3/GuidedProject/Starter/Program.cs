@@ -155,6 +155,38 @@ do
                         }
                     }
                 } while (validEntry == false);
+                animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
+                do
+                {
+                    int petAge;
+                    Console.WriteLine("Enter pet's age or \"?\" if unknown.");
+                    readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalAge = readResult;
+                        if (animalAge != "?")
+                        {
+                            validEntry = int.TryParse(animalAge, out petAge);
+                        }
+                        else
+                        {
+                            validEntry = true;
+                        }
+                    }
+                } while (validEntry == false);
+                do
+                {
+                    Console.WriteLine("Enter info about animal's physical description.");
+                    readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalPhysicalDescription = readResult.ToLower();
+                        if (animalPhysicalDescription == "")
+                        {
+                            animalPhysicalDescription = "tbd";
+                        }
+                    }
+                } while (animalPhysicalDescription == "");
                 petCount = petCount + 1;
                 if (petCount < maxPets)
                 {
