@@ -106,7 +106,13 @@ do
     {
         case "1":
             // List all current pet info
-            Console.WriteLine("Feature coming soon; check back later.");
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    Console.WriteLine(ourAnimals[i, 0]);
+                }
+            }
             Console.WriteLine("Press the Enter key to continue");
             readResult = Console.ReadLine();
             break;
