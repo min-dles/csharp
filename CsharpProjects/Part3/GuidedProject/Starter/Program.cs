@@ -187,6 +187,38 @@ do
                         }
                     }
                 } while (animalPhysicalDescription == "");
+                do
+                {
+                    Console.WriteLine("Enter description of pet's personality.");
+                    readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalPersonalityDescription = readResult.ToLower();
+                        if (animalPersonalityDescription == "")
+                        {
+                            animalPersonalityDescription = "tbd";
+                        }
+                    }
+                } while (animalPersonalityDescription == "");
+                do
+                {
+                    Console.WriteLine("Enter pet's nickname:");
+                    readResult = Console.ReadLine();
+                    if (readResult != null)
+                    {
+                        animalNickname = readResult.ToLower();
+                        if (animalNickname == "")
+                        {
+                            animalNickname = "tbd";
+                        }
+                    }
+                } while (animalNickname == "");
+                ourAnimals[petCount, 0] = "ID #: " + animalID;
+                ourAnimals[petCount, 1] = "Species: " + animalSpecies;
+                ourAnimals[petCount, 2] = "Age: " + animalAge;
+                ourAnimals[petCount, 3] = "Nickname: " + animalNickname;
+                ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
+                ourAnimals[petCount, 5] = "Personality: " + animalPersonalityDescription;
                 petCount = petCount + 1;
                 if (petCount < maxPets)
                 {
