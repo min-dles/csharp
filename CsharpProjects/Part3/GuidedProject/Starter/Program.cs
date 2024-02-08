@@ -274,12 +274,34 @@ do
             // 2. Skip over any animal in the ourAnimals array when the value of pet ID is set to the default value.
             for (int i = 0; i < maxPets; i++)
             {
+                if (readResult != null)
+                {
+
+                }
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
-                    readResult = Console.ReadLine();
-                    if (ourAnimals[i, 2] == "Age: ?")
+                    while (ourAnimals[i, 2] == "Age: ?")
                     {
+                        do
+                        {
                         Console.WriteLine($"Enter an age for {ourAnimals[i, 0]}.");
+                        int petAge;
+                        bool validEntry = false;
+                        readResult = Console.ReadLine();
+                        if (readResult != null)
+                        {
+                            animalAge = readResult;
+
+                            if (animalAge != "?")
+                            {
+                                validEntry = int.TryParse(animalAge, out petAge);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Please enter a number");
+                            }
+                        }
+                        } while (animalAge == "?");
                     }
                 }
             }
