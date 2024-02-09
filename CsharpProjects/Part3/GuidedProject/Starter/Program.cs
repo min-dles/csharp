@@ -111,7 +111,7 @@ do
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
                     Console.WriteLine();
-                    
+
                     for (int j = 0; j < 6; j++)
                     {
                         Console.WriteLine(ourAnimals[i, j]);
@@ -274,33 +274,32 @@ do
             // 2. Skip over any animal in the ourAnimals array when the value of pet ID is set to the default value.
             for (int i = 0; i < maxPets; i++)
             {
-                if (readResult != null)
-                {
-
-                }
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
-                    while (ourAnimals[i, 2] == "Age: ?")
+                    if (ourAnimals[i, 2] == "Age: ?")
                     {
                         do
                         {
-                        Console.WriteLine($"Enter an age for {ourAnimals[i, 0]}.");
-                        int petAge;
-                        bool validEntry = false;
-                        readResult = Console.ReadLine();
-                        if (readResult != null)
-                        {
-                            animalAge = readResult;
+                            Console.WriteLine($"Enter an age for {ourAnimals[i, 0]}.");
+                            int petAge;
+                            bool validEntry = false;
+                            readResult = Console.ReadLine();
+                            if (readResult != null)
+                            {
+                                animalAge = readResult;
 
-                            if (animalAge != "?")
-                            {
                                 validEntry = int.TryParse(animalAge, out petAge);
+
+                                if (validEntry)
+                                {
+                                    animalAge = petAge.ToString();
+                                    Console.WriteLine($"You entered {animalAge}.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Please enter a number");
+                                }
                             }
-                            else
-                            {
-                                Console.WriteLine("Please enter a number");
-                            }
-                        }
                         } while (animalAge == "?");
                     }
                 }
@@ -313,12 +312,12 @@ do
             // 5. Ensure that a valid string is assigned to animalPhysicalDescription for all animals in the ourAnimals array that have assigned data.
 
             // 6. Enforce the following validation rules for animalAge.
-                // It must be possible to convert the value entered to numeric data type.
+            // It must be possible to convert the value entered to numeric data type.
 
             // 7. Enforce the following validation rules for animalPhysicalDescription:
-                // Values cannot be null.
-                // Values cannot have zero characters.
-                // Any further restriction is up to the developer.
+            // Values cannot be null.
+            // Values cannot have zero characters.
+            // Any further restriction is up to the developer.
 
             // 8. Inform the application user when all data requirements are met, pausing the application to ensure the message can be seen and responded to.
             Console.WriteLine("Press the Enter key to continue");
