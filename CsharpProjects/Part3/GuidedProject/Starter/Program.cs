@@ -294,8 +294,31 @@ do
               else
               {
                 ourAnimals[i, 2] = "Age: " + petAge.ToString();
+
+                Console.WriteLine($"Thank you for updating data for pet {ourAnimals[i, 0]}. You reported age as: {petAge} years old.");
               }
             } while ((petAge <= 0) || (petAge > 100));
+          }
+          else if ((ourAnimals[i, 4] == "Physical description: ") || (ourAnimals[i, 4] == "Physical description: tbd"))
+          {
+            animalPhysicalDescription = "";
+            do
+            {
+              Console.WriteLine($"Please provide a physical description for {ourAnimals[i, 0]}.");
+              readResult = Console.ReadLine();
+
+              if (readResult != null)
+              {
+                animalPhysicalDescription = readResult.ToLower();
+
+                ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
+
+                Console.WriteLine($"Thank you for updating data for pet {ourAnimals[i, 0]}. You reported physical description as: {animalPhysicalDescription}.");
+              }
+            } while ((animalPhysicalDescription == "") || (animalPhysicalDescription == "tbd"));
+
+            Console.WriteLine("All animal data is filled in; no missing data. Thanks! Press the Enter key to continue.");
+            readResult = Console.ReadLine();
           }
         }
       }
