@@ -352,8 +352,27 @@ do
         }
         else if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 5] == "Personality: ") || (ourAnimals[i, 5] == "Personality: tbd")))
         {
-          animalPersonalityDescription = "";
-          Console.WriteLine($"Hi, personality for {ourAnimals[i, 0]} is currently listed as {animalPersonalityDescription}. Please update this ASAP.");
+          animalPersonalityDescription = "...";
+          do
+          {
+            Console.WriteLine($"Hi, personality for {ourAnimals[i, 0]} is currently listed as '{animalPersonalityDescription}'. Please update this ASAP.");
+            readResult = Console.ReadLine();
+
+            if (readResult != null)
+            {
+              animalPersonalityDescription = readResult.ToLower();
+
+              if (animalPersonalityDescription.Length < 5)
+              {
+                Console.WriteLine("Please provide more info than this; how would you describe this sweet little baby?! What are they like?");
+                continue;
+              }
+
+              ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+
+              Console.WriteLine($"Thanks for updating info on {ourAnimals[i, 0]}. Personality description provided is: {animalPersonalityDescription}.");
+            }
+          } while (animalPersonalityDescription.Length < 5);
         }
       }
       Console.WriteLine("Press the Enter key to return to main menu.");
