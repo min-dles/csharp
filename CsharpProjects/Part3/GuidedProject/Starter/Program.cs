@@ -350,6 +350,11 @@ do
             }
           } while (animalNickname == "");
         }
+        else if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 5] == "Personality: ") || (ourAnimals[i, 5] == "Personality: tbd")))
+        {
+          animalPersonalityDescription = "";
+          Console.WriteLine($"Hi, personality for {ourAnimals[i, 0]} is currently listed as {animalPersonalityDescription}. Please update this ASAP.");
+        }
       }
       Console.WriteLine("Press the Enter key to return to main menu.");
       readResult = Console.ReadLine();
