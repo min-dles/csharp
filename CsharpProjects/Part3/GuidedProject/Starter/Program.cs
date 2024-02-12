@@ -261,10 +261,6 @@ do
       break;
 
     case "3":
-      // Ensure animal ages and physical descriptions are complete
-      // 1. Be enabled inside the appropriate application branch (must not overwrite the code in the code branch for menu option 2).
-
-      // 2. Skip over any animal in the ourAnimals array when the value of pet ID is set to the default value.
       for (int i = 0; i < maxPets; i++)
       {
         if (ourAnimals[i, 0] != "ID #: ")
@@ -322,30 +318,64 @@ do
           }
         }
       }
-
-      // 3. Display the pet ID value and prompt the user for an updated data value if ourAnimals array data is missing or incomplete.
-
-      // 4. Ensure that a valid numeric value is assigned to animalAge for all animals in the ourAnimals array that have assigned data.
-
-      // 5. Ensure that a valid string is assigned to animalPhysicalDescription for all animals in the ourAnimals array that have assigned data.
-
-      // 6. Enforce the following validation rules for animalAge.
-      // It must be possible to convert the value entered to numeric data type.
-
-      // 7. Enforce the following validation rules for animalPhysicalDescription:
-      // Values cannot be null.
-      // Values cannot have zero characters.
-      // Any further restriction is up to the developer.
-
-      // 8. Inform the application user when all data requirements are met, pausing the application to ensure the message can be seen and responded to.
       Console.WriteLine("Press the Enter key to continue");
       readResult = Console.ReadLine();
       break;
 
     case "4":
       // Ensure animal nicknames and personality descriptions are complete
-      Console.WriteLine("Challenge Project - please check back soon to see progress.");
-      Console.WriteLine("Press the Enter key to continue");
+      for (int i = 0; i < maxPets; i++)
+      {
+        if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 3] == "Nickname: ") || (ourAnimals[i, 3] == "Nickname: tbd")))
+        {
+          animalNickname = "";
+          do
+          {
+            Console.WriteLine($"Please enter a nickname for {ourAnimals[i, 0]}.");
+            readResult = Console.ReadLine();
+
+            if (readResult != null)
+            {
+              animalNickname = readResult.ToLower();
+
+              if (animalNickname.Length == 0)
+              {
+                Console.WriteLine("Please try again; need to enter at least one character for the nickname.");
+                continue;
+              }
+
+              ourAnimals[i, 3] = "Nickname: " + animalNickname;
+
+              Console.WriteLine($"Thanks for updating data on {ourAnimals[i, 0]}. Nickname entered as: {animalNickname}.");
+            }
+          } while (animalNickname == "");
+        }
+        else if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 5] == "Personality: ") || (ourAnimals[i, 5] == "Personality: tbd")))
+        {
+          animalPersonalityDescription = "...";
+          do
+          {
+            Console.WriteLine($"Hi, personality for {ourAnimals[i, 0]} is currently listed as '{animalPersonalityDescription}'. Please update this ASAP.");
+            readResult = Console.ReadLine();
+
+            if (readResult != null)
+            {
+              animalPersonalityDescription = readResult.ToLower();
+
+              if (animalPersonalityDescription.Length < 5)
+              {
+                Console.WriteLine("Please provide more info than this; how would you describe this sweet little baby?! What are they like?");
+                continue;
+              }
+
+              ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+
+              Console.WriteLine($"Thanks for updating info on {ourAnimals[i, 0]}. Personality description provided is: {animalPersonalityDescription}.");
+            }
+          } while (animalPersonalityDescription.Length < 5);
+        }
+      }
+      Console.WriteLine("Press the Enter key to return to main menu.");
       readResult = Console.ReadLine();
       break;
 
