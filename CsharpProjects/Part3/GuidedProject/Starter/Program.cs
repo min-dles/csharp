@@ -328,10 +328,30 @@ do
       {
         if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 3] == "Nickname: ") || (ourAnimals[i, 3] == "Nickname: tbd")))
         {
-          Console.WriteLine($"Please enter a nickname for {ourAnimals[i, 0]}.");
+          animalNickname = "";
+          do
+          {
+            Console.WriteLine($"Please enter a nickname for {ourAnimals[i, 0]}.");
+            readResult = Console.ReadLine();
+
+            if (readResult != null)
+            {
+              animalNickname = readResult.ToLower();
+
+              if (animalNickname.Length == 0)
+              {
+                Console.WriteLine("Please try again; need to enter at least one character for the nickname.");
+                continue;
+              }
+
+              ourAnimals[i, 3] = "Nickname: " + animalNickname;
+
+              Console.WriteLine($"Thanks for updating data on {ourAnimals[i, 0]}. Nickname entered as: {animalNickname}.");
+            }
+          } while (animalNickname == "");
         }
       }
-      Console.WriteLine("Press the Enter key to continue");
+      Console.WriteLine("Press the Enter key to return to main menu.");
       readResult = Console.ReadLine();
       break;
 
