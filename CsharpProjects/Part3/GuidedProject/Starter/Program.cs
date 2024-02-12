@@ -295,7 +295,8 @@ do
               }
             } while ((petAge <= 0) || (petAge > 100));
           }
-          else if ((ourAnimals[i, 4] == "Physical description: ") || (ourAnimals[i, 4] == "Physical description: tbd"))
+          
+          if ((ourAnimals[i, 4] == "Physical description: ") || (ourAnimals[i, 4] == "Physical description: tbd"))
           {
             animalPhysicalDescription = "";
             do
@@ -307,18 +308,24 @@ do
               {
                 animalPhysicalDescription = readResult.ToLower();
 
+                if (animalPhysicalDescription.Length < 4)
+                {
+                  Console.WriteLine($"Please provide more info than '{animalPhysicalDescription}'. You can mention things like size, color, breed, etc.");
+                  continue;
+                }
+
                 ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
 
                 Console.WriteLine($"Thank you for updating data for pet {ourAnimals[i, 0]}. You reported physical description as: {animalPhysicalDescription}.");
               }
-            } while ((animalPhysicalDescription == "") || (animalPhysicalDescription == "tbd"));
+            } while (animalPhysicalDescription.Length < 4);
 
             Console.WriteLine("All animal data is filled in; no missing data. Thanks! Press the Enter key to continue.");
             readResult = Console.ReadLine();
           }
         }
       }
-      Console.WriteLine("Press the Enter key to continue");
+      Console.WriteLine("Press the Enter key to return to main menu.");
       readResult = Console.ReadLine();
       break;
 
@@ -350,7 +357,8 @@ do
             }
           } while (animalNickname == "");
         }
-        else if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 5] == "Personality: ") || (ourAnimals[i, 5] == "Personality: tbd")))
+        
+        if ((ourAnimals[i, 0] != "ID #: ") && ((ourAnimals[i, 5] == "Personality: ") || (ourAnimals[i, 5] == "Personality: tbd")))
         {
           animalPersonalityDescription = "...";
           do
@@ -373,6 +381,9 @@ do
               Console.WriteLine($"Thanks for updating info on {ourAnimals[i, 0]}. Personality description provided is: {animalPersonalityDescription}.");
             }
           } while (animalPersonalityDescription.Length < 5);
+          
+          Console.WriteLine("All animal data is filled in; no missing data. Thanks! Press the Enter key to continue.");
+          readResult = Console.ReadLine();
         }
       }
       Console.WriteLine("Press the Enter key to return to main menu.");
