@@ -96,7 +96,7 @@
       Console.WriteLine("Unable to process request");
     if (resultB > 0) // this evaluates to FALSE and therefore won't execute the next line of code
       Console.WriteLine($"Measurement (w/ offset): {50 + resultB}");
-*/
+
   // Code challenge 1
     string[] values = { "12.3", "45", "ABC", "11", "DEF" };
     float total = 0;
@@ -126,3 +126,21 @@
 
     float result3 = value3 / value1;
     Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
+*/
+
+// Module 3 - Perform operations on arrays using helper methods
+string[] pallets = { "B14", "A11", "B12", "A13" };
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("\nReversed...");
+Array.Reverse(pallets);
+foreach (var pallet in pallets)
+{
+  Console.WriteLine($"-- {pallet}");
+}
