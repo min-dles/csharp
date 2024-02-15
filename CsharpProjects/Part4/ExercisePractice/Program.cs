@@ -77,3 +77,11 @@
   int someValue = (int)1.5m; // casting truncates
   int otherValue = Convert.ToInt32(1.5m); // converting rounds up 
   Console.WriteLine($"Casting: {someValue} vs. Converting: {otherValue}");
+
+// TryParse() to prevent runtime errors during type conversion from string to int
+  string valueA = "102";
+  int resultA = 0;
+  if (int.TryParse(valueA, out resultA))
+    Console.WriteLine($"Measurement: {resultA}");
+  else
+    Console.WriteLine("Error: unable to report measurement.");
