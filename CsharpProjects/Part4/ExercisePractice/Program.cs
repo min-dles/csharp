@@ -34,7 +34,7 @@
         // System.TimeSpan for a span of years / months / days / hours / minutes / seconds / milliseconds.
 */
 
-// Module 2 - Convert data types using casting and conversion techniques
+/* Module 2 - Convert data types using casting and conversion techniques
   int first = 2;
   string second = "4";
   string result = first + second;
@@ -96,3 +96,18 @@
     Console.WriteLine("Unable to process request");
   if (resultB > 0) // this evaluates to FALSE and therefore won't execute the next line of code
     Console.WriteLine($"Measurement (w/ offset): {50 + resultB}");
+*/
+// Code challenge 1
+  string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+  float total = 0;
+  string message = "";
+  for (int i = 0; i < values.Length; i++)
+  {
+    float storageNum = 0;
+    if (float.TryParse(values[i], out storageNum))
+      total += storageNum;
+    else 
+      message = message + values[i];
+  }
+
+  Console.WriteLine($"Message: {message} \nTotal: {total}");
