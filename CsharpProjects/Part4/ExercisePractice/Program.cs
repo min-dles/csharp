@@ -35,79 +35,94 @@
 */
 
 /* Module 2 - Convert data types using casting and conversion techniques
-  int first = 2;
-  string second = "4";
-  string result = first + second;
-  Console.WriteLine($"safe conversion example for int(2) + string(\"4\") = string(\"24\"): {result}.");
+    int first = 2;
+    string second = "4";
+    string result = first + second;
+    Console.WriteLine($"safe conversion example for int(2) + string(\"4\") = string(\"24\"): {result}.");
 
-// Widening Conversion for Implicit Conversion  
-  int myInt = 3;
-  decimal myDecimal = myInt;
-  Console.WriteLine($"int: {myInt} vs. decimal: {myDecimal}");
+  // Widening Conversion for Implicit Conversion  
+    int myInt = 3;
+    decimal myDecimal = myInt;
+    Console.WriteLine($"int: {myInt} vs. decimal: {myDecimal}");
 
-// Perform a Cast for Explicit Conversion
-  myDecimal = 3.95m; // value has precision denoted by the "m"
-  myInt = (int)myDecimal; // casting operation ()
-  Console.WriteLine($"decimal: {myDecimal} vs. int: {myInt}");
+  // Perform a Cast for Explicit Conversion
+    myDecimal = 3.95m; // value has precision denoted by the "m"
+    myInt = (int)myDecimal; // casting operation ()
+    Console.WriteLine($"decimal: {myDecimal} vs. int: {myInt}");
 
-// Practice with a small test to see if data conversion is narrowing or widening
-  myDecimal = 1.23456789m;
-  float myFloat = (float)myDecimal;
-  Console.WriteLine($"Decimal: {myDecimal} vs. Float: {myFloat}"); // output shows that casting a decimal to a float is a narrowing conversion because you're losing precision
+  // Practice with a small test to see if data conversion is narrowing or widening
+    myDecimal = 1.23456789m;
+    float myFloat = (float)myDecimal;
+    Console.WriteLine($"Decimal: {myDecimal} vs. Float: {myFloat}"); // output shows that casting a decimal to a float is a narrowing conversion because you're losing precision
 
-// Practice with ToString() to convert a number to a string
-  int firstNum = 5;
-  int secondNum = 7;
-  string message = firstNum.ToString() + secondNum.ToString(); 
-  Console.WriteLine($"ToString() method used on 5 + 7 = {message}");
+  // Practice with ToString() to convert a number to a string
+    int firstNum = 5;
+    int secondNum = 7;
+    string message = firstNum.ToString() + secondNum.ToString(); 
+    Console.WriteLine($"ToString() method used on 5 + 7 = {message}");
 
-// Practice with Parse() to convert a string to an int
-  string firstStr = "5";
-  string secondStr = "7";
-  int sum = int.Parse(firstStr) + int.Parse(secondStr);
-  Console.WriteLine($"Parse() method used on \'5\' + \'7\' = {sum}");
+  // Practice with Parse() to convert a string to an int
+    string firstStr = "5";
+    string secondStr = "7";
+    int sum = int.Parse(firstStr) + int.Parse(secondStr);
+    Console.WriteLine($"Parse() method used on \'5\' + \'7\' = {sum}");
 
-// Practice with Convert class
-  string value1 = "5";
-  string value2 = "7";
-  int multiply = Convert.ToInt32(value1) * Convert.ToInt32(value2);
-  Console.WriteLine($"Convert class used on \'5\' * \'7\' = {multiply}");
+  // Practice with Convert class
+    string value1 = "5";
+    string value2 = "7";
+    int multiply = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+    Console.WriteLine($"Convert class used on \'5\' * \'7\' = {multiply}");
 
-// compare casting vs. converting a decimal to an int
-  int someValue = (int)1.5m; // casting truncates
-  int otherValue = Convert.ToInt32(1.5m); // converting rounds up 
-  Console.WriteLine($"Casting: {someValue} vs. Converting: {otherValue}");
+  // compare casting vs. converting a decimal to an int
+    int someValue = (int)1.5m; // casting truncates
+    int otherValue = Convert.ToInt32(1.5m); // converting rounds up 
+    Console.WriteLine($"Casting: {someValue} vs. Converting: {otherValue}");
 
-// TryParse() to prevent runtime errors during type conversion from string to int
-  string valueA = "102";
-  int resultA = 0;
-  if (int.TryParse(valueA, out resultA))
-    Console.WriteLine($"Measurement: {resultA}");
-  else
-    Console.WriteLine("Error: unable to report measurement.");
-  Console.WriteLine($"Measurement (w/ offset): {50 + resultA}"); // outside of the if-else statement, meaning resultA's value remains AFTER the if-else statement and doesn't revert to it's initialized value of 0
+  // TryParse() to prevent runtime errors during type conversion from string to int
+    string valueA = "102";
+    int resultA = 0;
+    if (int.TryParse(valueA, out resultA))
+      Console.WriteLine($"Measurement: {resultA}");
+    else
+      Console.WriteLine("Error: unable to report measurement.");
+    Console.WriteLine($"Measurement (w/ offset): {50 + resultA}"); // outside of the if-else statement, meaning resultA's value remains AFTER the if-else statement and doesn't revert to it's initialized value of 0
 
-// see TryParse() with a "bad" value (i.e. can't be converted)
-  string valueB = "bad";
-  int resultB = 0;
-  if (int.TryParse(valueB, out resultB))
-    Console.WriteLine($"Measurement: {resultB}");
-  else // this is the line of code that will be run
-    Console.WriteLine("Unable to process request");
-  if (resultB > 0) // this evaluates to FALSE and therefore won't execute the next line of code
-    Console.WriteLine($"Measurement (w/ offset): {50 + resultB}");
+  // see TryParse() with a "bad" value (i.e. can't be converted)
+    string valueB = "bad";
+    int resultB = 0;
+    if (int.TryParse(valueB, out resultB))
+      Console.WriteLine($"Measurement: {resultB}");
+    else // this is the line of code that will be run
+      Console.WriteLine("Unable to process request");
+    if (resultB > 0) // this evaluates to FALSE and therefore won't execute the next line of code
+      Console.WriteLine($"Measurement (w/ offset): {50 + resultB}");
 */
-// Code challenge 1
-  string[] values = { "12.3", "45", "ABC", "11", "DEF" };
-  float total = 0;
-  string message = "";
-  for (int i = 0; i < values.Length; i++)
-  {
-    float storageNum = 0;
-    if (float.TryParse(values[i], out storageNum))
-      total += storageNum;
-    else 
-      message = message + values[i];
-  }
+  // Code challenge 1
+    string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+    float total = 0;
+    string message = "";
+    for (int i = 0; i < values.Length; i++)
+    {
+      float storageNum = 0;
+      if (float.TryParse(values[i], out storageNum))
+        total += storageNum;
+      else 
+        message = message + values[i];
+    }
 
-  Console.WriteLine($"Message: {message} \nTotal: {total}");
+    Console.WriteLine($"Message: {message} \nTotal: {total}");
+
+  // Code Challenge 2
+    int value1 = 12;
+    decimal value2 = 6.2m;
+    float value3 = 4.3f;
+
+    int result1 = Convert.ToInt32((decimal)value1 / value2);
+    // Hint: You need to round the result to nearest integer (don't just truncate)
+    Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+    decimal result2 = value2 / (decimal)value3;
+    Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+    float result3 = value3 / value1;
+    Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
