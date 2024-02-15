@@ -66,3 +66,14 @@
   string secondStr = "7";
   int sum = int.Parse(firstStr) + int.Parse(secondStr);
   Console.WriteLine($"Parse() method used on \'5\' + \'7\' = {sum}");
+
+// Practice with Convert class
+  string value1 = "5";
+  string value2 = "7";
+  int multiply = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+  Console.WriteLine($"Convert class used on \'5\' * \'7\' = {multiply}");
+
+// compare casting vs. converting a decimal to an int
+  int someValue = (int)1.5m; // casting truncates
+  int otherValue = Convert.ToInt32(1.5m); // converting rounds up 
+  Console.WriteLine($"Casting: {someValue} vs. Converting: {otherValue}");
