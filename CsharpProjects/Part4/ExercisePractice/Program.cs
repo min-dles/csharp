@@ -42,14 +42,15 @@
 
 // Widening Conversion for Implicit Conversion  
   int myInt = 3;
-  Console.WriteLine($"int: {myInt}.");
-
   decimal myDecimal = myInt;
-  Console.WriteLine($"decimal: {myDecimal}.");
+  Console.WriteLine($"int: {myInt} vs. decimal: {myDecimal}");
 
 // Perform a Cast for Explicit Conversion
   myDecimal = 3.95m; // value has precision denoted by the "m"
-  Console.WriteLine($"decimal: {myDecimal}.");
-
   myInt = (int)myDecimal; // casting operation ()
-  Console.WriteLine($"int: {myInt}.");
+  Console.WriteLine($"decimal: {myDecimal} vs. int: {myInt}");
+
+// Practice with a small test to see if data conversion is narrowing or widening
+  myDecimal = 1.23456789m;
+  float myFloat = (float)myDecimal;
+  Console.WriteLine($"Decimal: {myDecimal} vs. Float: {myFloat}"); // output shows that casting a decimal to a float is a narrowing conversion because you're losing precision
