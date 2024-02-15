@@ -85,3 +85,14 @@
     Console.WriteLine($"Measurement: {resultA}");
   else
     Console.WriteLine("Error: unable to report measurement.");
+  Console.WriteLine($"Measurement (w/ offset): {50 + resultA}"); // outside of the if-else statement, meaning resultA's value remains AFTER the if-else statement and doesn't revert to it's initialized value of 0
+
+// see TryParse() with a "bad" value (i.e. can't be converted)
+  string valueB = "bad";
+  int resultB = 0;
+  if (int.TryParse(valueB, out resultB))
+    Console.WriteLine($"Measurement: {resultB}");
+  else // this is the line of code that will be run
+    Console.WriteLine("Unable to process request");
+  if (resultB > 0) // this evaluates to FALSE and therefore won't execute the next line of code
+    Console.WriteLine($"Measurement (w/ offset): {50 + resultB}");
