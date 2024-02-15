@@ -54,3 +54,15 @@
   myDecimal = 1.23456789m;
   float myFloat = (float)myDecimal;
   Console.WriteLine($"Decimal: {myDecimal} vs. Float: {myFloat}"); // output shows that casting a decimal to a float is a narrowing conversion because you're losing precision
+
+// Practice with ToString() to convert a number to a string
+  int firstNum = 5;
+  int secondNum = 7;
+  string message = firstNum.ToString() + secondNum.ToString(); 
+  Console.WriteLine($"ToString() method used on 5 + 7 = {message}");
+
+// Practice with Parse() to convert a string to an int
+  string firstStr = "5";
+  string secondStr = "7";
+  int sum = int.Parse(firstStr) + int.Parse(secondStr);
+  Console.WriteLine($"Parse() method used on \'5\' + \'7\' = {sum}");
