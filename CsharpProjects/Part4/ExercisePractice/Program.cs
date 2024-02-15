@@ -40,8 +40,16 @@
   string result = first + second;
   Console.WriteLine($"safe conversion example for int(2) + string(\"4\") = string(\"24\"): {result}.");
 
+// Widening Conversion for Implicit Conversion  
   int myInt = 3;
   Console.WriteLine($"int: {myInt}.");
 
   decimal myDecimal = myInt;
   Console.WriteLine($"decimal: {myDecimal}.");
+
+// Perform a Cast for Explicit Conversion
+  myDecimal = 3.95m; // value has precision denoted by the "m"
+  Console.WriteLine($"decimal: {myDecimal}.");
+
+  myInt = (int)myDecimal; // casting operation ()
+  Console.WriteLine($"int: {myInt}.");
