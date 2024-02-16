@@ -184,7 +184,7 @@ foreach (string item in items)
 }
 */
 
-// Code Challenge
+// Code Challenge 1
 string pangram = "The quick brown fox jumps over the lazy dog";
 string[] words = pangram.Split(" ");
 string[] newWords = new string[words.Length];
@@ -199,3 +199,19 @@ for (int i = 0; i < words.Length; i++)
 
 string finalMessage = String.Join(" ", newWords);
 Console.WriteLine(finalMessage);
+
+// Code Challenge 2
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+string[] orderNums = orderStream.Split(",");
+foreach (var instance in orderNums)
+{
+  Console.WriteLine(instance);
+}
+
+for (int i = 0; i < orderNums.Length; i++)
+{
+  if (orderNums[i].Length == 4)
+    Console.WriteLine(orderNums[i]);
+  else
+    Console.WriteLine($"{orderNums[i]} \t- Error");
+}
