@@ -203,10 +203,7 @@ Console.WriteLine(finalMessage);
 // Code Challenge 2
 string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
 string[] orderNums = orderStream.Split(",");
-foreach (var instance in orderNums)
-{
-  Console.WriteLine(instance);
-}
+Array.Sort(orderNums);
 
 for (int i = 0; i < orderNums.Length; i++)
 {
