@@ -129,86 +129,88 @@
 */
 
 /* Module 3 - Perform operations on arrays using helper methods
-string[] pallets = { "B14", "A11", "B12", "A13" };
+  string[] pallets = { "B14", "A11", "B12", "A13" };
 
-Console.WriteLine("Sorted...");
-Array.Sort(pallets);
-foreach (var pallet in pallets)
-{
+  Console.WriteLine("Sorted...");
+  Array.Sort(pallets);
+  foreach (var pallet in pallets)
+  {
+      Console.WriteLine($"-- {pallet}");
+  }
+
+  Console.WriteLine("\nReversed...");
+  Array.Reverse(pallets);
+  foreach (var pallet in pallets)
+  {
     Console.WriteLine($"-- {pallet}");
-}
+  }
 
-Console.WriteLine("\nReversed...");
-Array.Reverse(pallets);
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Clear(pallets, 0, 2); // in pallets array, start at index 0 and clear 2 elements
+  Console.WriteLine($"\nClearing 2 ... count: {pallets.Length}");
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-Array.Clear(pallets, 0, 2); // in pallets array, start at index 0 and clear 2 elements
-Console.WriteLine($"\nClearing 2 ... count: {pallets.Length}");
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Resize(ref pallets, 6);
+  Console.WriteLine($"\nResizing to 6 ... count: {pallets.Length}");
 
-Array.Resize(ref pallets, 6);
-Console.WriteLine($"\nResizing to 6 ... count: {pallets.Length}");
+  pallets[4] = "C01";
+  pallets[5] = "C02";
 
-pallets[4] = "C01";
-pallets[5] = "C02";
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Resize(ref pallets, 3);
+  Console.WriteLine($"\nResizing to 3 ... count: {pallets.Length}");
 
-Array.Resize(ref pallets, 3);
-Console.WriteLine($"\nResizing to 3 ... count: {pallets.Length}");
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  string value = "abc123";
+  char[] valueArray = value.ToCharArray();
+  Array.Reverse(valueArray);
+  // string result = new string(valueArray);
+  string result = String.Join(",", valueArray); // create one string value out of array values, joined by commas
+  Console.WriteLine($"\n{result}\n");
+  string[] items = result.Split(','); // then split the string value created above by separating at the commas
+  foreach (string item in items)
+  {
+    Console.WriteLine($"{item}");
+  }
 
-string value = "abc123";
-char[] valueArray = value.ToCharArray();
-Array.Reverse(valueArray);
-// string result = new string(valueArray);
-string result = String.Join(",", valueArray); // create one string value out of array values, joined by commas
-Console.WriteLine($"\n{result}\n");
-string[] items = result.Split(','); // then split the string value created above by separating at the commas
-foreach (string item in items)
-{
-  Console.WriteLine($"{item}");
-}
+
+  // Code Challenge 1
+    string pangram = "The quick brown fox jumps over the lazy dog";
+    string[] words = pangram.Split(" ");
+    string[] newWords = new string[words.Length];
+
+    for (int i = 0; i < words.Length; i++)
+    {
+      char[] wordArr = words[i].ToCharArray();
+      Array.Reverse(wordArr);
+      string newWord = String.Join("", wordArr);
+      newWords[i] = newWord;
+    }
+    string finalMessage = String.Join(" ", newWords);
+    Console.WriteLine(finalMessage);
+
+  // Code Challenge 2
+    string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+    string[] orderNums = orderStream.Split(",");
+    Array.Sort(orderNums);
+
+    for (int i = 0; i < orderNums.Length; i++)
+    {
+      if (orderNums[i].Length == 4)
+        Console.WriteLine(orderNums[i]);
+      else
+        Console.WriteLine($"{orderNums[i]} \t- Error");
+    }
 */
 
-// Code Challenge 1
-string pangram = "The quick brown fox jumps over the lazy dog";
-string[] words = pangram.Split(" ");
-string[] newWords = new string[words.Length];
-
-for (int i = 0; i < words.Length; i++)
-{
-  char[] wordArr = words[i].ToCharArray();
-  Array.Reverse(wordArr);
-  string newWord = String.Join("", wordArr);
-  newWords[i] = newWord;
-}
-
-string finalMessage = String.Join(" ", newWords);
-Console.WriteLine(finalMessage);
-
-// Code Challenge 2
-string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
-string[] orderNums = orderStream.Split(",");
-Array.Sort(orderNums);
-
-for (int i = 0; i < orderNums.Length; i++)
-{
-  if (orderNums[i].Length == 4)
-    Console.WriteLine(orderNums[i]);
-  else
-    Console.WriteLine($"{orderNums[i]} \t- Error");
-}
+// Module 4 - Format alphanumeric data for presentation in C#
