@@ -128,7 +128,7 @@
     Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
 */
 
-// Module 3 - Perform operations on arrays using helper methods
+/* Module 3 - Perform operations on arrays using helper methods
 string[] pallets = { "B14", "A11", "B12", "A13" };
 
 Console.WriteLine("Sorted...");
@@ -182,3 +182,20 @@ foreach (string item in items)
 {
   Console.WriteLine($"{item}");
 }
+*/
+
+// Code Challenge
+string pangram = "The quick brown fox jumps over the lazy dog";
+string[] words = pangram.Split(" ");
+string[] newWords = new string[words.Length];
+
+for (int i = 0; i < words.Length; i++)
+{
+  char[] wordArr = words[i].ToCharArray();
+  Array.Reverse(wordArr);
+  string newWord = String.Join("", wordArr);
+  newWords[i] = newWord;
+}
+
+string finalMessage = String.Join(" ", newWords);
+Console.WriteLine(finalMessage);
