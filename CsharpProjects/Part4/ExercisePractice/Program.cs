@@ -170,3 +170,15 @@ foreach (var pallet in pallets)
 {
   Console.WriteLine($"-- {pallet}");
 }
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray); // create one string value out of array values, joined by commas
+Console.WriteLine($"\n{result}\n");
+string[] items = result.Split(','); // then split the string value created above by separating at the commas
+foreach (string item in items)
+{
+  Console.WriteLine($"{item}");
+}
