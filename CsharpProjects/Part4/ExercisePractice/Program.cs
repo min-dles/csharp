@@ -347,3 +347,13 @@ while (true)
     // Note the overload of the Substring to return only the remaining unprocessed message:
     messageFour = messageFour.Substring(closingPosition + 1);
 } // what if \nmore than \nset of parentheses
+
+string messageFive = "Help (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Message: {messageFive}");
+char[] openSymbols = { '[', '{', '(' };
+int startPosition = 5;
+openingPosition = messageFive.IndexOfAny(openSymbols);
+Console.WriteLine($"Found WITHOUT using startPosition: {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+
+openingPosition = messageFive.IndexOfAny(openSymbols, startPosition);
+Console.WriteLine($"Found WITH using startPosition {startPosition}:  {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
