@@ -219,3 +219,7 @@ string second = "World";
 Console.WriteLine($"{first} {second}"); // Hello World!
 Console.WriteLine($"{second} {first}!"); // World Hello!
 Console.WriteLine($"{first} {first} {first}!"); // O: Hello Hello Hello!
+
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");
