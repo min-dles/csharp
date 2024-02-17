@@ -4,8 +4,9 @@
 1. [About](#about)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Contributing](#contributing)
-5. [Credits](#credits)
+4. [Technologies](#technologies)
+5. [Contributing](#contributing)
+6. [Credits](#credits)
 
 ## About:
 This repo contains study notes, exercises, and challenges that I completed while studying the Foundation C# Certification course available on Microsoft Learn x freeCodeCamp. 
@@ -49,6 +50,12 @@ To check out the console applications developed as part of code challenges in th
     - NOTE: this is a "bonus" folder which has additional notes or projects or tests which was used alongside the studies of this guided course. It is not officially part of the coursework in any organized capacity; it contains "overflow" information and ideas for practice etc. 
 
 Each folder contains **ExercisePractice**, **GuidedProject**, and **ChallengeProject** folders respectively. If you are interested in running some of the console applications featured in this repo on your own local machine, it is recommended to open the GuidedProject > Starter or ChallengeProject > Starter folders in your terminal and run those with the following command: `dotnet run`
+
+## Technologies
+Some of the technologies and concepts practiced in this repo are:
+- C# language, looping, logic
+- .NET runtime and framework for C# classes & methods
+- practice with git branching, pull requests, and organizing the flow of repo 
 
 ## Contributing
 If you would like to contribute to this repo, feel free to fork or follow along for your own study experience! The main benefit to documenting my coursework in this way is the learning along the way; it is organized in a way that mirrors the iterative approach to software development and solving logic problems.

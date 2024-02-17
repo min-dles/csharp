@@ -301,4 +301,10 @@
   */
 
 // Module 5 - Modify the content of strings using built-in string data type methods
-Console.WriteLine("Hello world!");
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+Console.WriteLine(openingPosition); // 13
+Console.WriteLine(closingPosition); // 36
