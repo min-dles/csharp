@@ -129,86 +129,172 @@
 */
 
 /* Module 3 - Perform operations on arrays using helper methods
-string[] pallets = { "B14", "A11", "B12", "A13" };
+  string[] pallets = { "B14", "A11", "B12", "A13" };
 
-Console.WriteLine("Sorted...");
-Array.Sort(pallets);
-foreach (var pallet in pallets)
-{
+  Console.WriteLine("Sorted...");
+  Array.Sort(pallets);
+  foreach (var pallet in pallets)
+  {
+      Console.WriteLine($"-- {pallet}");
+  }
+
+  Console.WriteLine("\nReversed...");
+  Array.Reverse(pallets);
+  foreach (var pallet in pallets)
+  {
     Console.WriteLine($"-- {pallet}");
-}
+  }
 
-Console.WriteLine("\nReversed...");
-Array.Reverse(pallets);
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Clear(pallets, 0, 2); // in pallets array, start at index 0 and clear 2 elements
+  Console.WriteLine($"\nClearing 2 ... count: {pallets.Length}");
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-Array.Clear(pallets, 0, 2); // in pallets array, start at index 0 and clear 2 elements
-Console.WriteLine($"\nClearing 2 ... count: {pallets.Length}");
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Resize(ref pallets, 6);
+  Console.WriteLine($"\nResizing to 6 ... count: {pallets.Length}");
 
-Array.Resize(ref pallets, 6);
-Console.WriteLine($"\nResizing to 6 ... count: {pallets.Length}");
+  pallets[4] = "C01";
+  pallets[5] = "C02";
 
-pallets[4] = "C01";
-pallets[5] = "C02";
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  Array.Resize(ref pallets, 3);
+  Console.WriteLine($"\nResizing to 3 ... count: {pallets.Length}");
 
-Array.Resize(ref pallets, 3);
-Console.WriteLine($"\nResizing to 3 ... count: {pallets.Length}");
+  foreach (var pallet in pallets)
+  {
+    Console.WriteLine($"-- {pallet}");
+  }
 
-foreach (var pallet in pallets)
-{
-  Console.WriteLine($"-- {pallet}");
-}
+  string value = "abc123";
+  char[] valueArray = value.ToCharArray();
+  Array.Reverse(valueArray);
+  // string result = new string(valueArray);
+  string result = String.Join(",", valueArray); // create one string value out of array values, joined by commas
+  Console.WriteLine($"\n{result}\n");
+  string[] items = result.Split(','); // then split the string value created above by separating at the commas
+  foreach (string item in items)
+  {
+    Console.WriteLine($"{item}");
+  }
 
-string value = "abc123";
-char[] valueArray = value.ToCharArray();
-Array.Reverse(valueArray);
-// string result = new string(valueArray);
-string result = String.Join(",", valueArray); // create one string value out of array values, joined by commas
-Console.WriteLine($"\n{result}\n");
-string[] items = result.Split(','); // then split the string value created above by separating at the commas
-foreach (string item in items)
-{
-  Console.WriteLine($"{item}");
-}
+
+  // Code Challenge 1
+    string pangram = "The quick brown fox jumps over the lazy dog";
+    string[] words = pangram.Split(" ");
+    string[] newWords = new string[words.Length];
+
+    for (int i = 0; i < words.Length; i++)
+    {
+      char[] wordArr = words[i].ToCharArray();
+      Array.Reverse(wordArr);
+      string newWord = String.Join("", wordArr);
+      newWords[i] = newWord;
+    }
+    string finalMessage = String.Join(" ", newWords);
+    Console.WriteLine(finalMessage);
+
+  // Code Challenge 2
+    string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+    string[] orderNums = orderStream.Split(",");
+    Array.Sort(orderNums);
+
+    for (int i = 0; i < orderNums.Length; i++)
+    {
+      if (orderNums[i].Length == 4)
+        Console.WriteLine(orderNums[i]);
+      else
+        Console.WriteLine($"{orderNums[i]} \t- Error");
+    }
 */
 
-// Code Challenge 1
-string pangram = "The quick brown fox jumps over the lazy dog";
-string[] words = pangram.Split(" ");
-string[] newWords = new string[words.Length];
+// Module 4 - Format alphanumeric data for presentation in C#
+string first = "Hello";
+string second = "World";
+Console.WriteLine($"{first} {second}"); // Hello World!
+Console.WriteLine($"{second} {first}!"); // World Hello!
+Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
 
-for (int i = 0; i < words.Length; i++)
-{
-  char[] wordArr = words[i].ToCharArray();
-  Array.Reverse(wordArr);
-  string newWord = String.Join("", wordArr);
-  newWords[i] = newWord;
-}
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
+// culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
 
-string finalMessage = String.Join(" ", newWords);
-Console.WriteLine(finalMessage);
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
 
-// Code Challenge 2
-string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
-string[] orderNums = orderStream.Split(",");
-Array.Sort(orderNums);
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
 
-for (int i = 0; i < orderNums.Length; i++)
-{
-  if (orderNums[i].Length == 4)
-    Console.WriteLine(orderNums[i]);
-  else
-    Console.WriteLine($"{orderNums[i]} \t- Error");
-}
+decimal originalPrice = 67.55m;
+decimal salePrice = 59.99m;
+// combine formatting approaches; option A
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
+// combine formatting approaches; option B
+yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
+Console.WriteLine(yourDiscount);
+
+string input = "Pad this";
+Console.WriteLine(input.PadLeft(12)); //     Pad this
+Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
+
+string paymentId = "769C";
+string payeeName = "Mr. Bob Squarepants";
+string paymentAmount = "$5,000.00";
+
+var formattedLine = paymentId.PadRight(6);
+formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
+formattedLine += paymentAmount.PadLeft(10);
+
+Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
+Console.WriteLine(formattedLine);
+
+// Code Challenge
+string customerName = "Mr. Patrick Star";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+// Your logic here
+string greeting = $"Dear {customerName},";
+string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
+string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
+string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
+
+Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
+Console.WriteLine("Here's a quick comparison:\n");
+
+string comparisonMessage = "";
+
+// Your logic here
+var currentProductFormattedRow = currentProduct.PadRight(18);
+string currentReturnFormatted = $"{currentReturn:P2}";
+string currentProfitFormatted = $"{currentProfit:C2}";
+currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
+
+var newProductFormattedRow = newProduct.PadRight(18);
+string newReturnFormatted = $"{newReturn:P2}";
+string newProfitFormatted = $"{newProfit:C2}";
+newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
+
+comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
+
+Console.WriteLine(comparisonMessage);
+
+// Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
+comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
+
+comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
+
+Console.WriteLine(comparisonMessage);
