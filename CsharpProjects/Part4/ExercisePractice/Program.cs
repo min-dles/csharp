@@ -214,3 +214,9 @@
 */
 
 // Module 4 - Format alphanumeric data for presentation in C#
+string first = "Hello";
+string second = "World";
+string result = string.Format("{0} {1}!", first, second);
+Console.WriteLine(result); // Hello World!
+Console.WriteLine("{1} {0}!", first, second); // World Hello!
+Console.WriteLine("{0} {0} {0}!", first, second); // O: Hello Hello Hello!
