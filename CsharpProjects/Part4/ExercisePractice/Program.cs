@@ -308,3 +308,6 @@ int closingPosition = message.IndexOf(')');
 
 Console.WriteLine(openingPosition); // 13
 Console.WriteLine(closingPosition); // 36
+
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length)); // (inside the parentheses
