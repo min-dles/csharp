@@ -291,3 +291,10 @@ newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.Pad
 comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
 
 Console.WriteLine(comparisonMessage);
+
+// Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
+comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
+
+comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
+
+Console.WriteLine(comparisonMessage);
