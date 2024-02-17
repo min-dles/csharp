@@ -238,3 +238,7 @@ string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} pri
 // combine formatting approaches; option B
 yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
 Console.WriteLine(yourDiscount);
+
+string input = "Pad this";
+ Console.WriteLine(input.PadLeft(12)); //     Pad this
+ Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
