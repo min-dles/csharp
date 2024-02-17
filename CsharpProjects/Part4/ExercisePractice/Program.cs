@@ -332,3 +332,18 @@ openingPosition += 1; // 46
 closingPosition = messageThree.LastIndexOf(')'); // 64
 length = closingPosition - openingPosition; // 18
 Console.WriteLine(messageThree.Substring(openingPosition, length)); // set of parentheses
+
+string messageFour = "(What if) there are (more than) one (set of parentheses)?";
+while (true)
+{
+    openingPosition = messageFour.IndexOf('(');
+    if (openingPosition == -1) break;
+
+    openingPosition += 1;
+    closingPosition = messageFour.IndexOf(')');
+    length = closingPosition - openingPosition;
+    Console.WriteLine(messageFour.Substring(openingPosition, length));
+
+    // Note the overload of the Substring to return only the remaining unprocessed message:
+    messageFour = messageFour.Substring(closingPosition + 1);
+} // what if \nmore than \nset of parentheses

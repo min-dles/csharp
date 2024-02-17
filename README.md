@@ -63,6 +63,8 @@ If you would like to contribute to this repo, feel free to fork or follow along 
 ## Credits
 All credit and thanks for the course material goes to [Microsoft Learn](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/) and [freeCodeCamp](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/) for making this available to all for studying. I do not own any of the promps nor exercies featured in this repo; the solutions are a combination of following along with the lesson plans and my own solutions. They are here for all to see for collaborative learning processes and to share my certification journey with others.
 
+Special thanks to Andrew Harasymiw and Matthew Black of @PrimeAcademy for teaching me how to learn code and giving me the building blocks to: *Read, Write, Speak, Teach*
+
 ## Get Started with C#, Part Four
 This branch has exercises and challenges from Part Three of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-4/).
 
