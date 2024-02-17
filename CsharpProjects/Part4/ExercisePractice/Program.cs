@@ -357,3 +357,47 @@ Console.WriteLine($"Found WITHOUT using startPosition: {messageFive.Substring(op
 
 openingPosition = messageFive.IndexOfAny(openSymbols, startPosition);
 Console.WriteLine($"Found WITH using startPosition {startPosition}:  {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+
+string messageSix = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+
+// The IndexOfAny() helper method requires a char array of characters. 
+// You want to look for:
+char[] openingSymbols = { '[', '{', '(' };
+
+// You'll use a slightly different technique for iterating through the characters in the string. This time, use the closing position of the previous iteration as the starting index for the next open symbol. So, you need to initialize (reset) the closingPosition variable to zero:
+closingPosition = 0;
+
+while (true)
+{
+    openingPosition = messageSix.IndexOfAny(openingSymbols, closingPosition);
+
+    if (openingPosition == -1) break;
+
+    string currentSymbol = messageSix.Substring(openingPosition, 1);
+
+    // Now find the matching closing symbol
+    char matchingSymbol = ' ';
+
+    switch (currentSymbol)
+    {
+        case "[":
+            matchingSymbol = ']';
+            break;
+        case "{":
+            matchingSymbol = '}';
+            break;
+        case "(":
+            matchingSymbol = ')';
+            break;
+    }
+
+    // To find the closingPosition, use an overload of the IndexOf method to specify that the search for the matchingSymbol should start at the openingPosition in the string. 
+
+    openingPosition += 1;
+    closingPosition = messageSix.IndexOf(matchingSymbol, openingPosition);
+
+    // Finally, use the techniques you've already learned to display the sub-string:
+
+    length = closingPosition - openingPosition;
+    Console.WriteLine(messageSix.Substring(openingPosition, length));
+}
