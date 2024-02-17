@@ -222,4 +222,8 @@ Console.WriteLine($"{first} {first} {first}!"); // O: Hello Hello Hello!
 
 decimal price = 123.45m;
 int discount = 50;
-Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
+// culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
+
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N2} units"); // numeric format specifier
