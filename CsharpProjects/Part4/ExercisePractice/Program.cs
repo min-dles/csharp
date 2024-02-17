@@ -300,5 +300,5 @@
     Console.WriteLine(comparisonMessage);
   */
 
-// Module 5 - 
+// Module 5 - Modify the content of strings using built-in string data type methods
 Console.WriteLine("Hello world!");
