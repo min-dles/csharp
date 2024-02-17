@@ -316,9 +316,12 @@ Console.WriteLine(message.Substring(openingPosition, length)); // inside the par
 
 string messageTwo = "What is the value <span>between the tags</span>?";
 
-openingPosition = messageTwo.IndexOf("<span>");
-closingPosition = messageTwo.IndexOf("</span>");
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
 
-openingPosition += 6;
+openingPosition = messageTwo.IndexOf(openSpan);
+closingPosition = messageTwo.IndexOf(closeSpan);
+
+openingPosition += openSpan.Length;
 length = closingPosition - openingPosition;
 Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
