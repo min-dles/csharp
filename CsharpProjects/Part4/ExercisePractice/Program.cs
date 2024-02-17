@@ -230,3 +230,11 @@ Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,4
 
 decimal tax = .36785m;
 Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
+
+decimal originalPrice = 67.55m;
+decimal salePrice = 59.99m;
+// combine formatting approaches; option A
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
+// combine formatting approaches; option B
+yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
+Console.WriteLine(yourDiscount);
