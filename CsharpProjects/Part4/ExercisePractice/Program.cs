@@ -313,3 +313,12 @@ openingPosition += 1; // need to skip the index of the parenthesis
 
 int length = closingPosition - openingPosition;
 Console.WriteLine(message.Substring(openingPosition, length)); // inside the parentheses
+
+string messageTwo = "What is the value <span>between the tags</span>?";
+
+openingPosition = messageTwo.IndexOf("<span>");
+closingPosition = messageTwo.IndexOf("</span>");
+
+openingPosition += 6;
+length = closingPosition - openingPosition;
+Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
