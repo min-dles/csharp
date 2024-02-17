@@ -213,88 +213,92 @@
     }
 */
 
-// Module 4 - Format alphanumeric data for presentation in C#
-string first = "Hello";
-string second = "World";
-Console.WriteLine($"{first} {second}"); // Hello World!
-Console.WriteLine($"{second} {first}!"); // World Hello!
-Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
+/* Module 4 - Format alphanumeric data for presentation in C#
+  string first = "Hello";
+  string second = "World";
+  Console.WriteLine($"{first} {second}"); // Hello World!
+  Console.WriteLine($"{second} {first}!"); // World Hello!
+  Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
 
-decimal price = 123.45m;
-int discount = 50;
-Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
-// culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
+  decimal price = 123.45m;
+  int discount = 50;
+  Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
+  // culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
 
-decimal measurement = 123456.78912m;
-Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
+  decimal measurement = 123456.78912m;
+  Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
 
-decimal tax = .36785m;
-Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
+  decimal tax = .36785m;
+  Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
 
-decimal originalPrice = 67.55m;
-decimal salePrice = 59.99m;
-// combine formatting approaches; option A
-string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
-// combine formatting approaches; option B
-yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
-Console.WriteLine(yourDiscount);
+  decimal originalPrice = 67.55m;
+  decimal salePrice = 59.99m;
+  // combine formatting approaches; option A
+    string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
+  // combine formatting approaches; option B
+    yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
+    Console.WriteLine(yourDiscount);
 
-string input = "Pad this";
-Console.WriteLine(input.PadLeft(12)); //     Pad this
-Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
+    string input = "Pad this";
+    Console.WriteLine(input.PadLeft(12)); //     Pad this
+    Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
 
-string paymentId = "769C";
-string payeeName = "Mr. Bob Squarepants";
-string paymentAmount = "$5,000.00";
+    string paymentId = "769C";
+    string payeeName = "Mr. Bob Squarepants";
+    string paymentAmount = "$5,000.00";
 
-var formattedLine = paymentId.PadRight(6);
-formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
-formattedLine += paymentAmount.PadLeft(10);
+    var formattedLine = paymentId.PadRight(6);
+    formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
+    formattedLine += paymentAmount.PadLeft(10);
 
-Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
-Console.WriteLine(formattedLine);
+    Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
+    Console.WriteLine(formattedLine);
 
-// Code Challenge
-string customerName = "Mr. Patrick Star";
+  // Code Challenge
+    string customerName = "Mr. Patrick Star";
 
-string currentProduct = "Magic Yield";
-int currentShares = 2975000;
-decimal currentReturn = 0.1275m;
-decimal currentProfit = 55000000.0m;
+    string currentProduct = "Magic Yield";
+    int currentShares = 2975000;
+    decimal currentReturn = 0.1275m;
+    decimal currentProfit = 55000000.0m;
 
-string newProduct = "Glorious Future";
-decimal newReturn = 0.13125m;
-decimal newProfit = 63000000.0m;
+    string newProduct = "Glorious Future";
+    decimal newReturn = 0.13125m;
+    decimal newProfit = 63000000.0m;
 
-// Your logic here
-string greeting = $"Dear {customerName},";
-string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
-string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
-string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
+    // Your logic here
+    string greeting = $"Dear {customerName},";
+    string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
+    string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
+    string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
 
-Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
-Console.WriteLine("Here's a quick comparison:\n");
+    Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
+    Console.WriteLine("Here's a quick comparison:\n");
 
-string comparisonMessage = "";
+    string comparisonMessage = "";
 
-// Your logic here
-var currentProductFormattedRow = currentProduct.PadRight(18);
-string currentReturnFormatted = $"{currentReturn:P2}";
-string currentProfitFormatted = $"{currentProfit:C2}";
-currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
+    // Your logic here
+    var currentProductFormattedRow = currentProduct.PadRight(18);
+    string currentReturnFormatted = $"{currentReturn:P2}";
+    string currentProfitFormatted = $"{currentProfit:C2}";
+    currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
 
-var newProductFormattedRow = newProduct.PadRight(18);
-string newReturnFormatted = $"{newReturn:P2}";
-string newProfitFormatted = $"{newProfit:C2}";
-newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
+    var newProductFormattedRow = newProduct.PadRight(18);
+    string newReturnFormatted = $"{newReturn:P2}";
+    string newProfitFormatted = $"{newProfit:C2}";
+    newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
 
-comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
+    comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
 
-Console.WriteLine(comparisonMessage);
+    Console.WriteLine(comparisonMessage);
 
-// Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
-comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
+  // Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
+    comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
 
-comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
+    comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
 
-Console.WriteLine(comparisonMessage);
+    Console.WriteLine(comparisonMessage);
+  */
+
+// Module 5 - 
+Console.WriteLine("Hello world!");
