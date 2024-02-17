@@ -325,3 +325,10 @@ closingPosition = messageTwo.IndexOf(closeSpan);
 openingPosition += openSpan.Length;
 length = closingPosition - openingPosition;
 Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
+
+string messageThree = "(What if) I am (only interested) in the last (set of parentheses)?";
+openingPosition = messageThree.LastIndexOf('('); // 45
+openingPosition += 1; // 46
+closingPosition = messageThree.LastIndexOf(')'); // 64
+length = closingPosition - openingPosition; // 18
+Console.WriteLine(messageThree.Substring(openingPosition, length)); // set of parentheses
