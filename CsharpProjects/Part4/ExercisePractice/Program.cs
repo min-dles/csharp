@@ -240,5 +240,16 @@ yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
 Console.WriteLine(yourDiscount);
 
 string input = "Pad this";
- Console.WriteLine(input.PadLeft(12)); //     Pad this
- Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
+Console.WriteLine(input.PadLeft(12)); //     Pad this
+Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
+
+string paymentId = "769C";
+string payeeName = "Mr. Bob Squarepants";
+string paymentAmount = "$5,000.00";
+
+var formattedLine = paymentId.PadRight(6);
+formattedLine += payeeName.PadRight(24);
+formattedLine += paymentAmount.PadLeft(10);
+
+Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
+Console.WriteLine(formattedLine);
