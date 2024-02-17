@@ -248,8 +248,35 @@ string payeeName = "Mr. Bob Squarepants";
 string paymentAmount = "$5,000.00";
 
 var formattedLine = paymentId.PadRight(6);
-formattedLine += payeeName.PadRight(24);
+formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
 formattedLine += paymentAmount.PadLeft(10);
 
 Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
 Console.WriteLine(formattedLine);
+
+// Code Challenge
+string customerName = "Mr. Patrick Star";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+// Your logic here
+string greeting = $"Dear {customerName},";
+string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
+string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
+string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
+
+Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
+Console.WriteLine("Here's a quick comparison:\n");
+
+string comparisonMessage = "";
+
+// Your logic here
+
+Console.WriteLine(comparisonMessage);
