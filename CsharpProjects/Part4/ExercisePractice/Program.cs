@@ -218,7 +218,7 @@ string first = "Hello";
 string second = "World";
 Console.WriteLine($"{first} {second}"); // Hello World!
 Console.WriteLine($"{second} {first}!"); // World Hello!
-Console.WriteLine($"{first} {first} {first}!"); // O: Hello Hello Hello!
+Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
 
 decimal price = 123.45m;
 int discount = 50;
@@ -226,4 +226,7 @@ Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format s
 // culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
 
 decimal measurement = 123456.78912m;
-Console.WriteLine($"Measurement: {measurement:N2} units"); // numeric format specifier
+Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
+
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
