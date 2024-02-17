@@ -278,5 +278,16 @@ Console.WriteLine("Here's a quick comparison:\n");
 string comparisonMessage = "";
 
 // Your logic here
+var currentProductFormattedRow = currentProduct.PadRight(18);
+string currentReturnFormatted = $"{currentReturn:P2}";
+string currentProfitFormatted = $"{currentProfit:C2}";
+currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
+
+var newProductFormattedRow = newProduct.PadRight(18);
+string newReturnFormatted = $"{newReturn:P2}";
+string newProfitFormatted = $"{newProfit:C2}";
+newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
+
+comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
 
 Console.WriteLine(comparisonMessage);
