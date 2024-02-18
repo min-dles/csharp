@@ -401,3 +401,7 @@ while (true)
     length = closingPosition - openingPosition;
     Console.WriteLine(messageSix.Substring(openingPosition, length));
 }
+
+string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
+string updatedData = data.Remove(5, 20);
+Console.WriteLine(updatedData); // 123455000  3
