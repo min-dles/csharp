@@ -412,3 +412,16 @@ string messageSeven = "This--is--ex-amp-le--da-ta";
 messageSeven = messageSeven.Replace("--", " ");
 messageSeven = messageSeven.Replace("-", "");
 Console.WriteLine(messageSeven); // This is example data
+
+// Code Challenge
+Console.WriteLine("*** CODE CHALLENGE: ***");
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+output = input.Replace("<div>", "").Replace("</div>", "");
+
+Console.WriteLine($"Quantity: {quantity}");
+Console.WriteLine($"Output: {output}");
