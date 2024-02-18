@@ -403,34 +403,34 @@ while (true)
 }
 
 // The Remove() method works like the Substring() method, except that it deletes the specified characters in the string. (supply a starting position and an optional length)
-string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
-string updatedData = data.Remove(5, 20);
-Console.WriteLine(updatedData); // 123455000  3
+  string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
+  string updatedData = data.Remove(5, 20);
+  Console.WriteLine(updatedData); // 123455000  3
 
 // The Replace() method swaps all instances of a string with a new string.
-string messageSeven = "This--is--ex-amp-le--da-ta";
-messageSeven = messageSeven.Replace("--", " ");
-messageSeven = messageSeven.Replace("-", "");
-Console.WriteLine(messageSeven); // This is example data
+  string messageSeven = "This--is--ex-amp-le--da-ta";
+  messageSeven = messageSeven.Replace("--", " ");
+  messageSeven = messageSeven.Replace("-", "");
+  Console.WriteLine(messageSeven); // This is example data
 
 // Code Challenge
-Console.WriteLine("*** CODE CHALLENGE: ***");
-const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+  Console.WriteLine("*** CODE CHALLENGE: ***");
+  const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
-string quantity = "";
-string output = "";
+  string quantity = "";
+  string output = "";
 
-// Your work here
-const string spanOpen = "<span>";
-const string spanClose = "</span>";
+  // Your work here
+  const string spanOpen = "<span>";
+  const string spanClose = "</span>";
 
-int startIndex = input.IndexOf(spanOpen);
-int endIndex = input.IndexOf(spanClose);
-startIndex += spanOpen.Length; // to count characters of <span> and not include them in the final quantity
-int countChars = endIndex - startIndex;
-quantity = input.Substring(startIndex, countChars);
+  int startIndex = input.IndexOf(spanOpen);
+  int endIndex = input.IndexOf(spanClose);
+  startIndex += spanOpen.Length; // to count characters of <span> and not include them in the final quantity
+  int countChars = endIndex - startIndex;
+  quantity = input.Substring(startIndex, countChars);
 
-output = input.Replace("<div>", "").Replace("&trade;", "&reg;").Replace("</div>", "");
+  output = input.Replace("<div>", "").Replace("&trade;", "&reg;").Replace("</div>", "");
 
-Console.WriteLine($"Quantity: {quantity}");
-Console.WriteLine($"Output: {output}");
+  Console.WriteLine($"Quantity: {quantity}");
+  Console.WriteLine($"Output: {output}");
