@@ -213,88 +213,224 @@
     }
 */
 
-// Module 4 - Format alphanumeric data for presentation in C#
-string first = "Hello";
-string second = "World";
-Console.WriteLine($"{first} {second}"); // Hello World!
-Console.WriteLine($"{second} {first}!"); // World Hello!
-Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
+/* Module 4 - Format alphanumeric data for presentation in C#
+  string first = "Hello";
+  string second = "World";
+  Console.WriteLine($"{first} {second}"); // Hello World!
+  Console.WriteLine($"{second} {first}!"); // World Hello!
+  Console.WriteLine($"{first} {first} {first}!"); // Hello Hello Hello!
 
-decimal price = 123.45m;
-int discount = 50;
-Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
-// culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
+  decimal price = 123.45m;
+  int discount = 50;
+  Console.WriteLine($"Price: {price:C} (Save {discount:C})"); // currency format specifier
+  // culture code: five character string that computers use to identify the location and language of the end user (ex: en-US)
 
-decimal measurement = 123456.78912m;
-Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
+  decimal measurement = 123456.78912m;
+  Console.WriteLine($"Measurement: {measurement:N2} units"); // Measurement: 123,457.79 units (numeric format specifier, 2 digits after decimal point)
 
-decimal tax = .36785m;
-Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
+  decimal tax = .36785m;
+  Console.WriteLine($"Tax rate: {tax:P2}"); // Tax rate: 36.79% (P format specifier for formatting percentages, 2 digits after decimal point)
 
-decimal originalPrice = 67.55m;
-decimal salePrice = 59.99m;
-// combine formatting approaches; option A
-string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
-// combine formatting approaches; option B
-yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
-Console.WriteLine(yourDiscount);
+  decimal originalPrice = 67.55m;
+  decimal salePrice = 59.99m;
+  // combine formatting approaches; option A
+    string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price.", (originalPrice - salePrice), originalPrice);
+  // combine formatting approaches; option B
+    yourDiscount += $" A discount of {(originalPrice - salePrice)/price:P2}!";
+    Console.WriteLine(yourDiscount);
 
-string input = "Pad this";
-Console.WriteLine(input.PadLeft(12)); //     Pad this
-Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
+    string input = "Pad this";
+    Console.WriteLine(input.PadLeft(12)); //     Pad this
+    Console.WriteLine(input.PadRight(12, '-')); // Pad this---- (this is the overloaded method for PadRight() because now there is a second argument)
 
-string paymentId = "769C";
-string payeeName = "Mr. Bob Squarepants";
-string paymentAmount = "$5,000.00";
+    string paymentId = "769C";
+    string payeeName = "Mr. Bob Squarepants";
+    string paymentAmount = "$5,000.00";
 
-var formattedLine = paymentId.PadRight(6);
-formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
-formattedLine += paymentAmount.PadLeft(10);
+    var formattedLine = paymentId.PadRight(6);
+    formattedLine += payeeName.PadRight(24, '.'); // additional practice with overload version of PadRight()
+    formattedLine += paymentAmount.PadLeft(10);
 
-Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
-Console.WriteLine(formattedLine);
+    Console.WriteLine("1234567890123456789012345678901234567890"); // this line of numbers acts like a ruler to show in the console how many columns the formatted line should be 
+    Console.WriteLine(formattedLine);
+
+  // Code Challenge
+    string customerName = "Mr. Patrick Star";
+
+    string currentProduct = "Magic Yield";
+    int currentShares = 2975000;
+    decimal currentReturn = 0.1275m;
+    decimal currentProfit = 55000000.0m;
+
+    string newProduct = "Glorious Future";
+    decimal newReturn = 0.13125m;
+    decimal newProfit = 63000000.0m;
+
+    // Your logic here
+    string greeting = $"Dear {customerName},";
+    string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
+    string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
+    string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
+
+    Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
+    Console.WriteLine("Here's a quick comparison:\n");
+
+    string comparisonMessage = "";
+
+    // Your logic here
+    var currentProductFormattedRow = currentProduct.PadRight(18);
+    string currentReturnFormatted = $"{currentReturn:P2}";
+    string currentProfitFormatted = $"{currentProfit:C2}";
+    currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
+
+    var newProductFormattedRow = newProduct.PadRight(18);
+    string newReturnFormatted = $"{newReturn:P2}";
+    string newProfitFormatted = $"{newProfit:C2}";
+    newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
+
+    comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
+
+    Console.WriteLine(comparisonMessage);
+
+  // Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
+    comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
+
+    comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
+
+    Console.WriteLine(comparisonMessage);
+  */
+
+// Module 5 - Modify the content of strings using built-in string data type methods
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+Console.WriteLine(openingPosition); // 13
+Console.WriteLine(closingPosition); // 36
+
+openingPosition += 1; // need to skip the index of the parenthesis 
+
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length)); // inside the parentheses
+
+string messageTwo = "What is the value <span>between the tags</span>?";
+
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+openingPosition = messageTwo.IndexOf(openSpan);
+closingPosition = messageTwo.IndexOf(closeSpan);
+
+openingPosition += openSpan.Length;
+length = closingPosition - openingPosition;
+Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
+
+string messageThree = "(What if) I am (only interested) in the last (set of parentheses)?";
+openingPosition = messageThree.LastIndexOf('('); // 45
+openingPosition += 1; // 46
+closingPosition = messageThree.LastIndexOf(')'); // 64
+length = closingPosition - openingPosition; // 18
+Console.WriteLine(messageThree.Substring(openingPosition, length)); // set of parentheses
+
+string messageFour = "(What if) there are (more than) one (set of parentheses)?";
+while (true)
+{
+    openingPosition = messageFour.IndexOf('(');
+    if (openingPosition == -1) break;
+
+    openingPosition += 1;
+    closingPosition = messageFour.IndexOf(')');
+    length = closingPosition - openingPosition;
+    Console.WriteLine(messageFour.Substring(openingPosition, length));
+
+    // Note the overload of the Substring to return only the remaining unprocessed message:
+    messageFour = messageFour.Substring(closingPosition + 1);
+} // what if \nmore than \nset of parentheses
+
+string messageFive = "Help (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Message: {messageFive}");
+char[] openSymbols = { '[', '{', '(' };
+int startPosition = 5;
+openingPosition = messageFive.IndexOfAny(openSymbols);
+Console.WriteLine($"Found WITHOUT using startPosition: {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+
+openingPosition = messageFive.IndexOfAny(openSymbols, startPosition);
+Console.WriteLine($"Found WITH using startPosition {startPosition}:  {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+
+string messageSix = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+
+// The IndexOfAny() helper method requires a char array of characters. 
+// You want to look for:
+char[] openingSymbols = { '[', '{', '(' };
+
+// You'll use a slightly different technique for iterating through the characters in the string. This time, use the closing position of the previous iteration as the starting index for the next open symbol. So, you need to initialize (reset) the closingPosition variable to zero:
+closingPosition = 0;
+
+while (true)
+{
+    openingPosition = messageSix.IndexOfAny(openingSymbols, closingPosition);
+
+    if (openingPosition == -1) break;
+
+    string currentSymbol = messageSix.Substring(openingPosition, 1);
+
+    // Now find the matching closing symbol
+    char matchingSymbol = ' ';
+
+    switch (currentSymbol)
+    {
+        case "[":
+            matchingSymbol = ']';
+            break;
+        case "{":
+            matchingSymbol = '}';
+            break;
+        case "(":
+            matchingSymbol = ')';
+            break;
+    }
+
+    // To find the closingPosition, use an overload of the IndexOf method to specify that the search for the matchingSymbol should start at the openingPosition in the string. 
+
+    openingPosition += 1;
+    closingPosition = messageSix.IndexOf(matchingSymbol, openingPosition);
+
+    // Finally, use the techniques you've already learned to display the sub-string:
+
+    length = closingPosition - openingPosition;
+    Console.WriteLine(messageSix.Substring(openingPosition, length));
+}
+
+// The Remove() method works like the Substring() method, except that it deletes the specified characters in the string. (supply a starting position and an optional length)
+  string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
+  string updatedData = data.Remove(5, 20);
+  Console.WriteLine(updatedData); // 123455000  3
+
+// The Replace() method swaps all instances of a string with a new string.
+  string messageSeven = "This--is--ex-amp-le--da-ta";
+  messageSeven = messageSeven.Replace("--", " ");
+  messageSeven = messageSeven.Replace("-", "");
+  Console.WriteLine(messageSeven); // This is example data
 
 // Code Challenge
-string customerName = "Mr. Patrick Star";
+  Console.WriteLine("*** CODE CHALLENGE: ***");
+  const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
-string currentProduct = "Magic Yield";
-int currentShares = 2975000;
-decimal currentReturn = 0.1275m;
-decimal currentProfit = 55000000.0m;
+  string quantity = "";
+  string output = "";
 
-string newProduct = "Glorious Future";
-decimal newReturn = 0.13125m;
-decimal newProfit = 63000000.0m;
+  // Your work here
+  const string spanOpen = "<span>";
+  const string spanClose = "</span>";
 
-// Your logic here
-string greeting = $"Dear {customerName},";
-string firstSentence = $"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.";
-string secondSentence = $"Currently, you own {currentShares:C} shares at a return of {currentReturn:P2}.";
-string thirdSentence = $"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, your potential profit would be {newProfit:C}.";
+  int startIndex = input.IndexOf(spanOpen);
+  int endIndex = input.IndexOf(spanClose);
+  startIndex += spanOpen.Length; // to count characters of <span> and not include them in the final quantity
+  int countChars = endIndex - startIndex;
+  quantity = input.Substring(startIndex, countChars);
 
-Console.WriteLine($"{greeting}\n\n{firstSentence}\n\n{secondSentence}\n\n{thirdSentence}\n");
-Console.WriteLine("Here's a quick comparison:\n");
+  output = input.Replace("<div>", "").Replace("&trade;", "&reg;").Replace("</div>", "");
 
-string comparisonMessage = "";
-
-// Your logic here
-var currentProductFormattedRow = currentProduct.PadRight(18);
-string currentReturnFormatted = $"{currentReturn:P2}";
-string currentProfitFormatted = $"{currentProfit:C2}";
-currentProductFormattedRow += currentReturnFormatted.PadLeft(8) + currentProfitFormatted.PadLeft(18);
-
-var newProductFormattedRow = newProduct.PadRight(18);
-string newReturnFormatted = $"{newReturn:P2}";
-string newProfitFormatted = $"{newProfit:C2}";
-newProductFormattedRow += newReturnFormatted.PadLeft(8) + newProfitFormatted.PadLeft(18);
-
-comparisonMessage = $"{currentProductFormattedRow}\n{newProductFormattedRow}";
-
-Console.WriteLine(comparisonMessage);
-
-// Per solution on Microsoft Learn, check out how the format specifier can be added to the token:
-comparisonMessage = currentProduct.PadRight(20) + String.Format("{0:P}", currentReturn).PadRight(10) + String.Format("{0:C}", currentProfit).PadRight(20);
-
-comparisonMessage += "\n" + newProduct.PadRight(20) + String.Format("{0:P}", newReturn).PadRight(10) + String.Format("{0:C}", newProfit).PadRight(20);
-
-Console.WriteLine(comparisonMessage);
+  Console.WriteLine($"Quantity: {quantity}");
+  Console.WriteLine($"Output: {output}");
