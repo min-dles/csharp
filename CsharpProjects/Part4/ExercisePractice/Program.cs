@@ -421,7 +421,16 @@ string quantity = "";
 string output = "";
 
 // Your work here
-output = input.Replace("<div>", "").Replace("</div>", "");
+const string spanOpen = "<span>";
+const string spanClose = "</span>";
+
+int startIndex = input.IndexOf(spanOpen);
+int endIndex = input.IndexOf(spanClose);
+startIndex += spanOpen.Length; // to count characters of <span> and not include them in the final quantity
+int countChars = endIndex - startIndex;
+quantity = input.Substring(startIndex, countChars);
+
+output = input.Replace("<div>", "").Replace("&trade;", "&reg;").Replace("</div>", "");
 
 Console.WriteLine($"Quantity: {quantity}");
 Console.WriteLine($"Output: {output}");
