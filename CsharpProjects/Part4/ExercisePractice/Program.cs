@@ -402,6 +402,13 @@ while (true)
     Console.WriteLine(messageSix.Substring(openingPosition, length));
 }
 
+// The Remove() method works like the Substring() method, except that it deletes the specified characters in the string. (supply a starting position and an optional length)
 string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
 string updatedData = data.Remove(5, 20);
 Console.WriteLine(updatedData); // 123455000  3
+
+// The Replace() method swaps all instances of a string with a new string.
+string messageSeven = "This--is--ex-amp-le--da-ta";
+messageSeven = messageSeven.Replace("--", " ");
+messageSeven = messageSeven.Replace("-", "");
+Console.WriteLine(messageSeven); // This is example data
