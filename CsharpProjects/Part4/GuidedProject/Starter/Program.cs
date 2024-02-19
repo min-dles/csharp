@@ -124,7 +124,17 @@ do
 
         case "2":
             // Display all dogs with a specified characteristic
-            Console.WriteLine("\nUNDER CONSTRUCTION - please check back next month to see progress.");
+            string dogCharacteristic = "";
+
+            while (dogCharacteristic == "")
+            {
+                Console.WriteLine("What kind of dog are you looking for?");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                    dogCharacteristic = readResult.ToLower().Trim();
+                if (dogCharacteristic != "")
+                    Console.WriteLine($"You said you are looking for this kind of dog: {dogCharacteristic}");
+            }
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
