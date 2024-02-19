@@ -97,8 +97,7 @@ do
   Console.WriteLine("Welcome to the Contoso PetFriends app. Your main menu options are:");
   Console.WriteLine(" 1. List all of our current pet information");
   Console.WriteLine(" 2. Display all dogs with a specified characteristic");
-  Console.WriteLine();
-  Console.WriteLine("Enter your selection number (or type Exit to exit the program)");
+  Console.WriteLine("\nEnter your selection number (or type Exit to exit the program)");
 
   readResult = Console.ReadLine();
   if (readResult != null)
@@ -136,12 +135,17 @@ do
       while (dogCharacteristic == "")
       {
         // #2 have user enter multiple comma separated characteristics to search for
-        Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
+        Console.WriteLine($"\r\nEnter desired dog characteristic(s) to search for matches."); 
+        Console.WriteLine("******** NOTE: ******** \nif searching for multiple terms, please separate terms with a comma(,)");
         readResult = Console.ReadLine();
         if (readResult != null)
         {
           dogCharacteristic = readResult.ToLower().Trim();
-          Console.WriteLine();
+          string[] dogCharacteristics = dogCharacteristic.Split(',');
+          foreach (string term in dogCharacteristics)
+          {
+            Console.WriteLine(term);
+          }
         }
       }
 
