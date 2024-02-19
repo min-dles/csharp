@@ -135,6 +135,26 @@ do
                 if (dogCharacteristic != "")
                     Console.WriteLine($"You said you are looking for this kind of dog: {dogCharacteristic}");
             }
+
+            string dogDescription = "";
+            bool noMatchesDog = true;
+            // #6: loop thru ourAnimals to check for matching animalSpecies:
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 1].Contains("dog"))
+                {
+                    // #7: search all the descriptions to find matches
+                    dogDescription = ourAnimals[i, 4] + "\n" + ourAnimals[i, 5];
+                    if (dogDescription.Contains(dogCharacteristic))
+                    {
+                        Console.WriteLine($"\nExciting news- we found that {ourAnimals[i, 3]} matches your search for this kind of dog: {dogCharacteristic}");
+                        Console.WriteLine($"Here is more info about {ourAnimals[i, 3]}: \n{dogDescription}");
+                        noMatchesDog = false;
+                    }
+                }
+            }
+            if (noMatchesDog)
+                Console.WriteLine($"Sorry, none of our dogs are a match for: {dogCharacteristic}.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
