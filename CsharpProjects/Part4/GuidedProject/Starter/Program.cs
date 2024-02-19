@@ -89,9 +89,7 @@ do
 
     readResult = Console.ReadLine();
     if (readResult != null)
-    {
         menuSelection = readResult.ToLower();
-    }
 
     // use switch-case to process the selected menu option
     switch (menuSelection)
