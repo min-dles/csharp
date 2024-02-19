@@ -131,6 +131,7 @@ do
       // #1 Display all dogs with a multiple search characteristics
 
       string dogCharacteristic = "";
+      string[] dogCharacteristics = new string[0];
 
       while (dogCharacteristic == "")
       {
@@ -141,10 +142,10 @@ do
         if (readResult != null)
         {
           dogCharacteristic = readResult.ToLower().Trim();
-          string[] dogCharacteristics = dogCharacteristic.Split(',');
+          dogCharacteristics = dogCharacteristic.Split(',');
           foreach (string term in dogCharacteristics)
           {
-            Console.WriteLine(term);
+            Console.WriteLine(term.Trim());
           }
         }
       }
@@ -176,14 +177,17 @@ do
           }
 
           // #3a iterate submitted characteristic terms and search description for each term
-
-          if (dogDescription.Contains(dogCharacteristic))
+          foreach (string term in dogCharacteristics)
           {
-            // #3b update message to reflect term
-            // #3c set a flag "this dog" is a match
-            Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+            if (dogDescription.Contains(term.Trim()))
+            {
+              // #3b update message to reflect term
+              Console.WriteLine($"\nTERM: {term}");
+              // #3c set a flag "this dog" is a match
+              Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
 
-            noMatchesDog = false;
+              noMatchesDog = false;
+            }
           }
 
           // #3d if "this dog" is match write match message + dog description
