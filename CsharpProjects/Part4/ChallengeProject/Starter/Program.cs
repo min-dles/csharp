@@ -143,6 +143,7 @@ do
         {
           dogCharacteristic = readResult.ToLower().Trim();
           dogCharacteristics = dogCharacteristic.Split(',');
+          Array.Sort(dogCharacteristics);
           foreach (string term in dogCharacteristics)
           {
             Console.WriteLine(term.Trim());
@@ -177,6 +178,7 @@ do
           }
 
           // #3a iterate submitted characteristic terms and search description for each term
+          // Array.Sort(dogCharacteristics);
           foreach (string term in dogCharacteristics)
           {
             if (dogDescription.Contains(term.Trim()))
