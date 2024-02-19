@@ -7,6 +7,7 @@
 4. [Technologies](#technologies)
 5. [Contributing](#contributing)
 6. [Credits](#credits)
+7. [License](#license)
 
 ## About:
 This repo contains study notes, exercises, and challenges that I completed while studying the Foundation C# Certification course available on Microsoft Learn x freeCodeCamp. 
@@ -58,12 +59,31 @@ Some of the technologies and concepts practiced in this repo are:
 - practice with git branching, pull requests, and organizing the flow of repo 
 
 ## Contributing
-If you would like to contribute to this repo, feel free to fork or follow along for your own study experience! The main benefit to documenting my coursework in this way is the learning along the way; it is organized in a way that mirrors the iterative approach to software development and solving logic problems.
+If you would like to contribute to this repo, feel free to fork or follow along for your own study experience! The main benefit to documenting my coursework in this way is to facilitate learning of the development process; it is organized in a way that mirrors the iterative approach to software development and solving logic problems.
 
 ## Credits
 All credit and thanks for the course material goes to [Microsoft Learn](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/) and [freeCodeCamp](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/) for making this available to all for studying. I do not own any of the promps nor exercies featured in this repo; the solutions are a combination of following along with the lesson plans and my own solutions. They are here for all to see for collaborative learning processes and to share my certification journey with others.
 
 Special thanks to Andrew Harasymiw and Matthew Black of @PrimeAcademy for teaching me how to learn code and giving me the building blocks to: *Read, Write, Speak, Teach*
+
+## License
+
+Per the Microsoft Learning guided lesson plans, all lesson materials featured in this repo are licensed as follows:
+
+> MIT License
+> Copyright (c) 2023 Microsoft Learning
+
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Get Started with C#, Part Four
 This branch has exercises and challenges from Part Three of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-4/).

@@ -300,120 +300,121 @@
     Console.WriteLine(comparisonMessage);
   */
 
-// Module 5 - Modify the content of strings using built-in string data type methods
-string message = "Find what is (inside the parentheses)";
 
-int openingPosition = message.IndexOf('(');
-int closingPosition = message.IndexOf(')');
+/* Module 5 - Modify the content of strings using built-in string data type methods
+  string message = "Find what is (inside the parentheses)";
 
-Console.WriteLine(openingPosition); // 13
-Console.WriteLine(closingPosition); // 36
+  int openingPosition = message.IndexOf('(');
+  int closingPosition = message.IndexOf(')');
 
-openingPosition += 1; // need to skip the index of the parenthesis 
+  Console.WriteLine(openingPosition); // 13
+  Console.WriteLine(closingPosition); // 36
 
-int length = closingPosition - openingPosition;
-Console.WriteLine(message.Substring(openingPosition, length)); // inside the parentheses
+  openingPosition += 1; // need to skip the index of the parenthesis 
 
-string messageTwo = "What is the value <span>between the tags</span>?";
+  int length = closingPosition - openingPosition;
+  Console.WriteLine(message.Substring(openingPosition, length)); // inside the parentheses
 
-const string openSpan = "<span>";
-const string closeSpan = "</span>";
+  string messageTwo = "What is the value <span>between the tags</span>?";
 
-openingPosition = messageTwo.IndexOf(openSpan);
-closingPosition = messageTwo.IndexOf(closeSpan);
+  const string openSpan = "<span>";
+  const string closeSpan = "</span>";
 
-openingPosition += openSpan.Length;
-length = closingPosition - openingPosition;
-Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
+  openingPosition = messageTwo.IndexOf(openSpan);
+  closingPosition = messageTwo.IndexOf(closeSpan);
 
-string messageThree = "(What if) I am (only interested) in the last (set of parentheses)?";
-openingPosition = messageThree.LastIndexOf('('); // 45
-openingPosition += 1; // 46
-closingPosition = messageThree.LastIndexOf(')'); // 64
-length = closingPosition - openingPosition; // 18
-Console.WriteLine(messageThree.Substring(openingPosition, length)); // set of parentheses
+  openingPosition += openSpan.Length;
+  length = closingPosition - openingPosition;
+  Console.WriteLine(messageTwo.Substring(openingPosition, length)); // between the tags
 
-string messageFour = "(What if) there are (more than) one (set of parentheses)?";
-while (true)
-{
-    openingPosition = messageFour.IndexOf('(');
-    if (openingPosition == -1) break;
+  string messageThree = "(What if) I am (only interested) in the last (set of parentheses)?";
+  openingPosition = messageThree.LastIndexOf('('); // 45
+  openingPosition += 1; // 46
+  closingPosition = messageThree.LastIndexOf(')'); // 64
+  length = closingPosition - openingPosition; // 18
+  Console.WriteLine(messageThree.Substring(openingPosition, length)); // set of parentheses
 
-    openingPosition += 1;
-    closingPosition = messageFour.IndexOf(')');
-    length = closingPosition - openingPosition;
-    Console.WriteLine(messageFour.Substring(openingPosition, length));
+  string messageFour = "(What if) there are (more than) one (set of parentheses)?";
+  while (true)
+  {
+      openingPosition = messageFour.IndexOf('(');
+      if (openingPosition == -1) break;
 
-    // Note the overload of the Substring to return only the remaining unprocessed message:
-    messageFour = messageFour.Substring(closingPosition + 1);
-} // what if \nmore than \nset of parentheses
+      openingPosition += 1;
+      closingPosition = messageFour.IndexOf(')');
+      length = closingPosition - openingPosition;
+      Console.WriteLine(messageFour.Substring(openingPosition, length));
 
-string messageFive = "Help (find) the {opening symbols}";
-Console.WriteLine($"Searching THIS Message: {messageFive}");
-char[] openSymbols = { '[', '{', '(' };
-int startPosition = 5;
-openingPosition = messageFive.IndexOfAny(openSymbols);
-Console.WriteLine($"Found WITHOUT using startPosition: {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+      // Note the overload of the Substring to return only the remaining unprocessed message:
+      messageFour = messageFour.Substring(closingPosition + 1);
+  } // what if \nmore than \nset of parentheses
 
-openingPosition = messageFive.IndexOfAny(openSymbols, startPosition);
-Console.WriteLine($"Found WITH using startPosition {startPosition}:  {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
+  string messageFive = "Help (find) the {opening symbols}";
+  Console.WriteLine($"Searching THIS Message: {messageFive}");
+  char[] openSymbols = { '[', '{', '(' };
+  int startPosition = 5;
+  openingPosition = messageFive.IndexOfAny(openSymbols);
+  Console.WriteLine($"Found WITHOUT using startPosition: {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
 
-string messageSix = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+  openingPosition = messageFive.IndexOfAny(openSymbols, startPosition);
+  Console.WriteLine($"Found WITH using startPosition {startPosition}:  {messageFive.Substring(openingPosition)}"); // (find) the {opening symbols}
 
-// The IndexOfAny() helper method requires a char array of characters. 
-// You want to look for:
-char[] openingSymbols = { '[', '{', '(' };
+  string messageSix = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
 
-// You'll use a slightly different technique for iterating through the characters in the string. This time, use the closing position of the previous iteration as the starting index for the next open symbol. So, you need to initialize (reset) the closingPosition variable to zero:
-closingPosition = 0;
+  // The IndexOfAny() helper method requires a char array of characters. 
+  // You want to look for:
+  char[] openingSymbols = { '[', '{', '(' };
 
-while (true)
-{
-    openingPosition = messageSix.IndexOfAny(openingSymbols, closingPosition);
+  // You'll use a slightly different technique for iterating through the characters in the string. This time, use the closing position of the previous iteration as the starting index for the next open symbol. So, you need to initialize (reset) the closingPosition variable to zero:
+  closingPosition = 0;
 
-    if (openingPosition == -1) break;
+  while (true)
+  {
+      openingPosition = messageSix.IndexOfAny(openingSymbols, closingPosition);
 
-    string currentSymbol = messageSix.Substring(openingPosition, 1);
+      if (openingPosition == -1) break;
 
-    // Now find the matching closing symbol
-    char matchingSymbol = ' ';
+      string currentSymbol = messageSix.Substring(openingPosition, 1);
 
-    switch (currentSymbol)
-    {
-        case "[":
-            matchingSymbol = ']';
-            break;
-        case "{":
-            matchingSymbol = '}';
-            break;
-        case "(":
-            matchingSymbol = ')';
-            break;
-    }
+      // Now find the matching closing symbol
+      char matchingSymbol = ' ';
 
-    // To find the closingPosition, use an overload of the IndexOf method to specify that the search for the matchingSymbol should start at the openingPosition in the string. 
+      switch (currentSymbol)
+      {
+          case "[":
+              matchingSymbol = ']';
+              break;
+          case "{":
+              matchingSymbol = '}';
+              break;
+          case "(":
+              matchingSymbol = ')';
+              break;
+      }
 
-    openingPosition += 1;
-    closingPosition = messageSix.IndexOf(matchingSymbol, openingPosition);
+      // To find the closingPosition, use an overload of the IndexOf method to specify that the search for the matchingSymbol should start at the openingPosition in the string. 
 
-    // Finally, use the techniques you've already learned to display the sub-string:
+      openingPosition += 1;
+      closingPosition = messageSix.IndexOf(matchingSymbol, openingPosition);
 
-    length = closingPosition - openingPosition;
-    Console.WriteLine(messageSix.Substring(openingPosition, length));
-}
+      // Finally, use the techniques you've already learned to display the sub-string:
 
-// The Remove() method works like the Substring() method, except that it deletes the specified characters in the string. (supply a starting position and an optional length)
-  string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
-  string updatedData = data.Remove(5, 20);
-  Console.WriteLine(updatedData); // 123455000  3
+      length = closingPosition - openingPosition;
+      Console.WriteLine(messageSix.Substring(openingPosition, length));
+  }
 
-// The Replace() method swaps all instances of a string with a new string.
-  string messageSeven = "This--is--ex-amp-le--da-ta";
-  messageSeven = messageSeven.Replace("--", " ");
-  messageSeven = messageSeven.Replace("-", "");
-  Console.WriteLine(messageSeven); // This is example data
+  // The Remove() method works like the Substring() method, except that it deletes the specified characters in the string. (supply a starting position and an optional length)
+    string data = "12345John Smith          5000  3  "; // Goal: remove customer's name and only retain the numbers
+    string updatedData = data.Remove(5, 20);
+    Console.WriteLine(updatedData); // 123455000  3
 
-// Code Challenge
+  // The Replace() method swaps all instances of a string with a new string.
+    string messageSeven = "This--is--ex-amp-le--da-ta";
+    messageSeven = messageSeven.Replace("--", " ");
+    messageSeven = messageSeven.Replace("-", "");
+    Console.WriteLine(messageSeven); // This is example data
+
+  // Code Challenge
   Console.WriteLine("*** CODE CHALLENGE: ***");
   const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
@@ -434,3 +435,4 @@ while (true)
 
   Console.WriteLine($"Quantity: {quantity}");
   Console.WriteLine($"Output: {output}");
+*/
