@@ -62,7 +62,7 @@ Some of the technologies and concepts practiced in this repo are:
 If you would like to contribute to this repo, feel free to fork or follow along for your own study experience! The main benefit to documenting my coursework in this way is to facilitate learning of the development process; it is organized in a way that mirrors the iterative approach to software development and solving logic problems.
 
 ## Credits
-All credit and thanks for the course material goes to [Microsoft Learn](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/) and [freeCodeCamp](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/) for making this available to all for studying. I do not own any of the promps nor exercies featured in this repo; the solutions are a combination of following along with the lesson plans and my own solutions. They are here for all to see for collaborative learning processes and to share my certification journey with others.
+All credit and thanks for the course material goes to [Microsoft Learn](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-1/) and [freeCodeCamp](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/) for making this available to all for studying. I do not own any of the prompts nor exercies featured in this repo; the solutions are a combination of following along with the lesson plans and my own solutions. They are here for collaborative learning purposes and to share my certification journey with others.
 
 Special thanks to Andrew Harasymiw and Matthew Black of @PrimeAcademy for teaching me how to learn code and giving me the building blocks to: *Read, Write, Speak, Teach*
 
