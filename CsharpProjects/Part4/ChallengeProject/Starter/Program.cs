@@ -144,10 +144,6 @@ do
           dogCharacteristic = readResult.ToLower().Trim();
           dogCharacteristics = dogCharacteristic.Split(',');
           Array.Sort(dogCharacteristics);
-          foreach (string term in dogCharacteristics)
-          {
-            Console.WriteLine(term.Trim());
-          }
         }
       }
 
@@ -157,7 +153,8 @@ do
       int matchesPerDog = 0;
 
       // #4 update to "rotating" animation with countdown
-      string[] searchingIcons = {".  ", ".. ", "..."};
+      string[] searchingIcons = {"*", "/", "--", "\\"};
+      string[] searchingCountdown = {"2", "1", "0"};
 
       // loop ourAnimals array to search for matching animals
       for (int i = 0; i < maxPets; i++)
@@ -170,7 +167,6 @@ do
           // Search combined descriptions and report results
           dogDescription = ourAnimals[i, 4] + "\r\n" + ourAnimals[i, 5];
 
-
           // #3a iterate submitted characteristic terms and search description for each term
           // Array.Sort(dogCharacteristics);
           foreach (string term in dogCharacteristics)
@@ -178,9 +174,13 @@ do
             for (int j = 5; j > -1 ; j--)
             {
             // #5 update "searching" message to show countdown
-              foreach (string icon in searchingIcons)
+              for (int k = 0; k < searchingCountdown.Length; k++)
               {
-                Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {term} {icon}");
+                foreach (string icon in searchingIcons)
+                {
+                  Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {term.Trim()}...{icon} ");
+                }
+                Console.Write($"{searchingCountdown[k]} ");
                 Thread.Sleep(250);
               }
 
@@ -195,7 +195,7 @@ do
               matchesPerDog++;
             }
             // #3b update message to reflect term
-            Console.WriteLine($"\nSearching: {term}");
+            Console.WriteLine($"\nSearching...{term}");
           }
 
           // #3d if "this dog" is match write match message + dog description
