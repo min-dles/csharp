@@ -153,6 +153,8 @@ do
 
       bool noMatchesDog = true;
       string dogDescription = "";
+      // initialize counter to keep track of potential matches:
+      int matchesPerDog = 0;
 
       // #4 update to "rotating" animation with countdown
       string[] searchingIcons = {".  ", ".. ", "..."};
@@ -160,6 +162,9 @@ do
       // loop ourAnimals array to search for matching animals
       for (int i = 0; i < maxPets; i++)
       {
+        // reset the counter: 
+        matchesPerDog = 0;
+
         if (ourAnimals[i, 1].Contains("dog"))
         {
           // Search combined descriptions and report results
@@ -184,15 +189,20 @@ do
             if (dogDescription.Contains(term.Trim()))
             {
               // #3c set a flag "this dog" is a match
-              Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+              Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a {term} match!");
 
               noMatchesDog = false;
+              matchesPerDog++;
             }
             // #3b update message to reflect term
             Console.WriteLine($"\nSearching: {term}");
           }
 
           // #3d if "this dog" is match write match message + dog description
+          if (matchesPerDog > 1)
+            Console.WriteLine($"Check it out: {ourAnimals[i, 3]} matched with {matchesPerDog} of your search terms!");
+          if (matchesPerDog > 0)
+            Console.WriteLine($"{ourAnimals[i, 3]} ({ourAnimals[i, 0]}) \n{ourAnimals[i, 4]} \n {ourAnimals[i, 5]}");
         }
       }
 
