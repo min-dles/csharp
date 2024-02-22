@@ -153,8 +153,7 @@ do
       int matchesPerDog = 0;
 
       // #4 update to "rotating" animation with countdown
-      string[] searchingIcons = {"*", "/", "--", "\\"};
-      string[] searchingCountdown = {"2", "1", "0"};
+      string[] searchingIcons = {"/ 2 ", "-- 1 ", "\\ 1 ", "* 0 "};
 
       // loop ourAnimals array to search for matching animals
       for (int i = 0; i < maxPets; i++)
@@ -174,22 +173,21 @@ do
             for (int j = 5; j > -1 ; j--)
             {
             // #5 update "searching" message to show countdown
-              for (int k = 0; k < searchingCountdown.Length; k++)
+              foreach (string icon in searchingIcons)
               {
-                foreach (string icon in searchingIcons)
-                {
-                  Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {term.Trim()}...{icon} ");
-                }
-                Console.Write($"{searchingCountdown[k]} ");
-                Thread.Sleep(250);
+                Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {term.Trim()}...{icon} ");
+                Thread.Sleep(500);
               }
-
               Console.Write($"\r{new String(' ', Console.BufferWidth)}");
             }
+
             if (dogDescription.Contains(term.Trim()))
             {
+              // Set variable and use Replace()
+              string ourDog = ourAnimals[i, 3].Replace("Nickname: ", "");
+            
               // #3c set a flag "this dog" is a match
-              Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a {term} match!");
+              Console.WriteLine($"\nOur dog, {ourDog}, is a \"{term}\" match!");
 
               noMatchesDog = false;
               matchesPerDog++;
@@ -202,7 +200,7 @@ do
           if (matchesPerDog > 1)
             Console.WriteLine($"Check it out: {ourAnimals[i, 3]} matched with {matchesPerDog} of your search terms!");
           if (matchesPerDog > 0)
-            Console.WriteLine($"{ourAnimals[i, 3]} ({ourAnimals[i, 0]}) \n{ourAnimals[i, 4]} \n {ourAnimals[i, 5]}");
+            Console.WriteLine($"{ourAnimals[i, 3]} ({ourAnimals[i, 0]})\n{ourAnimals[i, 4]}\n{ourAnimals[i, 5]}");
         }
       }
 
