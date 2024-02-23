@@ -103,5 +103,8 @@ if (ValidateLength() && ValidateZeroes() && ValidateRange())
 else 
 {
   Console.WriteLine($"ip is *NOT* a valid IPv4 address.");
-
 }
+
+void ValidateLength() {}
+void ValidateZeroes() {}
+void ValidateRange() {}
