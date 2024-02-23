@@ -95,3 +95,13 @@ then ipAddress is valid
 
 else ipAddress is invalid
 */
+
+if (ValidateLength() && ValidateZeroes() && ValidateRange())
+{
+  Console.WriteLine($"ip is a valid IPv4 address.");
+}
+else 
+{
+  Console.WriteLine($"ip is *NOT* a valid IPv4 address.");
+
+}
