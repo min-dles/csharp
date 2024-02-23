@@ -140,7 +140,7 @@ void ValidateRange()
 
   foreach (string number in address)
   {
-    int value = int.Parse(number)
+    int value = int.Parse(number);
     if (value < 0 || value > 255)
     {
       validRange = false;
