@@ -1,14 +1,16 @@
 // Module 1 - Write your first C# Method
-int[] a = {1,2,3,4,5};
 
-Console.WriteLine("Contents of Array:");
-PrintArray();
+// Exercise 1: write your first method
+Console.WriteLine("Generating 5 Random Numbers:");
+DisplayRandomNumbers(); // call the method first
 
-void PrintArray()
+void DisplayRandomNumbers() // can then define it at the end
 {
-    foreach (int x in a)
-    {
-        Console.Write($"{x} ");
-    }
-    Console.WriteLine();
+  Random random = new Random();
+
+  for (int i = 0; i < 5; i++)
+  {
+    Console.Write($"{random.Next(1, 100)} ");
+  }
+  Console.WriteLine(); // called to display a new line after the loop displaying the numbers is complete
 }
