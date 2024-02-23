@@ -83,18 +83,6 @@ using System;
   }
 
 // Exercise 3: practice developing code with methods & pseudo-code
-
-/*
-if ipAddress consists of 4 numbers
-and
-if each ipAddress number has no leading zeroes
-and
-if each ipAddress number is in range 0 - 255
-
-then ipAddress is valid
-
-else ipAddress is invalid
-*/
 string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
 string[] address;
 bool validLength = false;
