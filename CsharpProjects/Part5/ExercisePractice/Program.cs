@@ -25,30 +25,7 @@ Console.WriteLine("Enter current GMT");
 int currentGMT = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Current Medicine Schedule:");
-
-/* Format and display medicine times */
-foreach (int val in times)
-{
-    string time = val.ToString();
-    int len = time.Length;
-
-    if (len >= 3)
-    {
-        time = time.Insert(len - 2, ":");
-    }
-    else if (len == 2)
-    {
-        time = time.Insert(0, "0:");
-    }
-    else
-    {
-        time = time.Insert(0, "0:0");
-    }
-
-    Console.Write($"{time} ");
-}
-
-Console.WriteLine();
+DisplayTimes(); // first call to this method
 
 Console.WriteLine("Enter new GMT");
 int newGMT = Convert.ToInt32(Console.ReadLine());
@@ -79,27 +56,30 @@ else
 }
 
 Console.WriteLine("New Medicine Schedule:");
+DisplayTimes(); // second call to this method
 
-/* Format and display medicine times */
-foreach (int val in times)
+void DisplayTimes() // method defined at the end
 {
+  /* Format and display medicine times */
+  foreach (int val in times)
+  {
     string time = val.ToString();
     int len = time.Length;
 
     if (len >= 3)
     {
-        time = time.Insert(len - 2, ":");
+      time = time.Insert(len - 2, ":");
     }
     else if (len == 2)
     {
-        time = time.Insert(0, "0:");
+      time = time.Insert(0, "0:");
     }
     else
     {
-        time = time.Insert(0, "0:0");
+      time = time.Insert(0, "0:0");
     }
 
     Console.Write($"{time} ");
+  }
+  Console.WriteLine(); // need to append a new line after times are displayed
 }
-
-Console.WriteLine();
