@@ -1,5 +1,5 @@
 using System;
-// Module 1 - Write your first C# Method
+/* Module 1 - Write your first C# Method
   // Exercise 1: write your first method
     Console.WriteLine("Generating 5 Random Numbers:");
     DisplayRandomNumbers(); // call the method first
@@ -14,7 +14,7 @@ using System;
       }
       Console.WriteLine(); // called to display a new line after the loop displaying the numbers is complete
     }
-/*
+
   // Exercise 2: refactor duplicate code by writing methods
     int[] times = {800, 1200, 1600, 2000};
     int diff = 0;
@@ -80,7 +80,7 @@ using System;
         times[i] = ((times[i] + diff)) % 2400;
       }
     }
-*/
+
   // Exercise 3: practice developing code with methods & pseudo-code
     string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
     string[] address;
@@ -160,5 +160,31 @@ using System;
       }
       Console.WriteLine();
     };
+*/
+// Module 2 - Create methods with parameters
+// Exercise 1: create a method that adjusts a time schedule
+int[] schedule = {800, 1200, 1600, 2000};
+DisplayAdjustedTimes(schedule, 6, -6);
 
-// Module 2 - PLACEHOLDER
+void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
+{
+  int diff = 0;
+  if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+  {
+    Console.WriteLine("Invalid GMT");
+  }
+  else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+  {
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+  } 
+  else 
+  {
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+  }
+
+  for (int i = 0; i < times.Length; i++)
+  {
+    int newTime = ((times[i] + diff)) % 2400;
+    Console.WriteLine($"{times[i]} -> {newTime}");
+  }
+}
