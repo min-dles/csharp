@@ -291,17 +291,16 @@ int count = 0;
 
 // NOTE: Named arguments, when used with positional arguments, are valid if they're used in the correct position. (see line 299 for example)
 
-RSVP("S.Bob", 1, "none", true);
-RSVP("Krabs", 2, "Nuts", true);
-RSVP(partySize: 2, allergies: "none", name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
-RSVP(name: "Pearl", partySize: 2, allergies: "none", inviteOnly: false); // Pearl now added to the list twice
-RSVP("Squidward", 1, "Jackfruit", true); // Sorry, Squidward is not on the guest list.
-RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit",  partySize: 1); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
-RSVP("Gary", 4, "none", false);
+RSVP("S.Bob");
+RSVP("Krabs", 2, "Nuts");
+RSVP(partySize: 2, name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
+RSVP(name: "Pearl", partySize: 2, inviteOnly: false); // Pearl now added to the list twice
+RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit"); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
+RSVP("Gary", 4, inviteOnly: false);
 RSVP("Patrick", 2, "Stone fruit", false);
 ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
 
-void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
+void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true) 
 {
   if (inviteOnly)
   {
