@@ -203,3 +203,13 @@ void DisplayStudents(string[] students)
   }
   Console.WriteLine();
 }
+
+// Exercise 3: Additional scope practice - with CircleArea
+PrintCircleArea(12);
+
+void PrintCircleArea(int radius)
+{
+  double pi = 3.14159;
+  double area = pi * (radius * radius);
+  Console.WriteLine($"Area = {area}");
+}
