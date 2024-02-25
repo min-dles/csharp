@@ -241,5 +241,29 @@ void Multiply(int a, int b, int c)
     c = a * b; // this line of code executed actually calculates the answer
     Console.WriteLine($"inside Multiply method: {a} x {b} = {c}"); 
 }
-
 // About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
+
+// Exercise 5: Test pass by reference
+int[] array = {1, 2, 3, 4, 5};
+
+PrintArray(array); // 1 2 3 4 5
+Clear(array); // [no output]
+PrintArray(array); // 0 0 0 0 0
+
+void PrintArray(int[] array) 
+{
+  foreach (int a in array) 
+  {
+    Console.Write($"{a} ");
+  }
+  Console.WriteLine();
+}
+
+void Clear(int[] array) 
+{
+  for (int i = 0; i < array.Length; i++) 
+  {
+    array[i] = 0;
+  }
+}
+// About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
