@@ -267,3 +267,16 @@ void Clear(int[] array)
   }
 }
 // About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
+
+// Exercise 6: Test with Strings
+string status = "Healthy";
+
+Console.WriteLine($"Start: {status}"); // Start: Healthy
+SetHealth(status, false); // Middle: Unhealthy
+Console.WriteLine($"End: {status}"); // End: Healthy
+
+void SetHealth(string status, bool isHealthy) 
+{
+  status = (isHealthy ? "Healthy" : "Unhealthy");
+  Console.WriteLine($"Middle: {status}");
+}
