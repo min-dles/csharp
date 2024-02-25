@@ -163,67 +163,83 @@ using System;
 */
 // Module 2 - Create methods with parameters
 // Exercise 1: create a method that adjusts a time schedule
-int[] schedule = {800, 1200, 1600, 2000};
-DisplayAdjustedTimes(schedule, 6, -6);
+  int[] schedule = {800, 1200, 1600, 2000};
+  DisplayAdjustedTimes(schedule, 6, -6);
 
-void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
-{
-  int diff = 0;
-  if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+  void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
   {
-    Console.WriteLine("Invalid GMT");
-  }
-  else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
-  {
-    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
-  } 
-  else 
-  {
-    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
-  }
+    int diff = 0;
+    if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+    {
+      Console.WriteLine("Invalid GMT");
+    }
+    else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+    {
+      diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+    } 
+    else 
+    {
+      diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+    }
 
-  for (int i = 0; i < times.Length; i++)
-  {
-    int newTime = ((times[i] + diff)) % 2400;
-    Console.WriteLine($"{times[i]} -> {newTime}");
+    for (int i = 0; i < times.Length; i++)
+    {
+      int newTime = ((times[i] + diff)) % 2400;
+      Console.WriteLine($"{times[i]} -> {newTime}");
+    }
   }
-}
 
 // Exercise 2: practice with scope
-string[] students = { "Spongebob", "Patrick", "Sandy", "Squidward" }; // global variable scope
+  string[] students = { "Spongebob", "Patrick", "Sandy", "Squidward" }; // global variable scope
 
-DisplayStudents(students);
-DisplayStudents(new string[] {"Pearl", "Plankton"}); // not global; inaccessible outside of this context
+  DisplayStudents(students);
+  DisplayStudents(new string[] {"Pearl", "Plankton"}); // not global; inaccessible outside of this context
 
-void DisplayStudents(string[] students)
-{
-  foreach (string student in students)
+  void DisplayStudents(string[] students)
   {
-    Console.Write($"{student}, ");
+    foreach (string student in students)
+    {
+      Console.Write($"{student}, ");
+    }
+    Console.WriteLine();
   }
-  Console.WriteLine();
-}
 
 // Exercise 3: Additional scope practice - with CircleArea
-double pi = 3.14159;
-PrintCircleInfo(12);
-PrintCircleInfo(24);
+  double pi = 3.14159;
+  PrintCircleInfo(12);
+  PrintCircleInfo(24);
 
-void PrintCircleInfo(int radius)
+  void PrintCircleInfo(int radius)
+  {
+    Console.WriteLine($"Circle details with this radius: {radius}");
+    PrintCircleArea(radius);
+    PrintCircleCircumference(radius);
+  }
+
+  void PrintCircleCircumference(int radius)
+  {
+    double circumference = 2 * pi * radius;
+    Console.WriteLine($"Circumference = {circumference}");
+  }
+
+  void PrintCircleArea(int radius)
+  {
+    double area = pi * (radius * radius);
+    Console.WriteLine($"Area = {area}");
+  }
+
+// Exercise 4: Test pass by value
+int a = 3;
+int b = 4;
+int c = 0;
+
+Multiply(a, b, c); // inside Multiple method: 3 x 4 = 12
+Console.WriteLine($"global statement: {a} x {b} = {c}"); // global statement: 3 x 4 = 0
+
+void Multiply(int a, int b, int c) 
 {
-  Console.WriteLine($"Circle details with this radius: {radius}");
-  PrintCircleArea(radius);
-  PrintCircleCircumference(radius);
+    c = a * b; // this line of code executed actually calculates the answer
+    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}"); 
 }
 
-void PrintCircleCircumference(int radius)
-{
-  double circumference = 2 * pi * radius;
-  Console.WriteLine($"Circumference = {circumference}");
-}
-
-void PrintCircleArea(int radius)
-{
-  double area = pi * (radius * radius);
-  Console.WriteLine($"Area = {area}");
-}
+// About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
