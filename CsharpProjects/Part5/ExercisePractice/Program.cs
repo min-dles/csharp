@@ -188,3 +188,18 @@ void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT)
     Console.WriteLine($"{times[i]} -> {newTime}");
   }
 }
+
+// Exercise 2: practice with scope
+string[] students = { "Spongebob", "Patrick", "Sandy", "Squidward" }; // global variable scope
+
+DisplayStudents(students);
+DisplayStudents(new string[] {"Pearl", "Plankton"}); // not global; inaccessible outside of this context
+
+void DisplayStudents(string[] students)
+{
+  foreach (string student in students)
+  {
+    Console.Write($"{student}, ");
+  }
+  Console.WriteLine();
+}
