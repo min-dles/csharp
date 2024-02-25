@@ -229,55 +229,80 @@ using System;
   }
 
 // Exercise 4: Test pass by value
-int a = 3;
-int b = 4;
-int c = 0;
+  int a = 3;
+  int b = 4;
+  int c = 0;
 
-Multiply(a, b, c); // inside Multiple method: 3 x 4 = 12
-Console.WriteLine($"global statement: {a} x {b} = {c}"); // global statement: 3 x 4 = 0
+  Multiply(a, b, c); // inside Multiple method: 3 x 4 = 12
+  Console.WriteLine($"global statement: {a} x {b} = {c}"); // global statement: 3 x 4 = 0
 
-void Multiply(int a, int b, int c) 
-{
+  void Multiply(int a, int b, int c) 
+  {
     c = a * b; // this line of code executed actually calculates the answer
     Console.WriteLine($"inside Multiply method: {a} x {b} = {c}"); 
-}
-// About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
+  }
+  // About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
 
 // Exercise 5: Test pass by reference
-int[] array = {1, 2, 3, 4, 5};
+  int[] array = {1, 2, 3, 4, 5};
 
-PrintArray(array); // 1 2 3 4 5
-Clear(array); // [no output]
-PrintArray(array); // 0 0 0 0 0
+  PrintArray(array); // 1 2 3 4 5
+  Clear(array); // [no output]
+  PrintArray(array); // 0 0 0 0 0
 
-void PrintArray(int[] array) 
-{
-  foreach (int a in array) 
+  void PrintArray(int[] array) 
   {
-    Console.Write($"{a} ");
+    foreach (int a in array) 
+    {
+      Console.Write($"{a} ");
+    }
+    Console.WriteLine();
   }
-  Console.WriteLine();
-}
 
-void Clear(int[] array) 
-{
-  for (int i = 0; i < array.Length; i++) 
+  void Clear(int[] array) 
   {
-    array[i] = 0;
+    for (int i = 0; i < array.Length; i++) 
+    {
+      array[i] = 0;
+    }
   }
-}
-// About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
+  // About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
 
 // Exercise 6: Test with Strings
-string status = "Healthy";
+  string status = "Healthy";
 
-Console.WriteLine($"Start: {status}"); // Start: Healthy
-SetHealth(false); // Middle: Unhealthy
-Console.WriteLine($"End: {status}"); // End: Unhealthy
+  Console.WriteLine($"Start: {status}"); // Start: Healthy
+  SetHealth(false); // Middle: Unhealthy
+  Console.WriteLine($"End: {status}"); // End: Unhealthy
 
-void SetHealth(bool isHealthy) // remove parameter to instead change the value of global var 'status'
+  void SetHealth(bool isHealthy) // remove parameter to instead change the value of global var 'status'
+  {
+    status = (isHealthy ? "Healthy" : "Unhealthy");
+    Console.WriteLine($"Middle: {status}");
+  }
+  // About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
+
+// Exercise 7: RSVP exercise to test optional params
+string[] guestList = {"Spongebob", "Mr. Krabs", "Gary", "Patrick"};
+string[] rsvps = new string[10];
+int count = 0;
+
+void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
 {
-  status = (isHealthy ? "Healthy" : "Unhealthy");
-  Console.WriteLine($"Middle: {status}");
+  if (inviteOnly)
+  {
+    // search guestList before adding rsvp
+  }
+
+  rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+  count++;
 }
-// About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
+
+void ShowRSVPs()
+{
+  Console.WriteLine("\nTotal RSVPs:");
+  for (int i = 0; i < count; i++)
+  {
+    Console.WriteLine(rsvps[i]);
+  }
+}
