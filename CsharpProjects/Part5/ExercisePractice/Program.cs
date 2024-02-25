@@ -272,11 +272,12 @@ void Clear(int[] array)
 string status = "Healthy";
 
 Console.WriteLine($"Start: {status}"); // Start: Healthy
-SetHealth(status, false); // Middle: Unhealthy
-Console.WriteLine($"End: {status}"); // End: Healthy
+SetHealth(false); // Middle: Unhealthy
+Console.WriteLine($"End: {status}"); // End: Unhealthy
 
-void SetHealth(string status, bool isHealthy) 
+void SetHealth(bool isHealthy) // remove parameter to instead change the value of global var 'status'
 {
   status = (isHealthy ? "Healthy" : "Unhealthy");
   Console.WriteLine($"Middle: {status}");
 }
+// About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
