@@ -206,6 +206,8 @@ void DisplayStudents(string[] students)
 
 // Exercise 3: Additional scope practice - with CircleArea
 PrintCircleArea(12);
+double circumference = 2 * pi * radius; // NOTE: can't do this. variables pi and radius are defined INSIDE the method and therefore cannot be accessed OUTSIDE of the method being called
+// error CS0102: The name 'pi' does not exist in the current context
 
 void PrintCircleArea(int radius)
 {
