@@ -283,18 +283,38 @@ using System;
   // About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
 
 // Exercise 7: RSVP exercise to test optional params
-string[] guestList = {"Spongebob", "Mr. Krabs", "Gary", "Patrick"};
+string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
 string[] rsvps = new string[10];
 int count = 0;
+
+RSVP("S.Bob", 1, "none", true);
+RSVP("Krabs", 2, "Nuts", true);
+RSVP("Pearl", 2, "none", false);
+RSVP("Squidward", 1, "Jackfruit", true); // Sorry, Squidward is not on the guest list.
+RSVP("Gary", 4, "none", false);
+RSVP("Patrick", 2, "Stone fruit", false);
+ShowRSVPs(); // [all RSVPs listed: Spongebob, Mr. Krabs, Pearl, Gary, and Patrick]
 
 void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
 {
   if (inviteOnly)
   {
-    // search guestList before adding rsvp
+    bool found = false;
+    foreach (string guest in guestList)
+    {
+      if (guest.Equals(name)) {
+        found = true;
+        break;
+      }
+    }
+    if (!found)
+    {
+      Console.WriteLine($"Sorry, {name} is not on the guest list");
+      return;
+    }
   }
 
-  rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+  rsvps[count] = $"Name: {name},\tParty Size: {partySize}, \tAllergies: {allergies}";
   count++;
 }
 
