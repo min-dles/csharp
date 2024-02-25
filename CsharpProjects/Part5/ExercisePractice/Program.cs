@@ -206,10 +206,17 @@ void DisplayStudents(string[] students)
 
 // Exercise 3: Additional scope practice - with CircleArea
 double pi = 3.14159;
-PrintCircleArea(12);
-PrintCircleCircumference(12);
+PrintCircleInfo(12);
+PrintCircleInfo(24);
 
-void PrintCircleCircumference(int radius) // In this example, radius isn't a global variable so that you can call the methods with different values of radius without updating a variable each time.
+void PrintCircleInfo(int radius)
+{
+  Console.WriteLine($"Circle details with this radius: {radius}");
+  PrintCircleArea(radius);
+  PrintCircleCircumference(radius);
+}
+
+void PrintCircleCircumference(int radius)
 {
   double circumference = 2 * pi * radius;
   Console.WriteLine($"Circumference = {circumference}");
