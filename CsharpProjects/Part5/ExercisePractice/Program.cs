@@ -287,13 +287,16 @@ string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
 string[] rsvps = new string[10];
 int count = 0;
 
+// Note: When calling a method that accepts many parameters, it can be tricky to understand what the arguments represent. Using named arguments can improve the readability of your code. Use a named argument by specifying the parameter name followed by the argument value. In this task, you'll practice using named arguments.
+
 RSVP("S.Bob", 1, "none", true);
 RSVP("Krabs", 2, "Nuts", true);
-RSVP("Pearl", 2, "none", false);
+RSVP(partySize: 2, allergies: "none", name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
+RSVP(name: "Pearl", partySize: 2, allergies: "none", inviteOnly: false); // Pearl now added to the list twice
 RSVP("Squidward", 1, "Jackfruit", true); // Sorry, Squidward is not on the guest list.
 RSVP("Gary", 4, "none", false);
 RSVP("Patrick", 2, "Stone fruit", false);
-ShowRSVPs(); // [all RSVPs listed: Spongebob, Mr. Krabs, Pearl, Gary, and Patrick]
+ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
 
 void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
 {
