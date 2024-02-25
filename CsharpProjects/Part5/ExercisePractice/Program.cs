@@ -283,51 +283,71 @@ using System;
   // About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
 
 // Exercise 7: RSVP exercise to test optional params
-string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
-string[] rsvps = new string[10];
-int count = 0;
+  string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
+  string[] rsvps = new string[10];
+  int count = 0;
 
-// Note: When calling a method that accepts many parameters, it can be tricky to understand what the arguments represent. Using named arguments can improve the readability of your code. Use a named argument by specifying the parameter name followed by the argument value. In this task, you'll practice using named arguments.
+  RSVP("S.Bob");
+  RSVP("Krabs", 2, "Nuts");
+  RSVP(partySize: 2, name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
+  RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit"); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
+  RSVP("Gary", 4, inviteOnly: false);
+  RSVP("Patrick", 2, "Stone fruit", false);
+  ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
 
-// NOTE: Named arguments, when used with positional arguments, are valid if they're used in the correct position. (see line 299 for example)
-
-RSVP("S.Bob");
-RSVP("Krabs", 2, "Nuts");
-RSVP(partySize: 2, name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
-RSVP(name: "Pearl", partySize: 2, inviteOnly: false); // Pearl now added to the list twice
-RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit"); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
-RSVP("Gary", 4, inviteOnly: false);
-RSVP("Patrick", 2, "Stone fruit", false);
-ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
-
-void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true) 
-{
-  if (inviteOnly)
+  void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true) 
   {
-    bool found = false;
-    foreach (string guest in guestList)
+    if (inviteOnly)
     {
-      if (guest.Equals(name)) {
-        found = true;
-        break;
+      bool found = false;
+      foreach (string guest in guestList)
+      {
+        if (guest.Equals(name)) {
+          found = true;
+          break;
+        }
+      }
+      if (!found)
+      {
+        Console.WriteLine($"Sorry, {name} is not on the guest list");
+        return;
       }
     }
-    if (!found)
+
+    rsvps[count] = $"Name: {name},\tParty Size: {partySize}, \tAllergies: {allergies}";
+    count++;
+  }
+
+  void ShowRSVPs()
+  {
+    Console.WriteLine("\nTotal RSVPs:");
+    for (int i = 0; i < count; i++)
     {
-      Console.WriteLine($"Sorry, {name} is not on the guest list");
-      return;
+      Console.WriteLine(rsvps[i]);
     }
   }
+// Exercise 8: Challenge to display email addresses
+string[,] corporate = 
+{
+  {"Mariner", "Boimler"}, {"Rutherford", "Tendi"},
+  {"T'Ana", "T'Lyn"}, {"Freeman", "Ransom"},
+  {"Shaxs", "Billups"}, {"Migleemo", "Kayshon"}
+};
 
-  rsvps[count] = $"Name: {name},\tParty Size: {partySize}, \tAllergies: {allergies}";
-  count++;
+string[,] external = 
+{
+  {"S.Bob", "Patrick"}, {"Squidward", "Krabs"},
+  {"Pearl", "Plankton"}, {"Sandy", "Karen"}
+};
+
+string externalDomain = "krustykrab.com";
+
+for (int i = 0; i < corporate.GetLength(0); i++) 
+{
+  // display internal email addresses
 }
 
-void ShowRSVPs()
+for (int i = 0; i < external.GetLength(0); i++) 
 {
-  Console.WriteLine("\nTotal RSVPs:");
-  for (int i = 0; i < count; i++)
-  {
-    Console.WriteLine(rsvps[i]);
-  }
+  // display external email addresses
 }
