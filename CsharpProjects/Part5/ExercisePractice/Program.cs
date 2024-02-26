@@ -327,62 +327,64 @@ using System;
     }
   }
 // Exercise 8: Challenge to display email addresses
-string[,] corporate = 
-{
-  {"Beckett", "Mariner"}, {"Brad", "Boimler"},
-  {"Sam", "Rutherford"}, {"D'Vana", "Tendi"},
-  {"Carol", "Freeman"}, {"Jennifer", "Sh'reyan"}
-};
-
-string[,] external = 
-{
-  {"Spongebob", "Squarepants"}, {"Squidward", "Tentacles"},
-  {"Patrick", "Star"}, {"Sandy", "Cheeks"}
-};
-
-string externalDomain = "krustykrab.com"; // optional parameter
-// string internalDomain = "cerritos.com";
-
-Console.WriteLine("\n*** Corporate Employee Emails: ***");
-GetEmployeeInfo(corporate);
-Console.WriteLine("\n*** External Employees: ***");
-GetEmployeeInfo(external, domain: externalDomain);
-
-// The method should include an optional parameter for the domain name of external employees.
-// Format for emails are: first two letters of employee's first name + employee's last name + correct domain
-void DisplayEmailAddresses(string username, string domain)
-{
-  Console.WriteLine($"{username}@{domain}");
-}
-
-void GetEmployeeInfo(string[,] employeeList, string domain = "cerritos.com")
-{
-  string firstName = "";
-  string lastName = "";
-  
-  for (int i = 0; i < employeeList.GetLength(0); i++)
+  string[,] corporate = 
   {
-    string username = "";
-    string firstTwoChar = "";
-    for (int j = 0; j < employeeList.GetLength(1); j++)
-    {
-      if (j == 0)
-      {
-        firstName = employeeList[i, j].Replace("\'", "");
-        firstName.Split();
-      }
-      else if (j == 1)
-      {
-        lastName = employeeList[i, j].Replace("\'", "");
-      }
-    }
+    {"Beckett", "Mariner"}, {"Brad", "Boimler"},
+    {"Sam", "Rutherford"}, {"D'Vana", "Tendi"},
+    {"Carol", "Freeman"}, {"Jennifer", "Sh'reyan"}
+  };
 
-    for (int k = 0; k < 2; k++)
-    {
-      firstTwoChar += firstName[k];
-    }
+  string[,] external = 
+  {
+    {"Spongebob", "Squarepants"}, {"Squidward", "Tentacles"},
+    {"Patrick", "Star"}, {"Sandy", "Cheeks"}
+  };
 
-    username += firstTwoChar + lastName;
-    DisplayEmailAddresses(username.ToLower(), domain);
+  string externalDomain = "krustykrab.com"; // optional parameter
+  // string internalDomain = "cerritos.com";
+
+  Console.WriteLine("\n*** Corporate Employee Emails: ***");
+  GetEmployeeInfo(corporate);
+  Console.WriteLine("\n*** External Employees: ***");
+  GetEmployeeInfo(external, domain: externalDomain);
+
+  // The method should include an optional parameter for the domain name of external employees.
+  // Format for emails are: first two letters of employee's first name + employee's last name + correct domain
+  void DisplayEmailAddresses(string username, string domain)
+  {
+    Console.WriteLine($"{username}@{domain}");
   }
-}
+
+  void GetEmployeeInfo(string[,] employeeList, string domain = "cerritos.com")
+  {
+    string firstName = "";
+    string lastName = "";
+    
+    for (int i = 0; i < employeeList.GetLength(0); i++)
+    {
+      string username = "";
+      string firstTwoChar = "";
+      for (int j = 0; j < employeeList.GetLength(1); j++)
+      {
+        if (j == 0)
+        {
+          firstName = employeeList[i, j].Replace("\'", "");
+          firstName.Split();
+        }
+        else if (j == 1)
+        {
+          lastName = employeeList[i, j].Replace("\'", "");
+        }
+      }
+
+      for (int k = 0; k < 2; k++)
+      {
+        firstTwoChar += firstName[k];
+      }
+
+      username += firstTwoChar + lastName;
+      DisplayEmailAddresses(username.ToLower(), domain);
+    }
+  }
+
+// Module 3 - PLACEHOLDER
