@@ -329,22 +329,47 @@ using System;
 // Exercise 8: Challenge to display email addresses
 string[,] corporate = 
 {
-  {"Mariner", "Boimler"}, {"Rutherford", "Tendi"},
-  {"T'Ana", "T'Lyn"}, {"Freeman", "Ransom"},
-  {"Shaxs", "Billups"}, {"Migleemo", "Kayshon"}
+  {"Beckett", "Mariner"}, {"Brad", "Boimler"},
+  {"Sam", "Rutherford"}, {"D'Vana", "Tendi"},
+  {"Carol", "Freeman"}, {"Jennifer", "Sh'reyan"}
 };
 
 string[,] external = 
 {
-  {"S.Bob", "Patrick"}, {"Squidward", "Krabs"},
-  {"Pearl", "Plankton"}, {"Sandy", "Karen"}
+  {"Spongebob", "Squarepants"}, {"Squidward", "Tentacles"},
+  {"Patrick", "Star"}, {"Sandy", "Cheeks"}
 };
 
 string externalDomain = "krustykrab.com";
+string internalDomain = "cerritos.com";
 
+DisplayEmailAddresses();
+
+// The method should include an optional parameter for the domain name of external employees.
+// Format for emails are: first two letters of employee's first name + employee's last name + correct domain
+void DisplayEmailAddresses()
+{
+
+}
+
+// Console.Write(corporate[3, 1]); // Tendi
+
+Console.Write("Names:");
 for (int i = 0; i < corporate.GetLength(0); i++) 
 {
   // display internal email addresses
+  // foreach (char name in corporate[i, 0])
+  for (int j = 0; j < corporate.GetLength(1); j++)
+  {
+    Console.Write($" {corporate[i, j]}");
+  }
+  if (i == corporate.GetLength(0) - 1)
+  {
+    Console.WriteLine();
+    return;
+  }
+  else
+    Console.Write(",");
 }
 
 for (int i = 0; i < external.GetLength(0); i++) 
