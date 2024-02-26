@@ -352,9 +352,31 @@ void DisplayEmailAddresses()
 
 }
 
+GetUserName(corporate);
+GetUserName(external);
+void GetUserName(string[,] employeeNames)
+{
+  for (int i = 0; i < employeeNames.GetLength(0); i++) 
+  {
+    string username = "";
+    string firstTwoChar = "";
+    string firstName = employeeNames[i, 0].Replace("\'", "");
+    string lastName = employeeNames[i, 1].Replace("\'", "");
+    firstName.Split();
+    for (int j = 0; j < 2; j++)
+    {
+      firstTwoChar += firstName[j];
+    }
+
+    username += firstTwoChar + lastName;
+    Console.Write(username.ToLower());
+    Console.WriteLine();
+  }
+}
+
 // Console.Write(corporate[3, 1]); // Tendi
 
-Console.Write("Names:");
+Console.Write("Names: ");
 for (int i = 0; i < corporate.GetLength(0); i++) 
 {
   string username = "";
