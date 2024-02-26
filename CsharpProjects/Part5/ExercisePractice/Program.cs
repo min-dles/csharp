@@ -340,80 +340,49 @@ string[,] external =
   {"Patrick", "Star"}, {"Sandy", "Cheeks"}
 };
 
-string externalDomain = "krustykrab.com";
-string internalDomain = "cerritos.com";
+string externalDomain = "krustykrab.com"; // optional parameter
+// string internalDomain = "cerritos.com";
 
-DisplayEmailAddresses();
+Console.WriteLine("\n*** Corporate Employee Emails: ***");
+GetEmployeeInfo(corporate);
+Console.WriteLine("\n*** External Employees: ***");
+GetEmployeeInfo(external, domain: externalDomain);
 
 // The method should include an optional parameter for the domain name of external employees.
 // Format for emails are: first two letters of employee's first name + employee's last name + correct domain
-void DisplayEmailAddresses()
+void DisplayEmailAddresses(string username, string domain)
 {
-
+  Console.WriteLine($"{username}@{domain}");
 }
 
-GetUserName(corporate);
-GetUserName(external);
-void GetUserName(string[,] employeeNames)
+void GetEmployeeInfo(string[,] employeeList, string domain = "cerritos.com")
 {
-  for (int i = 0; i < employeeNames.GetLength(0); i++) 
+  string firstName = "";
+  string lastName = "";
+  
+  for (int i = 0; i < employeeList.GetLength(0); i++)
   {
     string username = "";
     string firstTwoChar = "";
-    string firstName = employeeNames[i, 0].Replace("\'", "");
-    string lastName = employeeNames[i, 1].Replace("\'", "");
-    firstName.Split();
-    for (int j = 0; j < 2; j++)
+    for (int j = 0; j < employeeList.GetLength(1); j++)
     {
-      firstTwoChar += firstName[j];
+      if (j == 0)
+      {
+        firstName = employeeList[i, j].Replace("\'", "");
+        firstName.Split();
+      }
+      else if (j == 1)
+      {
+        lastName = employeeList[i, j].Replace("\'", "");
+      }
+    }
+
+    for (int k = 0; k < 2; k++)
+    {
+      firstTwoChar += firstName[k];
     }
 
     username += firstTwoChar + lastName;
-    Console.Write(username.ToLower());
-    Console.WriteLine();
+    DisplayEmailAddresses(username.ToLower(), domain);
   }
-}
-
-// Console.Write(corporate[3, 1]); // Tendi
-
-Console.Write("Names: ");
-for (int i = 0; i < corporate.GetLength(0); i++) 
-{
-  string username = "";
-  string firstTwoChar = "";
-  string firstName = corporate[i, 0].Replace("\'", "");
-  string lastName = corporate[i, 1].Replace("\'", "");
-  firstName.Split();
-  for (int j = 0; j < 2; j++)
-  {
-    firstTwoChar += firstName[j];
-  }
-
-  username += firstTwoChar + lastName;
-  Console.Write(username.ToLower());
-  // display internal email addresses
-  // for (int j = 0; j < 2; j++)
-  // {
-  //   x = x + corporate[i, 0];
-  // }
-  // foreach (char letter in firstName)
-  // {
-  //   if ()
-  // }
-  // for (int j = 0; j < corporate.GetLength(1); j++)
-  // {
-  //   Console.Write($" {corporate[i, j]}");
-  // }
-  if (i == corporate.GetLength(0) - 1)
-  {
-    Console.WriteLine();
-    return;
-  }
-  else
-    Console.Write(",");
-}
-
-for (int i = 0; i < external.GetLength(0); i++) 
-{
-  // display external email addresses
 }
