@@ -357,12 +357,31 @@ void DisplayEmailAddresses()
 Console.Write("Names:");
 for (int i = 0; i < corporate.GetLength(0); i++) 
 {
-  // display internal email addresses
-  // foreach (char name in corporate[i, 0])
-  for (int j = 0; j < corporate.GetLength(1); j++)
+  string username = "";
+  string firstTwoChar = "";
+  string firstName = corporate[i, 0].Replace("\'", "");
+  string lastName = corporate[i, 1].Replace("\'", "");
+  firstName.Split();
+  for (int j = 0; j < 2; j++)
   {
-    Console.Write($" {corporate[i, j]}");
+    firstTwoChar += firstName[j];
   }
+
+  username += firstTwoChar + lastName;
+  Console.Write(username.ToLower());
+  // display internal email addresses
+  // for (int j = 0; j < 2; j++)
+  // {
+  //   x = x + corporate[i, 0];
+  // }
+  // foreach (char letter in firstName)
+  // {
+  //   if ()
+  // }
+  // for (int j = 0; j < corporate.GetLength(1); j++)
+  // {
+  //   Console.Write($" {corporate[i, j]}");
+  // }
   if (i == corporate.GetLength(0) - 1)
   {
     Console.WriteLine();
