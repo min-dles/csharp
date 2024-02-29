@@ -161,230 +161,252 @@ using System;
       Console.WriteLine();
     };
 */
-// Module 2 - Create methods with parameters
-// Exercise 1: create a method that adjusts a time schedule
-  int[] schedule = {800, 1200, 1600, 2000};
-  DisplayAdjustedTimes(schedule, 6, -6);
+/* Module 2 - Create methods with parameters
+  // Exercise 1: create a method that adjusts a time schedule
+    int[] schedule = {800, 1200, 1600, 2000};
+    DisplayAdjustedTimes(schedule, 6, -6);
 
-  void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
-  {
-    int diff = 0;
-    if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+    void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
     {
-      Console.WriteLine("Invalid GMT");
-    }
-    else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
-    {
-      diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
-    } 
-    else 
-    {
-      diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
-    }
-
-    for (int i = 0; i < times.Length; i++)
-    {
-      int newTime = ((times[i] + diff)) % 2400;
-      Console.WriteLine($"{times[i]} -> {newTime}");
-    }
-  }
-
-// Exercise 2: practice with scope
-  string[] students = { "Spongebob", "Patrick", "Sandy", "Squidward" }; // global variable scope
-
-  DisplayStudents(students);
-  DisplayStudents(new string[] {"Pearl", "Plankton"}); // not global; inaccessible outside of this context
-
-  void DisplayStudents(string[] students)
-  {
-    foreach (string student in students)
-    {
-      Console.Write($"{student}, ");
-    }
-    Console.WriteLine();
-  }
-
-// Exercise 3: Additional scope practice - with CircleArea
-  double pi = 3.14159;
-  PrintCircleInfo(12);
-  PrintCircleInfo(24);
-
-  void PrintCircleInfo(int radius)
-  {
-    Console.WriteLine($"Circle details with this radius: {radius}");
-    PrintCircleArea(radius);
-    PrintCircleCircumference(radius);
-  }
-
-  void PrintCircleCircumference(int radius)
-  {
-    double circumference = 2 * pi * radius;
-    Console.WriteLine($"Circumference = {circumference}");
-  }
-
-  void PrintCircleArea(int radius)
-  {
-    double area = pi * (radius * radius);
-    Console.WriteLine($"Area = {area}");
-  }
-
-// Exercise 4: Test pass by value
-  int a = 3;
-  int b = 4;
-  int c = 0;
-
-  Multiply(a, b, c); // inside Multiple method: 3 x 4 = 12
-  Console.WriteLine($"global statement: {a} x {b} = {c}"); // global statement: 3 x 4 = 0
-
-  void Multiply(int a, int b, int c) 
-  {
-    c = a * b; // this line of code executed actually calculates the answer
-    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}"); 
-  }
-  // About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
-
-// Exercise 5: Test pass by reference
-  int[] array = {1, 2, 3, 4, 5};
-
-  PrintArray(array); // 1 2 3 4 5
-  Clear(array); // [no output]
-  PrintArray(array); // 0 0 0 0 0
-
-  void PrintArray(int[] array) 
-  {
-    foreach (int a in array) 
-    {
-      Console.Write($"{a} ");
-    }
-    Console.WriteLine();
-  }
-
-  void Clear(int[] array) 
-  {
-    for (int i = 0; i < array.Length; i++) 
-    {
-      array[i] = 0;
-    }
-  }
-  // About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
-
-// Exercise 6: Test with Strings
-  string status = "Healthy";
-
-  Console.WriteLine($"Start: {status}"); // Start: Healthy
-  SetHealth(false); // Middle: Unhealthy
-  Console.WriteLine($"End: {status}"); // End: Unhealthy
-
-  void SetHealth(bool isHealthy) // remove parameter to instead change the value of global var 'status'
-  {
-    status = (isHealthy ? "Healthy" : "Unhealthy");
-    Console.WriteLine($"Middle: {status}");
-  }
-  // About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
-
-// Exercise 7: RSVP exercise to test optional params
-  string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
-  string[] rsvps = new string[10];
-  int count = 0;
-
-  RSVP("S.Bob");
-  RSVP("Krabs", 2, "Nuts");
-  RSVP(partySize: 2, name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
-  RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit"); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
-  RSVP("Gary", 4, inviteOnly: false);
-  RSVP("Patrick", 2, "Stone fruit", false);
-  ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
-
-  void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true) 
-  {
-    if (inviteOnly)
-    {
-      bool found = false;
-      foreach (string guest in guestList)
+      int diff = 0;
+      if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
       {
-        if (guest.Equals(name)) {
-          found = true;
-          break;
-        }
+        Console.WriteLine("Invalid GMT");
       }
-      if (!found)
+      else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
       {
-        Console.WriteLine($"Sorry, {name} is not on the guest list");
-        return;
+        diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+      } 
+      else 
+      {
+        diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+      }
+
+      for (int i = 0; i < times.Length; i++)
+      {
+        int newTime = ((times[i] + diff)) % 2400;
+        Console.WriteLine($"{times[i]} -> {newTime}");
       }
     }
 
-    rsvps[count] = $"Name: {name},\tParty Size: {partySize}, \tAllergies: {allergies}";
-    count++;
-  }
+  // Exercise 2: practice with scope
+    string[] students = { "Spongebob", "Patrick", "Sandy", "Squidward" }; // global variable scope
 
-  void ShowRSVPs()
-  {
-    Console.WriteLine("\nTotal RSVPs:");
-    for (int i = 0; i < count; i++)
+    DisplayStudents(students);
+    DisplayStudents(new string[] {"Pearl", "Plankton"}); // not global; inaccessible outside of this context
+
+    void DisplayStudents(string[] students)
     {
-      Console.WriteLine(rsvps[i]);
-    }
-  }
-// Exercise 8: Challenge to display email addresses
-  string[,] corporate = 
-  {
-    {"Beckett", "Mariner"}, {"Brad", "Boimler"},
-    {"Sam", "Rutherford"}, {"D'Vana", "Tendi"},
-    {"Carol", "Freeman"}, {"Jennifer", "Sh'reyan"}
-  };
-
-  string[,] external = 
-  {
-    {"Spongebob", "Squarepants"}, {"Squidward", "Tentacles"},
-    {"Patrick", "Star"}, {"Sandy", "Cheeks"}
-  };
-
-  string externalDomain = "krustykrab.com"; // optional parameter
-  // string internalDomain = "cerritos.com";
-
-  Console.WriteLine("\n*** Corporate Employee Emails: ***");
-  GetEmployeeInfo(corporate);
-  Console.WriteLine("\n*** External Employees: ***");
-  GetEmployeeInfo(external, domain: externalDomain);
-
-  // The method should include an optional parameter for the domain name of external employees.
-  // Format for emails are: first two letters of employee's first name + employee's last name + correct domain
-  void DisplayEmailAddresses(string username, string domain)
-  {
-    Console.WriteLine($"{username}@{domain}");
-  }
-
-  void GetEmployeeInfo(string[,] employeeList, string domain = "cerritos.com")
-  {
-    string firstName = "";
-    string lastName = "";
-    
-    for (int i = 0; i < employeeList.GetLength(0); i++)
-    {
-      string username = "";
-      string firstTwoChar = "";
-      for (int j = 0; j < employeeList.GetLength(1); j++)
+      foreach (string student in students)
       {
-        if (j == 0)
+        Console.Write($"{student}, ");
+      }
+      Console.WriteLine();
+    }
+
+  // Exercise 3: Additional scope practice - with CircleArea
+    double pi = 3.14159;
+    PrintCircleInfo(12);
+    PrintCircleInfo(24);
+
+    void PrintCircleInfo(int radius)
+    {
+      Console.WriteLine($"Circle details with this radius: {radius}");
+      PrintCircleArea(radius);
+      PrintCircleCircumference(radius);
+    }
+
+    void PrintCircleCircumference(int radius)
+    {
+      double circumference = 2 * pi * radius;
+      Console.WriteLine($"Circumference = {circumference}");
+    }
+
+    void PrintCircleArea(int radius)
+    {
+      double area = pi * (radius * radius);
+      Console.WriteLine($"Area = {area}");
+    }
+
+  // Exercise 4: Test pass by value
+    int a = 3;
+    int b = 4;
+    int c = 0;
+
+    Multiply(a, b, c); // inside Multiple method: 3 x 4 = 12
+    Console.WriteLine($"global statement: {a} x {b} = {c}"); // global statement: 3 x 4 = 0
+
+    void Multiply(int a, int b, int c) 
+    {
+      c = a * b; // this line of code executed actually calculates the answer
+      Console.WriteLine($"inside Multiply method: {a} x {b} = {c}"); 
+    }
+    // About this exercise: The variables a, b, and c are passed to the Multiply method. The values of the variables are printed during the method execution, and printed again after the method is complete.
+
+  // Exercise 5: Test pass by reference
+    int[] array = {1, 2, 3, 4, 5};
+
+    PrintArray(array); // 1 2 3 4 5
+    Clear(array); // [no output]
+    PrintArray(array); // 0 0 0 0 0
+
+    void PrintArray(int[] array) 
+    {
+      foreach (int a in array) 
+      {
+        Console.Write($"{a} ");
+      }
+      Console.WriteLine();
+    }
+
+    void Clear(int[] array) 
+    {
+      for (int i = 0; i < array.Length; i++) 
+      {
+        array[i] = 0;
+      }
+    }
+    // About this exercise: Arrays are reference types. Reference types store the address of their values in memory. Notice that the array remains altered outside of the Clear method scope. This happens because the Clear method updated the values stored at each address.
+
+  // Exercise 6: Test with Strings
+    string status = "Healthy";
+
+    Console.WriteLine($"Start: {status}"); // Start: Healthy
+    SetHealth(false); // Middle: Unhealthy
+    Console.WriteLine($"End: {status}"); // End: Unhealthy
+
+    void SetHealth(bool isHealthy) // remove parameter to instead change the value of global var 'status'
+    {
+      status = (isHealthy ? "Healthy" : "Unhealthy");
+      Console.WriteLine($"Middle: {status}");
+    }
+    // About this exercise: If the SetHealth method didn't output the status, you might have assumed the method didn't execute correctly. Instead, a new string with the value "Unhealthy" was created and then lost in the method scope. To correct this problem, you can change SetHealth to use the global status variable instead.
+
+  // Exercise 7: RSVP exercise to test optional params
+    string[] guestList = {"S.Bob", "Krabs", "Gary", "Patrick"};
+    string[] rsvps = new string[10];
+    int count = 0;
+
+    RSVP("S.Bob");
+    RSVP("Krabs", 2, "Nuts");
+    RSVP(partySize: 2, name: "Pearl", inviteOnly: false); // named arguments are not required to be in a particular order; this line of code is the same as: 
+    RSVP("Squidward", inviteOnly: true, allergies: "Jackfruit"); // mix-and-match positional arguments with named arguments. This still outputs "Sorry, Squidward is not on the guest list."
+    RSVP("Gary", 4, inviteOnly: false);
+    RSVP("Patrick", 2, "Stone fruit", false);
+    ShowRSVPs(); // [all RSVPs listed: S.Bob, Krabs, Pearl, Gary, and Patrick]
+
+    void RSVP(string name, int partySize = 1, string allergies = "none", bool inviteOnly = true) 
+    {
+      if (inviteOnly)
+      {
+        bool found = false;
+        foreach (string guest in guestList)
         {
-          firstName = employeeList[i, j].Replace("\'", "");
-          firstName.Split();
+          if (guest.Equals(name)) {
+            found = true;
+            break;
+          }
         }
-        else if (j == 1)
+        if (!found)
         {
-          lastName = employeeList[i, j].Replace("\'", "");
+          Console.WriteLine($"Sorry, {name} is not on the guest list");
+          return;
         }
       }
 
-      for (int k = 0; k < 2; k++)
-      {
-        firstTwoChar += firstName[k];
-      }
-
-      username += firstTwoChar + lastName;
-      DisplayEmailAddresses(username.ToLower(), domain);
+      rsvps[count] = $"Name: {name},\tParty Size: {partySize}, \tAllergies: {allergies}";
+      count++;
     }
-  }
 
+    void ShowRSVPs()
+    {
+      Console.WriteLine("\nTotal RSVPs:");
+      for (int i = 0; i < count; i++)
+      {
+        Console.WriteLine(rsvps[i]);
+      }
+    }
+  // Exercise 8: Challenge to display email addresses
+    string[,] corporate = 
+    {
+      {"Beckett", "Mariner"}, {"Brad", "Boimler"},
+      {"Sam", "Rutherford"}, {"D'Vana", "Tendi"},
+      {"Carol", "Freeman"}, {"Jennifer", "Sh'reyan"}
+    };
+
+    string[,] external = 
+    {
+      {"Spongebob", "Squarepants"}, {"Squidward", "Tentacles"},
+      {"Patrick", "Star"}, {"Sandy", "Cheeks"}
+    };
+
+    string externalDomain = "krustykrab.com"; // optional parameter
+    // string internalDomain = "cerritos.com";
+
+    Console.WriteLine("\n*** Corporate Employee Emails: ***");
+    GetEmployeeInfo(corporate);
+    Console.WriteLine("\n*** External Employees: ***");
+    GetEmployeeInfo(external, domain: externalDomain);
+
+    // The method should include an optional parameter for the domain name of external employees.
+    // Format for emails are: first two letters of employee's first name + employee's last name + correct domain
+    void DisplayEmailAddresses(string username, string domain)
+    {
+      Console.WriteLine($"{username}@{domain}");
+    }
+
+    void GetEmployeeInfo(string[,] employeeList, string domain = "cerritos.com")
+    {
+      string firstName = "";
+      string lastName = "";
+      
+      for (int i = 0; i < employeeList.GetLength(0); i++)
+      {
+        string username = "";
+        string firstTwoChar = "";
+        for (int j = 0; j < employeeList.GetLength(1); j++)
+        {
+          if (j == 0)
+          {
+            firstName = employeeList[i, j].Replace("\'", "");
+            firstName.Split();
+          }
+          else if (j == 1)
+          {
+            lastName = employeeList[i, j].Replace("\'", "");
+          }
+        }
+
+        for (int k = 0; k < 2; k++)
+        {
+          firstTwoChar += firstName[k];
+        }
+
+        username += firstTwoChar + lastName;
+        DisplayEmailAddresses(username.ToLower(), domain);
+      }
+    }
+*/
 // Module 3 - PLACEHOLDER
+double total = 0;
+double minimumSpend = 30.00;
+
+double[] items = {15.97, 3.50, 12.25, 22.99, 10.98};
+double[] discounts = {0.30, 0.00, 0.10, 0.20, 0.50};
+
+Console.WriteLine($"Total: ${total}");
+
+void GetDiscountedPrice(int itemIndex)
+{
+  // Calc discounted price of item
+}
+
+void TotalMeetsMinimum()
+{
+  // Check if total meets minimumSpend variable
+}
+
+void FormatDecimal(double input)
+{
+  // format double so only 2 decimal places show
+}
