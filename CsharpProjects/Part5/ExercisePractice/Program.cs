@@ -398,7 +398,8 @@ Console.WriteLine($"Total: ${total}");
 
 double GetDiscountedPrice(int itemIndex)
 {
-  // Calc discounted price of item
+  double result = items[itemIndex] * (1 - discounts[itemIndex]);
+  return result;
 }
 
 void TotalMeetsMinimum()
