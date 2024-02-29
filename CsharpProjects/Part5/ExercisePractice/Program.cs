@@ -399,7 +399,12 @@ for (int i = 0; i < items.Length; i++)
   total += GetDiscountedPrice(i);
 }
 
-Console.WriteLine($"Total: ${total}");
+if (TotalMeetsMinimum())
+{
+  total -= 5.00;
+}
+
+Console.WriteLine($"Total: ${FormatDecimal(total)}");
 
 double GetDiscountedPrice(int itemIndex)
 {
