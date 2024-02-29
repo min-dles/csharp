@@ -396,7 +396,7 @@ double[] discounts = {0.30, 0.00, 0.10, 0.20, 0.50};
 
 Console.WriteLine($"Total: ${total}");
 
-void GetDiscountedPrice(int itemIndex)
+double GetDiscountedPrice(int itemIndex)
 {
   // Calc discounted price of item
 }
