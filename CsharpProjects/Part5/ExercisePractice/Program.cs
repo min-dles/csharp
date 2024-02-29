@@ -401,12 +401,12 @@ double GetDiscountedPrice(int itemIndex)
   return items[itemIndex] * (1 - discounts[itemIndex]);
 }
 
-void TotalMeetsMinimum()
+bool TotalMeetsMinimum()
 {
-  // Check if total meets minimumSpend variable
+  return total >= minimumSpend;
 }
 
-void FormatDecimal(double input)
+string FormatDecimal(double input)
 {
-  // format double so only 2 decimal places show
+  return input.ToString().Substring(0, 5);
 }
