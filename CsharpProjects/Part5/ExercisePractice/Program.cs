@@ -481,8 +481,26 @@ using System;
 // Exercise 4: return bool values
 string[] testWords = {"racecar", "spatula", "tent", "tenet", "clarinet"};
 
-Console.WriteLine("Check for palindromes (y/n)");
-foreach (string word in words)
+Console.WriteLine("Check for palindromes (y/n):");
+foreach (string word in testWords)
 {
   Console.WriteLine($"{word}: {IsPalindrome(word)}");
+}
+
+bool IsPalindrome(string word)
+{
+  int start = 0;
+  int end = word.Length - 1;
+
+  while (start < end)
+  {
+    if (word[start] != word[end])
+    {
+      return false;
+    }
+    start++;
+    end--;
+  }
+
+  return true;
 }
