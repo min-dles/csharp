@@ -427,5 +427,6 @@ Console.WriteLine($"${usd} USD = ${vnd} VND");
 
 int UsdToVnd(double usd)
 {
-  // this method will convert the rate (double to int, following rate information)
+  int rate = 23500;
+  return (int) (rate * usd);
 }
