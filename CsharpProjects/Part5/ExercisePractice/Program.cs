@@ -479,28 +479,44 @@ using System;
   }
 
 // Exercise 4: return bool values
-string[] testWords = {"racecar", "spatula", "tent", "tenet", "clarinet"};
+  string[] testWords = {"racecar", "spatula", "tent", "tenet", "clarinet"};
 
-Console.WriteLine("Check for palindromes (y/n):");
-foreach (string word in testWords)
-{
-  Console.WriteLine($"{word}: {IsPalindrome(word)}");
-}
-
-bool IsPalindrome(string word)
-{
-  int start = 0;
-  int end = word.Length - 1;
-
-  while (start < end)
+  Console.WriteLine("Check for palindromes (y/n):");
+  foreach (string word in testWords)
   {
-    if (word[start] != word[end])
-    {
-      return false;
-    }
-    start++;
-    end--;
+    Console.WriteLine($"{word}: {IsPalindrome(word)}");
   }
 
-  return true;
+  bool IsPalindrome(string word)
+  {
+    int start = 0;
+    int end = word.Length - 1;
+
+    while (start < end)
+    {
+      if (word[start] != word[end])
+      {
+        return false;
+      }
+      start++;
+      end--;
+    }
+
+    return true;
+  }
+
+// Exercise 5: return arrays from methods
+int[] TwoCoins(int[] coins, int target)
+{
+  for (int curr = 0; curr < coins.Length; curr++)
+  {
+    for (int next = curr + 1; next < coins.Length; next++)
+    {
+      if (coins[curr] + coins[next] == target)
+      {
+        return new int[]{curr, next};
+      }
+    }
+  }
+  return new int[0];
 }
