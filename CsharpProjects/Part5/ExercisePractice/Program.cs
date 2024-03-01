@@ -439,8 +439,20 @@ using System;
   }
 
 // Exercise 3: Return string values
+string input = "spongebob";
+
+Console.WriteLine(input);
+Console.WriteLine(ReverseWord(input));
+
+// another test:
+Console.WriteLine($"patrick \n{ReverseWord("patrick")}");
+
 string ReverseWord(string word)
 {
   string result = "";
+  for (int i = word.Length - 1; i >= 0; i--)
+  {
+    result += word[i];
+  }
   return result;
 }
