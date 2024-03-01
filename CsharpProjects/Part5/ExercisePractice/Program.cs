@@ -439,13 +439,21 @@ using System;
   }
 
 // Exercise 3: Return string values
-string input = "spongebob";
+string testWord = "spongebob";
 
-Console.WriteLine(input);
-Console.WriteLine(ReverseWord(input));
+Console.WriteLine(testWord);
+Console.WriteLine(ReverseWord(testWord));
 
 // another test:
 Console.WriteLine($"patrick \n{ReverseWord("patrick")}");
+
+// test new method to reverse sentences:
+string testSentence = "best friends forever club";
+
+Console.WriteLine(testSentence);
+Console.WriteLine(ReverseSentence(testSentence));
+
+Console.WriteLine($"krusty krab pizza is the pizza for you and me -> REVERSE \n->{ReverseSentence("krusty krab pizza is the pizza for you and me")}");
 
 string ReverseWord(string word)
 {
@@ -460,6 +468,12 @@ string ReverseWord(string word)
 string ReverseSentence(string input)
 {
   string result = "";
+  string[] words = input.Split(" ");
 
-  return result;
+  foreach(string word in words)
+  {
+    result += ReverseWord(word) + " ";
+  }
+
+  return result.Trim(); // add Trim() to remove any trailing space as a result of the foreach loop
 }
