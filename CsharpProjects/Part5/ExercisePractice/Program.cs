@@ -563,8 +563,8 @@ void PlayGame()
 
   while (play)
   {
-    int target = random.Next(0, 5);
-    int roll = random.Next(0, 5);
+    int target = random.Next(1, 7);
+    int roll = random.Next(1, 7);
     Console.WriteLine($"Roll a number greater than {target} to win.");
     Console.WriteLine($"You rolled: {roll}");
     Console.WriteLine(WinOrLose(target, roll));
@@ -583,7 +583,7 @@ bool ShouldPlay()
   
   do
   {
-    string readResult = Console.ReadLine();
+    string? readResult = Console.ReadLine();
     if (readResult != null)
       userInput = readResult.ToLower();
 
@@ -606,8 +606,8 @@ bool ShouldPlay()
   return continueGame;
 }
 
-bool WinOrLose(int target, int roll)
+string WinOrLose(int target, int roll)
 {
   // this method will also return t/f
-  return (target < roll);
+  return (target < roll) ? "You win!!!" : "You lose :'(";
 }
