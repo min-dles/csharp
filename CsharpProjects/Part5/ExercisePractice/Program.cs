@@ -456,3 +456,10 @@ string ReverseWord(string word)
   }
   return result;
 }
+
+string ReverseSentence(string input)
+{
+  string result = "";
+
+  return result;
+}
