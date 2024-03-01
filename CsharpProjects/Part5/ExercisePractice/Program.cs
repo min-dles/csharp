@@ -506,7 +506,7 @@ using System;
   }
 
 // Exercise 5: return arrays from methods
-int target = 30;
+int target = 80;
 int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
 int[,] twoCoinsResult = TwoCoins(coins, target);
 
