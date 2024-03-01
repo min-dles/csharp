@@ -563,7 +563,7 @@ void PlayGame()
 
   while (play)
   {
-    int target = random.Next(1, 7);
+    int target = random.Next(1, 6); // should be number between 1 and 5
     int roll = random.Next(1, 7);
     Console.WriteLine($"Roll a number greater than {target} to win.");
     Console.WriteLine($"You rolled: {roll}");
