@@ -424,9 +424,16 @@ double usd = 23.73;
 int vnd = UsdToVnd(usd);
 
 Console.WriteLine($"${usd} USD = ${vnd} VND");
+Console.WriteLine($"${vnd} VND = ${VndToUsd(vnd)} USD"); // can make the method call directly in the WriteLine
 
 int UsdToVnd(double usd)
 {
-  int rate = 23500;
+  int rate = 23500; // notice rate type is int here...
   return (int) (rate * usd);
+}
+
+double VndToUsd(int vnd)
+{
+  double rate = 23500; // ... and double type here, to match return value
+  return vnd / rate;
 }
