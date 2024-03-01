@@ -551,7 +551,7 @@ using System;
 // Exercise 6: code challenge for dice mini-game
 Random random = new Random();
 
-Console.WriteLIne("Would you like to play? (Y/N)");
+Console.WriteLine("Would you like to play? (Y/N)");
 if (ShouldPlay())
 {
   PlayGame();
@@ -563,24 +563,51 @@ void PlayGame()
 
   while (play)
   {
-    var target;
-    var roll;
+    int target = random.Next(0, 5);
+    int roll = random.Next(0, 5);
     Console.WriteLine($"Roll a number greater than {target} to win.");
     Console.WriteLine($"You rolled: {roll}");
-    Console.WriteLine(WinOrLose());
+    Console.WriteLine(WinOrLose(target, roll));
     Console.WriteLine("\nPlay again? (Y/N)");
 
     play = ShouldPlay();
   }
 }
 
-int diceRoll = new Random.next(0, 5);
 bool ShouldPlay()
 {
-  // this method will return t/f 
+  // this method will return t/f
+  string userInput = "";
+  bool continueGame = false;
+  bool validEntry = false;
+  
+  do
+  {
+    string readResult = Console.ReadLine();
+    if (readResult != null)
+      userInput = readResult.ToLower();
+
+    switch (userInput)
+    {
+      case "y":
+        continueGame = true;
+        validEntry = true;
+        break;
+      case "n":
+        continueGame = false;
+        validEntry = true;
+        break;
+      default:
+        Console.WriteLine("Please enter Y for yes to continue playing, or N for no to stop playing.");
+        break;
+    }
+  } while (!validEntry);
+  
+  return continueGame;
 }
 
-bool WinOrLost(int target, int roll)
+bool WinOrLose(int target, int roll)
 {
   // this method will also return t/f
+  return (target < roll);
 }
