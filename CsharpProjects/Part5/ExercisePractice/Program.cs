@@ -506,44 +506,71 @@ using System;
   }
 
 // Exercise 5: return arrays from methods
-int target = 80;
-int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
-int[,] twoCoinsResult = TwoCoins(coins, target);
+  int target = 80;
+  int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
+  int[,] twoCoinsResult = TwoCoins(coins, target);
 
-if (twoCoinsResult.Length == 0)
-  Console.WriteLine("No two coins make change");
-else
-{
-  Console.WriteLine($"Change found at positions:"); 
-  for (int i = 0; i < twoCoinsResult.GetLength(0); i++)
+  if (twoCoinsResult.Length == 0)
+    Console.WriteLine("No two coins make change");
+  else
   {
-    if (twoCoinsResult[i,0] == -1)
+    Console.WriteLine($"Change found at positions:"); 
+    for (int i = 0; i < twoCoinsResult.GetLength(0); i++)
     {
-      break;
-    }
-    Console.WriteLine($"{twoCoinsResult[i,0]}, {twoCoinsResult[i,1]}");
-  }
-}
-
-int[,] TwoCoins(int[] coins, int target)
-{
-  int[,] result = {{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}}; // max pairs found can be five in this exercise
-  int count = 0;
-
-  for (int curr = 0; curr < coins.Length; curr++)
-  {
-    for (int next = curr + 1; next < coins.Length; next++)
-    {
-      if (coins[curr] + coins[next] == target)
+      if (twoCoinsResult[i,0] == -1)
       {
-        result[count, 0] = curr;
-        result[count, 1] = next;
-        count++;
+        break;
       }
-      if (count == result.GetLength(0))
-        return result;
+      Console.WriteLine($"{twoCoinsResult[i,0]}, {twoCoinsResult[i,1]}");
     }
   }
 
-  return (count == 0) ? new int[0,0] : result;
+  int[,] TwoCoins(int[] coins, int target)
+  {
+    int[,] result = {{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}}; // max pairs found can be five in this exercise
+    int count = 0;
+
+    for (int curr = 0; curr < coins.Length; curr++)
+    {
+      for (int next = curr + 1; next < coins.Length; next++)
+      {
+        if (coins[curr] + coins[next] == target)
+        {
+          result[count, 0] = curr;
+          result[count, 1] = next;
+          count++;
+        }
+        if (count == result.GetLength(0))
+          return result;
+      }
+    }
+
+    return (count == 0) ? new int[0,0] : result;
+  }
+
+// Exercise 6: code challenge for dice mini-game
+Random random = new Random();
+
+Console.WriteLIne("Would you like to play? (Y/N)");
+if (ShouldPlay())
+{
+  PlayGame();
 }
+
+void PlayGame()
+{
+  var play = true;
+
+  while (play)
+  {
+    var target;
+    var roll;
+    Console.WriteLine($"Roll a number greater than {target} to win.");
+    Console.WriteLine($"You rolled: {roll}");
+    Console.WriteLine(WinOrLose());
+    Console.WriteLine("\nPlay again? (Y/N)");
+
+    play = ShouldPlay();
+  }
+}
+int diceRoll = new Random.next(0, 5);
