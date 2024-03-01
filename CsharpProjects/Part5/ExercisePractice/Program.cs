@@ -573,4 +573,14 @@ void PlayGame()
     play = ShouldPlay();
   }
 }
+
 int diceRoll = new Random.next(0, 5);
+bool ShouldPlay()
+{
+  // this method will return t/f 
+}
+
+bool WinOrLost(int target, int roll)
+{
+  // this method will also return t/f
+}
