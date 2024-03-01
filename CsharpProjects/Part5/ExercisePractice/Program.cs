@@ -506,14 +506,24 @@ using System;
   }
 
 // Exercise 5: return arrays from methods
-int target = 60;
+int target = 30;
 int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
-int[] twoCoinsResult = TwoCoins(coins, target);
+int[,] twoCoinsResult = TwoCoins(coins, target);
 
 if (twoCoinsResult.Length == 0)
   Console.WriteLine("No two coins make change");
 else
-  Console.WriteLine($"Change found at positions {twoCoinsResult[0]} and {twoCoinsResult[1]}");
+{
+  Console.WriteLine($"Change found at positions:"); 
+  for (int i = 0; i < twoCoinsResult.GetLength(0); i++)
+  {
+    if (twoCoinsResult[i,0] == -1)
+    {
+      break;
+    }
+    Console.WriteLine($"{twoCoinsResult[i,0]}, {twoCoinsResult[i,1]}");
+  }
+}
 
 int[,] TwoCoins(int[] coins, int target)
 {
@@ -528,7 +538,7 @@ int[,] TwoCoins(int[] coins, int target)
       {
         result[count, 0] = curr;
         result[count, 1] = next;
-        count++
+        count++;
       }
       if (count == result.GetLength(0))
         return result;
