@@ -439,41 +439,50 @@ using System;
   }
 
 // Exercise 3: Return string values
-string testWord = "spongebob";
+  string testWord = "spongebob";
 
-Console.WriteLine(testWord);
-Console.WriteLine(ReverseWord(testWord));
+  Console.WriteLine(testWord);
+  Console.WriteLine(ReverseWord(testWord));
 
-// another test:
-Console.WriteLine($"patrick \n{ReverseWord("patrick")}");
+  // another test:
+  Console.WriteLine($"patrick \n{ReverseWord("patrick")}");
 
-// test new method to reverse sentences:
-string testSentence = "best friends forever club";
+  // test new method to reverse sentences:
+  string testSentence = "best friends forever club";
 
-Console.WriteLine(testSentence);
-Console.WriteLine(ReverseSentence(testSentence));
+  Console.WriteLine(testSentence);
+  Console.WriteLine(ReverseSentence(testSentence));
 
-Console.WriteLine($"krusty krab pizza is the pizza for you and me -> REVERSE \n->{ReverseSentence("krusty krab pizza is the pizza for you and me")}");
+  Console.WriteLine($"krusty krab pizza is the pizza for you and me -> REVERSE \n->{ReverseSentence("krusty krab pizza is the pizza for you and me")}");
 
-string ReverseWord(string word)
-{
-  string result = "";
-  for (int i = word.Length - 1; i >= 0; i--)
+  string ReverseWord(string word)
   {
-    result += word[i];
-  }
-  return result;
-}
-
-string ReverseSentence(string input)
-{
-  string result = "";
-  string[] words = input.Split(" ");
-
-  foreach(string word in words)
-  {
-    result += ReverseWord(word) + " ";
+    string result = "";
+    for (int i = word.Length - 1; i >= 0; i--)
+    {
+      result += word[i];
+    }
+    return result;
   }
 
-  return result.Trim(); // add Trim() to remove any trailing space as a result of the foreach loop
+  string ReverseSentence(string input)
+  {
+    string result = "";
+    string[] words = input.Split(" ");
+
+    foreach(string word in words)
+    {
+      result += ReverseWord(word) + " ";
+    }
+
+    return result.Trim(); // add Trim() to remove any trailing space as a result of the foreach loop
+  }
+
+// Exercise 4: return bool values
+string[] testWords = {"racecar", "spatula", "tent", "tenet", "clarinet"};
+
+Console.WriteLine("Check for palindromes (y/n)");
+foreach (string word in words)
+{
+  Console.WriteLine($"{word}: {IsPalindrome(word)}");
 }
