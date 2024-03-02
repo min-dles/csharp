@@ -14,7 +14,7 @@ PlanSchoolVisit("Mrs. Puff's Boating School", 2);
 void PlanSchoolVisit(string schoolName, int groups = 6)
 {
   RandomizeAnimals();
-  string[,] group = AssignGroup();
+  string[,] group = AssignGroup(groups);
   Console.WriteLine(schoolName);
   PrintGroup(group);
   Console.WriteLine();
