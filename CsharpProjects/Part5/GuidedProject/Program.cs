@@ -7,7 +7,7 @@ string[] pettingZoo =
   "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
 };
 
-void RandomizeAnimals(string[] zooAnimals)
+void RandomizeAnimals()
 {
   // this method will pick animals randomly
   Random random = new Random();
@@ -30,3 +30,10 @@ void PrintGroup(string group)
 {
   // method to print the animal groups
 };
+
+RandomizeAnimals();
+// test code written to this point:
+foreach (string animal in pettingZoo)
+{
+  Console.Write($" {animal},");
+}
