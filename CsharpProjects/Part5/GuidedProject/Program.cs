@@ -10,6 +10,12 @@ string[] pettingZoo =
 void RandomizeAnimals(string[] zooAnimals)
 {
   // this method will pick animals randomly
+  int i = 0;
+  int r = 1;
+
+  string temp = pettingZoo[i];
+  pettingZoo[i] = pettingZoo[r];
+  pettingZoo[r] = temp;
 };
 
 // string[,] group = AssignGroup();
