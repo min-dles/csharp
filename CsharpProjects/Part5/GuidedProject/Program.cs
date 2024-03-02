@@ -7,11 +7,18 @@ string[] pettingZoo =
   "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
 };
 
-// call the methods & run tests:
-RandomizeAnimals();
-string[,] group = AssignGroup();
-Console.WriteLine("School A");
-PrintGroup(group);
+PlanSchoolVisit("Lawndale High");
+PlanSchoolVisit("Tom Landry Middle School", 3);
+PlanSchoolVisit("Mrs. Puff's Boating School", 2);
+
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+  RandomizeAnimals();
+  string[,] group = AssignGroup();
+  Console.WriteLine(schoolName);
+  PrintGroup(group);
+  Console.WriteLine();
+}
 
 void RandomizeAnimals()
 {
