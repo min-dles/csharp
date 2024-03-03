@@ -36,6 +36,10 @@ while (!shouldExit)
   else
   {
     Move();
+    if (SickPlayer())
+    {
+      FreezePlayer();
+    }
     if (FoodConsumed())
     {
       ChangePlayer();
@@ -54,6 +58,12 @@ bool TerminalResized()
 bool FoodConsumed()
 {
   return playerX == foodX && playerY == foodY;
+}
+
+bool SickPlayer()
+{
+  bool isPlayerSick = player.Equals("(X_X)");
+  return isPlayerSick;
 }
 
 // Displays random food at a random location
