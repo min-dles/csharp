@@ -33,6 +33,14 @@ To check out the console applications developed as part of code challenges in th
   - Part3 > GuidedProject > Starter 
   - Open this folder in terminal
   - `dotnet run`
+- **Contoso Pet Adoption Application**
+  - Part4 > GuidedProject > Starter
+  - Open folder in integrated terminal
+  - `dotnet run`
+- **Contoso Petting Zoo Application**
+  - Part5 > GuidededProject
+  - Open this folder in integrated terminal
+  - `dotnet run`
 
 ## Features
 - There are five branches for parts 2-6 of this guided course, organized by lesson and projects
@@ -85,5 +93,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Get Started with C#, Part Four
-This branch has exercises and challenges from Part Three of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-4/).
+## Part 5: Create Methods in C#
+This branch has exercises and challenges from Part Five of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-5/).
