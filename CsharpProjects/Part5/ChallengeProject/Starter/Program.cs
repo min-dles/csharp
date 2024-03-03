@@ -36,6 +36,11 @@ while (!shouldExit)
   else
   {
     Move();
+    if (FoodConsumed())
+    {
+      ChangePlayer();
+      ShowFood();
+    }
   }
 }
 
@@ -43,6 +48,12 @@ while (!shouldExit)
 bool TerminalResized() 
 {
   return height != Console.WindowHeight - 1 || width != Console.WindowWidth - 5;
+}
+
+// Checks if Player consumed the food
+bool FoodConsumed()
+{
+  return playerX == foodX && playerY == foodY;
 }
 
 // Displays random food at a random location
