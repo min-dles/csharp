@@ -1,0 +1,31 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Debug101",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "buildDebug101",
+      "program": "${workspaceFolder}/Part6/Debug101/bin/Debug/net8.0/Debug101.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/Part6/Debug101",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "P6 Exercise Practice",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "buildExercisePractice",
+      "program": "${workspaceFolder}/Part6/ExercisePractice/bin/Debug/net8.0/ExercisePractice.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/Part6/ExercisePractice",
+      "console":"internalConsole",
+      "stopAtEntry": false
+    }
+  ],
+  "compounds": []
+}
