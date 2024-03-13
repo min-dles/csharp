@@ -100,11 +100,12 @@ to update the value. The code then prints the updated value to the console.
 */
 int x = 5;
 
-ChangeValue(x); // added breakpoint here to look into variable 'x'
+x = ChangeValue(x); // set value of 'x' to be the result of the method call
 
 Console.WriteLine(x);
 
-void ChangeValue(int value) 
+int ChangeValue(int value) // method call needs to have a return value
 {
     value = 10;
+    return value;
 }
