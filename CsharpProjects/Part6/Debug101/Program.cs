@@ -100,7 +100,7 @@ to update the value. The code then prints the updated value to the console.
 */
 int x = 5;
 
-ChangeValue(x);
+ChangeValue(x); // added breakpoint here to look into variable 'x'
 
 Console.WriteLine(x);
 
