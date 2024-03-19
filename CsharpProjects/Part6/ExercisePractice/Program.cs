@@ -95,7 +95,7 @@ static void TestCallStack()
   {
     WriteMessage();
   }
-  catch (Exception ex)
+  catch (DivideByZeroException ex)
   {
     Console.WriteLine($"exception caught in TestCallStack method: {ex.Message}");
   }
