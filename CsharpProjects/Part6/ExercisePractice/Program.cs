@@ -1,3 +1,5 @@
+/* Module Two: Implement Debugging Tools in VSCode: 
+
 Console.WriteLine("Hello World");
 
 int productCount = 2000;
@@ -70,4 +72,19 @@ static string Process2(string[,] products, int item)
 static void Process3(string[,] products, int item)
 {
   Console.WriteLine($"Process3 message - processing product information for 'new' product");
+}
+*/
+
+// Module Three: Implement Exception Handling in C# console apps
+try
+{   
+   // try code block - code that may generate an exception
+}
+catch
+{   
+   // catch code block - code to handle an exception
+}
+finally
+{   
+   // finally code block - code to clean up resources
 }
