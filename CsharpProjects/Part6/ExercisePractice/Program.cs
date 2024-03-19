@@ -109,8 +109,16 @@ static void WriteMessage()
   int number2 = 0;
   byte smallNumber;
 
-  Console.WriteLine(float1 / float2);
-  // Console.WriteLine(number1 / number2);
+  try
+  {
+    Console.WriteLine(float1 / float2);
+    Console.WriteLine(number1 / number2);
+  }
+  catch (DivideByZeroException ex)
+  {
+    Console.WriteLine($"exception caught in WriteMessage method: {ex.Message}");
+  }
+
   checked
   {
     smallNumber = (byte)number1;
