@@ -91,7 +91,14 @@ Console.WriteLine("Exit program");
 
 static void TestCallStack()
 {
-  WriteMessage();
+  try
+  {
+    WriteMessage();
+  }
+  catch
+  {
+    Console.WriteLine("exception caught in TestCallStack method");
+  }
 }
 
 static void WriteMessage()
