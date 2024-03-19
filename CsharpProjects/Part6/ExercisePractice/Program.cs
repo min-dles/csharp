@@ -76,20 +76,13 @@ static void Process3(string[,] products, int item)
 */
 
 // Module Three: Implement Exception Handling in C# console apps
-try
-{
-    // Step 1: code execution begins
-    try
-    {
-        // Step 2: an exception occurs here
-    }
-    finally
-    {
-        // Step 4: the system executes the finally code block associated with the try statement where the exception occurred
-    }
 
-}
-catch // Step 3: the system finds a catch clause that can handle the exception
-{   
-   // Step 5: the system transfers control to the first line of the catch code block
-}
+// implement a simple try-catch
+double float1 = 3000.0;
+double float2 = 0.0;
+int number1 = 3000;
+int number2 = 0;
+
+Console.WriteLine(float1 / float2);
+Console.WriteLine(number1 / number2);
+Console.WriteLine("Exit program");
