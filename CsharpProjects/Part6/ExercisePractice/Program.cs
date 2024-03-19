@@ -77,14 +77,19 @@ static void Process3(string[,] products, int item)
 
 // Module Three: Implement Exception Handling in C# console apps
 try
-{   
-   // try code block - code that may generate an exception
+{
+    // Step 1: code execution begins
+    try
+    {
+        // Step 2: an exception occurs here
+    }
+    finally
+    {
+        // Step 4: the system executes the finally code block associated with the try statement where the exception occurred
+    }
+
 }
-catch
+catch // Step 3: the system finds a catch clause that can handle the exception
 {   
-   // catch code block - code to handle an exception
-}
-finally
-{   
-   // finally code block - code to clean up resources
+   // Step 5: the system transfers control to the first line of the catch code block
 }
