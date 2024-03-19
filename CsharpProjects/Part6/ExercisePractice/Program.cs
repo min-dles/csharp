@@ -78,15 +78,9 @@ static void Process3(string[,] products, int item)
 // Module Three: Implement Exception Handling in C# console apps
 
 // implement a simple try-catch
-double float1 = 3000.0;
-double float2 = 0.0;
-int number1 = 3000;
-int number2 = 0;
-
 try
 {
-  Console.WriteLine(float1 / float2);
-  Console.WriteLine(number1 / number2);
+  TestCallStack();
 }
 catch
 {
@@ -94,3 +88,19 @@ catch
 }
 
 Console.WriteLine("Exit program");
+
+static void TestCallStack()
+{
+  WriteMessage();
+}
+
+static void WriteMessage()
+{
+  double float1 = 3000.0;
+  double float2 = 0.0;
+  int number1 = 3000;
+  int number2 = 0;
+
+  Console.WriteLine(float1 / float2);
+  Console.WriteLine(number1 / number2);
+}
