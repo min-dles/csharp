@@ -95,9 +95,9 @@ static void TestCallStack()
   {
     WriteMessage();
   }
-  catch
+  catch (Exception ex)
   {
-    Console.WriteLine("exception caught in TestCallStack method");
+    Console.WriteLine($"exception caught in TestCallStack method: {ex.Message}");
   }
 }
 
