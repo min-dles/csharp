@@ -294,11 +294,26 @@ int upperBound = int.Parse(Console.ReadLine());
 
 decimal averageValue = 0;
 
-// Calculate the sum of the even numbers between the bounds
-averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
+do
+{
+  try
+  {
+    // Calculate the sum of the even numbers between the bounds
+    averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
 
-// Display the value returned by AverageOfEvenNumbers in the console
-Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
+    // Display the value returned by AverageOfEvenNumbers in the console
+    Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
+  }
+  catch (ArgumentOutOfRangeException ex)
+  {
+    Console.WriteLine("An error has occurred.");
+    Console.WriteLine(ex.Message);
+    Console.WriteLine($"The upper bound must be greater than {lowerBound}");
+    Console.Write($"Enter a new upper bound: ");
+    upperBound = int.Parse(Console.ReadLine());
+  }
+}
+
 
 // Wait for user input
 Console.ReadLine();
