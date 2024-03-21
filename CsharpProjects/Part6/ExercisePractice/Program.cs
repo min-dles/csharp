@@ -305,6 +305,11 @@ Console.ReadLine();
 
 static decimal AverageOfEvenNumbers(int lowerBound, int upperBound)
 {
+  if (lowerBound >= upperBound)
+  {
+    throw new ArgumentOutOfRangeException("upperBound", "ArgumentOutOfRangeException: upper bound must be greater than lower bound.");
+  }
+
   int sum = 0;
   int count = 0;
   decimal average = 0;
