@@ -377,7 +377,7 @@ else
   Console.WriteLine(overallStatusMessage);
 }
 
-static string Workflow1(string[][] userEnteredValues)
+static void Workflow1(string[][] userEnteredValues)
 {
   string operationStatusMessage = "good";
   string processStatusMessage = "";
@@ -408,7 +408,7 @@ static string Workflow1(string[][] userEnteredValues)
   return operationStatusMessage;
 }
 
-static string Process1(String[] userEntries)
+static void Process1(String[] userEntries)
 {
   string processStatus = "clean";
   string returnMessage = "";
