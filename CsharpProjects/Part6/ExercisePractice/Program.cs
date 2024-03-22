@@ -363,55 +363,38 @@ string[][] userEnteredValues = new string[][]
   new string[] { "0", "1", "2"}
 };
 
-string overallStatusMessage = "";
-
-overallStatusMessage = Workflow1(userEnteredValues);
-
-if (overallStatusMessage == "operating procedure complete")
+try
 {
+  Workflow1(userEnteredValues);
   Console.WriteLine("'Workflow1' completed successfully.");
 }
-else
+catch (DivideByZeroException ex)
 {
   Console.WriteLine("An error occurred during 'Workflow1'.");
-  Console.WriteLine(overallStatusMessage);
+  Console.WriteLine(ex.Message);
 }
 
 static void Workflow1(string[][] userEnteredValues)
 {
-  string operationStatusMessage = "good";
-  string processStatusMessage = "";
-
   foreach (string[] userEntries in userEnteredValues)
   {
-    processStatusMessage = Process1(userEntries);
-
-    if (processStatusMessage == "process complete")
+    try
     {
+      Process1(userEntries);
       Console.WriteLine("'Process1' completed successfully.");
       Console.WriteLine();
     }
-    else
+    catch (FormatException ex)
     {
       Console.WriteLine("'Process1' encountered an issue, process aborted.");
-      Console.WriteLine(processStatusMessage);
+      Console.WriteLine(ex.Message);
       Console.WriteLine();
-      operationStatusMessage = processStatusMessage;
     }
   }
-
-  if (operationStatusMessage == "good")
-  {
-    operationStatusMessage = "operating procedure complete";
-  }
-
-  return operationStatusMessage;
 }
 
 static void Process1(String[] userEntries)
 {
-  string processStatus = "clean";
-  string returnMessage = "";
   int valueEntered;
 
   foreach (string userValue in userEntries)
@@ -429,21 +412,12 @@ static void Process1(String[] userEntries)
       }
       else
       {
-        returnMessage = "Invalid data. User input values must be non-zero values.";
-        processStatus = "error";
+        throw new DivideByZeroException("Invalid data. User input values must be non-zero values.");
       }
     }
     else
     {
-      returnMessage = "Invalid data. User input values must be valid integers.";
-      processStatus = "error";
+      throw new FormatException("Invalid data. User input values must be valid integers.");
     }
   }
-
-  if (processStatus == "clean")
-  {
-    returnMessage = "process complete";
-  }
-
-  return returnMessage;
 }
