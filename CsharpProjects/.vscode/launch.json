@@ -23,7 +23,7 @@
       "program": "${workspaceFolder}/Part6/ExercisePractice/bin/Debug/net8.0/ExercisePractice.dll",
       "args": [],
       "cwd": "${workspaceFolder}/Part6/ExercisePractice",
-      "console":"internalConsole",
+      "console": "integratedTerminal",
       "stopAtEntry": false
     }
   ],
