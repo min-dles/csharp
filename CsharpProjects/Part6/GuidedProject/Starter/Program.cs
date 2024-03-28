@@ -53,9 +53,12 @@ if (useTestData)
     transactions = testData.Length;
 }
 
+// option to refactor lines 49 through 54 with this var declaration statement: 
+// int transactions = useTestData ? testData.Length : 10;
+
 while (transactions > 0)
 {
-    transactions -= 1;
+    transactions -= 1; // transactions--;
     int itemCost = valueGenerator.Next(2, 20);
 
     if (useTestData)
