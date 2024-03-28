@@ -18,7 +18,7 @@ expected.
 */
 
 string? readResult = null;
-bool useTestData = true;
+bool useTestData = false;
 
 Console.Clear();
 
