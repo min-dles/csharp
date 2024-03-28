@@ -46,12 +46,12 @@ Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
 
 var valueGenerator = new Random((int)DateTime.Now.Ticks);
 
-int transactions = useTestData ? testData.Length : 10;
+int transactions = useTestData ? testData.Length : 40;
 
 while (transactions > 0)
 {
     transactions--;
-    int itemCost = valueGenerator.Next(2, 20);
+    int itemCost = valueGenerator.Next(2, 50);
 
     if (useTestData)
     {
@@ -73,8 +73,8 @@ while (transactions > 0)
 
     try
     {
-        // MakeChange manages the transaction and updates the till 
-        string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+        // MakeChange manages transaction and updates till:
+        MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
 
         Console.WriteLine("Successful transaction.");
         registerCheckTillTotal += itemCost;
