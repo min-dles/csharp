@@ -46,7 +46,7 @@ Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
 
 var valueGenerator = new Random((int)DateTime.Now.Ticks);
 
-int transactions = useTestData ? testData.Length : 40;
+int transactions = useTestData ? testData.Length : 100;
 
 while (transactions > 0)
 {
@@ -77,6 +77,8 @@ while (transactions > 0)
         MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
 
         Console.WriteLine("Successful transaction.");
+
+        // Backup: to confirm that balance is accurate in the till
         registerCheckTillTotal += itemCost;
     }
     catch (InvalidOperationException e)
