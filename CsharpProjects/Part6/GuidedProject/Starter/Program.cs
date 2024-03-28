@@ -50,6 +50,7 @@ int transactions = useTestData ? testData.Length : 100;
 
 while (transactions > 0)
 {
+    Console.WriteLine($"Transactions remaining: {transactions}");
     transactions--;
     int itemCost = valueGenerator.Next(2, 50);
 
