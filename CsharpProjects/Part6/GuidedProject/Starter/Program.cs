@@ -46,19 +46,11 @@ Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
 
 var valueGenerator = new Random((int)DateTime.Now.Ticks);
 
-int transactions = 10;
-
-if (useTestData)
-{
-    transactions = testData.Length;
-}
-
-// option to refactor lines 49 through 54 with this var declaration statement: 
-// int transactions = useTestData ? testData.Length : 10;
+int transactions = useTestData ? testData.Length : 10;
 
 while (transactions > 0)
 {
-    transactions -= 1; // transactions--;
+    transactions--;
     int itemCost = valueGenerator.Next(2, 20);
 
     if (useTestData)
