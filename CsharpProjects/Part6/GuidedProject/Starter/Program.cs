@@ -74,33 +74,30 @@ while (transactions > 0)
     int paymentTens = 0;
     int paymentTwenties = 0;
 
-    int costTally = itemCost;
+    int costTally = 0;
 
-    while (costTally > 0)
+    do
     {
-        switch (costTally)
+        switch (itemCost)
         {
-            case >= 20:
+            case >= 11:
                 paymentTwenties++;
-                costTally -= 20;
+                costTally += 20;
                 break;
-            case >= 10:
+            case >= 6:
                 paymentTens++;
-                costTally -= 10;
+                costTally += 10;
                 break;
-            case >= 5:
+            case >= 2:
                 paymentFives++;
-                costTally -= 5;
-                break;
-            case < 5:
-                paymentOnes++;
-                costTally -= 1;
+                costTally += 5;
                 break;
             default:
-                Console.WriteLine("error");
+                paymentOnes++;
+                costTally += 1;
                 break;
         }
-    }
+    } while (costTally <= itemCost);
 
     // display messages describing the current transaction
     Console.WriteLine($"Customer is making a ${itemCost} purchase");
@@ -145,13 +142,13 @@ static void LoadTillEachMorning(int[,] registerDailyStartingCash, int[] cashTill
     cashTill[3] = registerDailyStartingCash[3, 1];
 }
 
-
 static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
 {
-    cashTill[3] += twenties;
-    cashTill[2] += tens;
-    cashTill[1] += fives;
-    cashTill[0] += ones;
+    int availableTwenties = cashTill[3] + twenties;
+    int availableTens = cashTill[2] += tens;
+    int availableFives = cashTill[1] += fives;
+    int availableOnes = cashTill[0] += ones;
+    bool tillDepleted = false;
 
     int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
     int changeNeeded = amountPaid - cost;
@@ -159,38 +156,50 @@ static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int
     if (changeNeeded < 0)
         throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
 
-    Console.WriteLine("Cashier Returns:");
-
-    while ((changeNeeded > 19) && (cashTill[3] > 0))
+    if (!tillDepleted)
     {
-        cashTill[3]--;
-        changeNeeded -= 20;
-        Console.WriteLine("\t A twenty");
+        Console.WriteLine("Cashier Returns:");
+
+        while ((changeNeeded > 19) && (availableTwenties > 0))
+        {
+            availableTwenties--;
+            changeNeeded -= 20;
+            Console.WriteLine("\t A twenty");
+        }
+
+        while ((changeNeeded > 9) && (availableTens > 0))
+        {
+            availableTens--;
+            changeNeeded -= 10;
+            Console.WriteLine("\t A ten");
+        }
+
+        while ((changeNeeded > 4) && (availableFives > 0))
+        {
+            availableFives--;
+            changeNeeded -= 5;
+            Console.WriteLine("\t A five");
+        }
+
+        while ((changeNeeded > 0) && (availableOnes > 0))
+        {
+            availableOnes--;
+            changeNeeded -= 1;
+            Console.WriteLine("\t A one");
+        }
+
+        if (changeNeeded > 0)
+        {
+            tillDepleted = true;
+            throw new InvalidOperationException("InvalidOperationException: Insufficient funds available in till to complete this transaction.");
+        }
     }
 
-    while ((changeNeeded > 9) && (cashTill[2] > 0))
-    {
-        cashTill[2]--;
-        changeNeeded -= 10;
-        Console.WriteLine("\t A ten");
-    }
-
-    while ((changeNeeded > 4) && (cashTill[1] > 0))
-    {
-        cashTill[1]--;
-        changeNeeded -= 5;
-        Console.WriteLine("\t A five");
-    }
-
-    while ((changeNeeded > 0) && (cashTill[0] > 0))
-    {
-        cashTill[0]--;
-        changeNeeded--;
-        Console.WriteLine("\t A one");
-    }
-
-    if (changeNeeded > 0)
-        throw new InvalidOperationException("InvalidOperationException: Insufficient funds available in till to complete this transaction.");
+    // reset the cash till to ensure accuracy:
+    cashTill[0] = availableOnes;
+    cashTill[1] = availableFives;
+    cashTill[2] = availableTens;
+    cashTill[3] = availableTwenties;
 }
 
 static void LogTillStatus(int[] cashTill)
