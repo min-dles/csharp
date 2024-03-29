@@ -60,10 +60,47 @@ while (transactions > 0)
         testCounter += 1;
     }
 
-    int paymentOnes = itemCost % 2;                 // value is 1 when itemCost is odd, value is 0 when itemCost is even
-    int paymentFives = (itemCost % 10 > 7) ? 1 : 0; // value is 1 when itemCost ends with 8 or 9, otherwise value is 0
-    int paymentTens = (itemCost % 20 > 13) ? 1 : 0; // value is 1 when 13 < itemCost < 20 OR 33 < itemCost < 40, otherwise value is 0
-    int paymentTwenties = (itemCost < 20) ? 1 : 2;  // value is 1 when itemCost < 20, otherwise value is 2
+    // // value is 1 when itemCost is odd, value is 0 when itemCost is even
+    // int paymentOnes = itemCost % 2;
+    // // value is 1 when itemCost ends with 8 or 9, otherwise value is 0
+    // int paymentFives = (itemCost % 10 > 7) ? 1 : 0;
+    // // value is 1 when 13 < itemCost < 20 OR 33 < itemCost < 40, otherwise value is 0
+    // int paymentTens = (itemCost % 20 > 13) ? 1 : 0;
+    // // value is 1 when itemCost < 20, otherwise value is 2
+    // int paymentTwenties = (itemCost < 20) ? 1 : 2;
+
+    int paymentOnes = 0;
+    int paymentFives = 0;
+    int paymentTens = 0;
+    int paymentTwenties = 0;
+
+    int costTally = itemCost;
+
+    while (costTally > 0)
+    {
+        switch (costTally)
+        {
+            case >= 20:
+                paymentTwenties++;
+                costTally -= 20;
+                break;
+            case >= 10:
+                paymentTens++;
+                costTally -= 10;
+                break;
+            case >= 5:
+                paymentFives++;
+                costTally -= 5;
+                break;
+            case < 5:
+                paymentOnes++;
+                costTally -= 1;
+                break;
+            default:
+                Console.WriteLine("error");
+                break;
+        }
+    }
 
     // display messages describing the current transaction
     Console.WriteLine($"Customer is making a ${itemCost} purchase");
