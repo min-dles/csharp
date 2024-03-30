@@ -93,5 +93,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Part 5: Create Methods in C#
-This branch has exercises and challenges from Part Five of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-5/).
+## Part 6: Debugging C# Console Applications
+This branch has exercises and challenges from Part Six of the Microsoft Learn "Get Started with C#" [learning path](https://learn.microsoft.com/en-us/training/paths/get-started-c-sharp-part-6/).
