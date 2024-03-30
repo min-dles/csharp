@@ -145,10 +145,9 @@ static void LoadTillEachMorning(int[,] registerDailyStartingCash, int[] cashTill
 static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
 {
     int availableTwenties = cashTill[3] + twenties;
-    int availableTens = cashTill[2] += tens;
-    int availableFives = cashTill[1] += fives;
-    int availableOnes = cashTill[0] += ones;
-    bool tillDepleted = false;
+    int availableTens = cashTill[2] + tens;
+    int availableFives = cashTill[1] + fives;
+    int availableOnes = cashTill[0] + ones;
 
     int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
     int changeNeeded = amountPaid - cost;
@@ -156,44 +155,41 @@ static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int
     if (changeNeeded < 0)
         throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
 
-    if (!tillDepleted)
+    Console.WriteLine("Cashier Returns:");
+
+    while ((changeNeeded > 19) && (availableTwenties > 0))
     {
-        Console.WriteLine("Cashier Returns:");
-
-        while ((changeNeeded > 19) && (availableTwenties > 0))
-        {
-            availableTwenties--;
-            changeNeeded -= 20;
-            Console.WriteLine("\t A twenty");
-        }
-
-        while ((changeNeeded > 9) && (availableTens > 0))
-        {
-            availableTens--;
-            changeNeeded -= 10;
-            Console.WriteLine("\t A ten");
-        }
-
-        while ((changeNeeded > 4) && (availableFives > 0))
-        {
-            availableFives--;
-            changeNeeded -= 5;
-            Console.WriteLine("\t A five");
-        }
-
-        while ((changeNeeded > 0) && (availableOnes > 0))
-        {
-            availableOnes--;
-            changeNeeded -= 1;
-            Console.WriteLine("\t A one");
-        }
-
-        if (changeNeeded > 0)
-        {
-            tillDepleted = true;
-            throw new InvalidOperationException("InvalidOperationException: Insufficient funds available in till to complete this transaction.");
-        }
+        availableTwenties--;
+        changeNeeded -= 20;
+        Console.WriteLine("\t A twenty ($20)");
     }
+
+    while ((changeNeeded > 9) && (availableTens > 0))
+    {
+        availableTens--;
+        changeNeeded -= 10;
+        Console.WriteLine("\t A ten ($10)");
+    }
+
+    while ((changeNeeded > 4) && (availableFives > 0))
+    {
+        availableFives--;
+        changeNeeded -= 5;
+        Console.WriteLine("\t A five ($5)");
+    }
+
+    while ((changeNeeded > 0) && (availableOnes > 0))
+    {
+        availableOnes--;
+        changeNeeded -= 1;
+        Console.WriteLine("\t A one ($1)");
+    }
+
+    if (changeNeeded > 0)
+    {
+        throw new InvalidOperationException("InvalidOperationException: Insufficient funds available in till to complete this transaction.");
+    }
+
 
     // reset the cash till to ensure accuracy:
     cashTill[0] = availableOnes;
