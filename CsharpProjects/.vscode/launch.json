@@ -25,6 +25,17 @@
       "cwd": "${workspaceFolder}/Part6/ExercisePractice",
       "console": "integratedTerminal",
       "stopAtEntry": false
+    },
+    {
+      "name": "P6 Guided Proj",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "buildGuidedProject",
+      "program": "${workspaceFolder}/Part6/GuidedProject/Starter/bin/Debug/net8.0/Starter.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/Part6/GuidedProject/Starter",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
     }
   ],
   "compounds": []
